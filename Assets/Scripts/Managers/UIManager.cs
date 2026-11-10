@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI puntajeText;
     [SerializeField] private Slider healthBar;
     [SerializeField] private HealthSystem playerHealth;
+    [SerializeField] private GameObject creditosPanel;
 
     void OnEnable()
     {
@@ -37,6 +38,9 @@ public class UIManager : MonoBehaviour
 
     void HandleState(GameState state)
     {
+        // Apagar los creditos
+        if (creditosPanel) creditosPanel.SetActive(false);
+
         if (InicioPanel) InicioPanel.SetActive(state == GameState.Start);
         if (HUDPanel) HUDPanel.SetActive(state == GameState.Playing);
         if (PausePanel) PausePanel.SetActive(state == GameState.Paused);
@@ -51,6 +55,27 @@ public class UIManager : MonoBehaviour
     void UpdateHealth(float p) { if (healthBar) healthBar.value = p; }
 
     public void TogglePanel(GameObject panel) { panel.SetActive(!panel.activeSelf); }
+
+    // --- CREDITOS: Panel_Inicio - Panel_Creditos ---
+    public void MostrarCreditos()
+    {
+        if (creditosPanel == null)
+        {
+            Debug.LogWarning("[UIManager] CreditosPanel no asignado. Solo hace falta en MainMenu.");
+            return;
+        }
+        if (InicioPanel) InicioPanel.SetActive(false);
+        creditosPanel.SetActive(true);
+    }
+
+    public void VolverDeCreditos()
+    {
+        if (creditosPanel) creditosPanel.SetActive(false);
+        if (InicioPanel) InicioPanel.SetActive(true);
+    }
+
+    public void Btn_Creditos() => MostrarCreditos();
+    public void Btn_VolverCreditos() => VolverDeCreditos();
 
     public void Btn_Reanudar() { GameManager.Instance.ReanudarJuego(); }
     public void Btn_Reiniciar() { GameManager.Instance.ReiniciarNivel(); }
