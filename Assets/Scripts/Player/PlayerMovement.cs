@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private float moveHorizontal;
     private float moveVertical;
     private Rigidbody rb;
+    private Animator animator;
 
     [Header("Raycast Settings")]
     [SerializeField] private bool isGrounded;
@@ -39,29 +40,40 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true; // para que no se caiga de costado
+        animator = GetComponent<Animator>();
+        rb.freezeRotation = true;
     }
 
     void Update()
     {
         // --- GAME MANAGER TP3 - DESCOMENTAR CUANDO LO TENGAS ---
-        if(GameManager.Instance != null && GameManager.Instance.estadoActual != EstadoJuego.Jugando)
+        if (GameManager.Instance != null && GameManager.Instance.estadoActual != EstadoJuego.Jugando)
         {
             moveHorizontal = 0;
             moveVertical = 0;
+            UpdateAnimator(0);
             return;
         }
 
-        if (isStop) return;
+        if (isStop)
+        {
+            UpdateAnimator(0);
+            return;
+        }
 
-        moveHorizontal = Input.GetAxis("Horizontal"); // A-D
-        moveVertical = Input.GetAxis("Vertical");     // W-S
+        moveHorizontal = Input.GetAxis("Horizontal");
+        moveVertical = Input.GetAxis("Vertical");
         CheckGround();
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
         }
+
+        Vector3 horizontalVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
+        float currentSpeed = horizontalVelocity.magnitude;
+
+        UpdateAnimator(currentSpeed);
     }
 
     private void FixedUpdate()
@@ -69,8 +81,8 @@ public class PlayerMovement : MonoBehaviour
         // --- GAME MANAGER TP3 - DESCOMENTAR CUANDO LO TENGAS ---
         if (GameManager.Instance != null && GameManager.Instance.estadoActual != EstadoJuego.Jugando)
         {
-        rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
-        return;
+            rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
+            return;
         }
 
         if (isStop)
@@ -95,5 +107,13 @@ public class PlayerMovement : MonoBehaviour
     public void RotateCharacter(float rotateY)
     {
         transform.rotation = Quaternion.Euler(0f, rotateY, 0f);
+    }
+
+    private void UpdateAnimator(float speedValue)
+    {
+        if (animator != null)
+        {
+            animator.SetFloat("Speed", speedValue);
+        }
     }
 }
