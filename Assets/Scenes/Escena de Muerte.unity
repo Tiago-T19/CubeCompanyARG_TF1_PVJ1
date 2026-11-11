@@ -441,8 +441,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1465313151}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -521,8 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18c0538713fe5b5419c69bcf4c6aa92e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
-  maxHealth: 100
-  currentHealth: 0
+  datosEnemigo: {fileID: 0}
   isPlayer: 1
 --- !u!135 &247519869
 SphereCollider:
@@ -1212,7 +1211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &428286406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1550,7 +1549,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &684240043
 Transform:
   m_ObjectHideFlags: 0
@@ -2250,7 +2249,7 @@ RectTransform:
   m_Father: {fileID: 687913724}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3178,7 +3177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1883971107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3196,9 +3195,10 @@ MonoBehaviour:
   GameOverPanel: {fileID: 1516779930}
   InicioPanel: {fileID: 0}
   HUDPanel: {fileID: 350478986}
-  enemiesText: {fileID: 1529269688}
+  puntajeText: {fileID: 0}
   healthBar: {fileID: 1687177626}
   playerHealth: {fileID: 247519868}
+  creditosPanel: {fileID: 0}
 --- !u!114 &1883971108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3217,6 +3217,7 @@ MonoBehaviour:
   vidaMax: 100
   puntajeAcumulado: 0
   itemsRecolectados: 0
+  jefeFinalMuerto: 0
 --- !u!4 &1883971109
 Transform:
   m_ObjectHideFlags: 0
