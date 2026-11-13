@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -7,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] private float speed = 5f;
 
-    // Esta propiedad es la que usa tu EnemigoEspecial para ralentizarte
+    // Esta propiedad es la que usa EnemigoEspecial para ralentizar al Player
     public float Speed
     {
         get { return speed; }
@@ -26,6 +27,11 @@ public class PlayerMovement : MonoBehaviour
     private float moveVertical;
     private Rigidbody rb;
     private Animator animator;
+
+    // --- Ralentizacion ---
+    private bool estaRalentizado = false;
+    private float velocidadBaseGuardada;
+    private Coroutine corutinaRalentizacion;
 
     [Header("Raycast Settings")]
     [SerializeField] private bool isGrounded;
@@ -46,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // --- GAME MANAGER TP3 - DESCOMENTAR CUANDO LO TENGAS ---
+        // --- GAME MANAGER ---
         if (GameManager.Instance != null && GameManager.Instance.estadoActual != EstadoJuego.Jugando)
         {
             moveHorizontal = 0;
@@ -78,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // --- GAME MANAGER TP3 - DESCOMENTAR CUANDO LO TENGAS ---
+        // --- GAME MANAGER ---
         if (GameManager.Instance != null && GameManager.Instance.estadoActual != EstadoJuego.Jugando)
         {
             rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
@@ -115,5 +121,29 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetFloat("Speed", speedValue);
         }
+    }
+
+    // --- RALENTIZACION: la maneja el Player, no el enemigo ---
+    public void AplicarRalentizacion(float factor, float duracion)
+    {
+        // Si ya estaba lento, NO volvemos a multiplicar.
+        // Solo reiniciamos el timer de 3 segundos.
+        if (!estaRalentizado)
+        {
+            velocidadBaseGuardada = speed;
+            speed = velocidadBaseGuardada * factor;
+            estaRalentizado = true;
+        }
+
+        if (corutinaRalentizacion != null) StopCoroutine(corutinaRalentizacion);
+        corutinaRalentizacion = StartCoroutine(RutinaRalentizacion(duracion));
+    }
+
+    private IEnumerator RutinaRalentizacion(float duracion)
+    {
+        yield return new WaitForSeconds(duracion);
+        speed = velocidadBaseGuardada;
+        estaRalentizado = false;
+        corutinaRalentizacion = null;
     }
 }

@@ -5,29 +5,18 @@ public class EnemigoEspecial : EnemyAI
 {
     [Header("Enemigo Especial")]
     public float duracionRalentizacion = 3f;
+    [Range(0f, 1f)] public float factorRalentizacion = 0.5f;
 
     protected override void ExecuteAttack()
     {
-        // 1. Hace el daño normal de tu EnemyAttack.cs reciclado
+        // 1. Dano normal. El cooldown lo maneja el padre en AttackCooldownRoutine
         base.ExecuteAttack();
 
-        // 2. Habilidad especial: lo deja lento 3 segundos
-        var movPlayer = playerTransform.GetComponent<PlayerMovement>();
+        // 2. Ralentizacion: la maneja el Player, no el enemigo.
+        var movPlayer = playerTransform != null ? playerTransform.GetComponent<PlayerMovement>() : null;
         if (movPlayer != null)
         {
-            movPlayer.Speed *= 0.5f;
-            Invoke(nameof(RestaurarVelocidad), duracionRalentizacion);
-        }
-    }
-
-    void RestaurarVelocidad()
-    {
-        // Busca al player y le devuelve la velocidad
-        var playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null)
-        {
-            var mov = playerObj.GetComponent<PlayerMovement>();
-            if (mov != null) mov.Speed = 5f; // tu velocidad normal
+            movPlayer.AplicarRalentizacion(factorRalentizacion, duracionRalentizacion);
         }
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class MissionManager : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class MissionManager : MonoBehaviour
     private int deliveredObjects; // Objetos entregados
     public int DeliveredObjects => deliveredObjects;
     public int PendingObjects => recoveredObjects - deliveredObjects;
+    public int TotalMissionObjects => totalMissionObjects;
+
+    // Evento para el HUD: avisa (recogidos, total) cada vez que cambia
+    public event Action<int, int> OnMissionProgressChanged;
 
     // AllObjectsDelivered sera TRUE cuando la cantidad de objetos entregados sea mayor o igual al total requerido
     public bool AllObjectsDelivered => deliveredObjects >= totalMissionObjects;
@@ -24,6 +29,12 @@ public class MissionManager : MonoBehaviour
         MissionObject.OnMissionObjectCollected -= RegisterCollectedObject; // Nos desuscribimos del evento de recoleccion
     }
 
+    private void Start()
+    {
+        // Avisa el estado inicial 0/5 para que el HUD arranque bien
+        OnMissionProgressChanged?.Invoke(recoveredObjects, totalMissionObjects);
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q)) ShowMissionStatus();
@@ -36,6 +47,9 @@ public class MissionManager : MonoBehaviour
         recoveredObjects++; // Suma un objeto recogido
 
         Debug.Log($"<color=purple>Objetos recuperados: <color=white>{recoveredObjects}/{totalMissionObjects}</color></color>");
+
+        // Avisa al HUD
+        OnMissionProgressChanged?.Invoke(recoveredObjects, totalMissionObjects);
     }
 
     public void ShowMissionStatus()

@@ -12,6 +12,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI puntajeText;
     [SerializeField] private Slider healthBar;
     [SerializeField] private HealthSystem playerHealth;
+    [SerializeField] private GameObject creditosPanel;
+
+    [Header("Mision - solo Level1")]
+    [SerializeField] private TextMeshProUGUI missionText;
+    [Tooltip("El GameObject que tiene el MissionManager en Level1")]
+    [SerializeField] private MissionManager missionManager;
 
     void OnEnable()
     {
@@ -23,6 +29,13 @@ public class UIManager : MonoBehaviour
             UpdatePuntaje(GameManager.Instance.puntajeAcumulado);
         }
         if (playerHealth != null) playerHealth.OnChangeHealthPlayer += UpdateHealth;
+
+        // Mision: nos suscribimos y pedimos el valor actual para mostrar 0/5 al arrancar
+        if (missionManager != null)
+        {
+            missionManager.OnMissionProgressChanged += UpdateMissionText;
+            UpdateMissionText(missionManager.RecoveredObjects, missionManager.TotalMissionObjects);
+        }
     }
 
     void OnDisable()
@@ -33,10 +46,19 @@ public class UIManager : MonoBehaviour
             GameManager.Instance.OnPuntajeCambiado -= UpdatePuntaje;
         }
         if (playerHealth != null) playerHealth.OnChangeHealthPlayer -= UpdateHealth;
+
+        if (missionManager != null)
+        {
+            missionManager.OnMissionProgressChanged -= UpdateMissionText;
+        }
     }
 
     void HandleState(GameState state)
     {
+        // Siempre arrancamos con creditos apagado.
+        // Asi si volves al menu desde Pausa o GameOver no queda abierto.
+        if (creditosPanel) creditosPanel.SetActive(false);
+
         if (InicioPanel) InicioPanel.SetActive(state == GameState.Start);
         if (HUDPanel) HUDPanel.SetActive(state == GameState.Playing);
         if (PausePanel) PausePanel.SetActive(state == GameState.Paused);
@@ -50,7 +72,35 @@ public class UIManager : MonoBehaviour
     void UpdatePuntaje(int p) { if (puntajeText) puntajeText.text = "Puntos: " + p.ToString(); }
     void UpdateHealth(float p) { if (healthBar) healthBar.value = p; }
 
+    // --- MISION HUD ---
+    private void UpdateMissionText(int recovered, int total)
+    {
+        if (missionText) missionText.text = $"Objetos: {recovered}/{total}";
+    }
+
     public void TogglePanel(GameObject panel) { panel.SetActive(!panel.activeSelf); }
+
+    // --- CREDITOS: Panel_Inicio - Panel_Creditos ---
+    public void MostrarCreditos()
+    {
+        if (creditosPanel == null)
+        {
+            Debug.LogWarning("[UIManager] CreditosPanel no asignado.");
+            return;
+        }
+        if (InicioPanel) InicioPanel.SetActive(false);
+        creditosPanel.SetActive(true);
+    }
+
+    public void VolverDeCreditos()
+    {
+        if (creditosPanel) creditosPanel.SetActive(false);
+        if (InicioPanel) InicioPanel.SetActive(true);
+    }
+
+    // Alias para conectar directo desde los botones
+    public void Btn_Creditos() => MostrarCreditos();
+    public void Btn_VolverCreditos() => VolverDeCreditos();
 
     public void Btn_Reanudar() { GameManager.Instance.ReanudarJuego(); }
     public void Btn_Reiniciar() { GameManager.Instance.ReiniciarNivel(); }
