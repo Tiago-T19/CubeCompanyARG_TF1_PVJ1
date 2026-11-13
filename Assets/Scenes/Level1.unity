@@ -21697,7 +21697,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 697738370}
-  - component: {fileID: 697738371}
   - component: {fileID: 697738372}
   m_Layer: 0
   m_Name: BuildersMain
@@ -21871,27 +21870,6 @@ Transform:
   - {fileID: 1631645011}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &697738371
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 697738369}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &697738372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47326,7 +47304,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1374299535}
-  - component: {fileID: 1374299537}
   - component: {fileID: 1374299538}
   m_Layer: 7
   m_Name: RoadMain
@@ -47489,27 +47466,6 @@ Transform:
   - {fileID: 1609643183}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1374299537
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1374299534}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1374299538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65600,7 +65556,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 00b78b03851cb0748b61d9005fb73b49, type: 3}
       propertyPath: m_Name
-      value: Building_Stadium
+      value: Estadio
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 00b78b03851cb0748b61d9005fb73b49, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -70686,37 +70642,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1941742075}
-    - targetCorrespondingSourceObject: {fileID: 100000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1941742074}
   m_SourcePrefab: {fileID: 100100000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
 --- !u!4 &1941742070 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
   m_PrefabInstance: {fileID: 1941742069}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &1941742074
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1291815950}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 42f28010e67310c4c9ea88fbc4084fc6, type: 3}
 --- !u!64 &1941742075
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -85357,9 +85288,8 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5293649686381294511
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8440685921986385599, guid: 0c38a44a45652c343a38e96b8e0b0fd9, type: 3}
+  m_PrefabInstance: {fileID: 8608875222907347518}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2548215293998456731}
   serializedVersion: 2
