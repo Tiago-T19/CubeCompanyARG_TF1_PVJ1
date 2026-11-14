@@ -2,17 +2,17 @@
     <Style src="project://database/Assets/UI%20Toolkit/slot_style.uss?fileID=7433441132597879392&amp;guid=1ddc169eba514804ab6ef3b2e8be8091&amp;type=3#slot_style"/>
     <ui:VisualElement name="hotbar-grid" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; align-items: flex-end; justify-content: center;">
         <ui:VisualElement name="slot1" class="_slot_style" style="flex-grow: 0; width: 130px; height: 130px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; background-color: rgb(126, 113, 138);">
-            <ui:Image source="" name="slot-icon1" style="width: 122px; height: 122px; background-image: none; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);">
+            <ui:Image source="" name="slot01" style="width: 122px; height: 122px; background-image: none; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);">
                 <ui:Label text="0" name="slot-quantity" style="position: absolute; right: auto; bottom: 0; color: rgb(0, 255, 93); font-size: 27px; left: 0;"/>
             </ui:Image>
         </ui:VisualElement>
         <ui:VisualElement name="slot2" class="_slot_style" style="flex-grow: 0; width: 130px; height: 130px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; background-color: rgb(126, 113, 138);">
-            <ui:Image source="" name="slot-icon2" style="width: 122px; height: 122px; background-image: none; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);">
+            <ui:Image source="" name="slot02" style="width: 122px; height: 122px; background-image: none; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);">
                 <ui:Label text="0" name="slot-quantity" style="position: absolute; right: auto; bottom: 0; color: rgb(0, 255, 93); font-size: 27px; left: 0;"/>
             </ui:Image>
         </ui:VisualElement>
         <ui:VisualElement name="slot3" class="_slot_style" style="flex-grow: 0; width: 130px; height: 130px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; background-color: rgb(126, 113, 138);">
-            <ui:Image source="" name="slot-icon3" style="width: 122px; height: 122px; background-image: none; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);">
+            <ui:Image source="" name="slot03" style="width: 122px; height: 122px; background-image: none; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);">
                 <ui:Label text="0" name="slot-quantity" style="position: absolute; right: auto; bottom: 0; color: rgb(0, 255, 93); font-size: 27px; left: 0;"/>
             </ui:Image>
         </ui:VisualElement>

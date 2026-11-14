@@ -20860,6 +20860,7 @@ GameObject:
   m_Component:
   - component: {fileID: 650208568}
   - component: {fileID: 650208567}
+  - component: {fileID: 650208570}
   - component: {fileID: 650208569}
   m_Layer: 5
   m_Name: InventoryUI
@@ -20918,8 +20919,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9265f1ff4a8f02044acdcac6ec2b4018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HotBarController
-  uiDocument: {fileID: 650208567}
-  hotbarSize: 3
+--- !u!114 &650208570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650208566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995914d9610cd274b9882224e69a8724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryController
 --- !u!1 &651698513
 GameObject:
   m_ObjectHideFlags: 0
@@ -65902,7 +65913,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1786837619
 Transform:
   m_ObjectHideFlags: 0
@@ -65925,7 +65936,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1786837618}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e296f35e2e1fd4f439c3d842907750c9, type: 3}
   m_Name: 

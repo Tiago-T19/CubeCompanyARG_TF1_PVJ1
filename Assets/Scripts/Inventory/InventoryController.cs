@@ -18,11 +18,13 @@ public class InventoryController : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("InventoryController iniciado");
+
         root = GetComponent<UIDocument>().rootVisualElement;
         // Buscamos los contenedores de los slots
-        slot1 = root.Q<VisualElement>("Slot1");
-        slot2 = root.Q<VisualElement>("Slot2");
-        slot3 = root.Q<VisualElement>("Slot3");
+        slot1 = root.Q<VisualElement>("slot1");
+        slot2 = root.Q<VisualElement>("slot2");
+        slot3 = root.Q<VisualElement>("slot3");
 
 
         InventoryManager.Instance.OnInventoryChanged += UpdateSelectedVisual;
@@ -46,30 +48,31 @@ public class InventoryController : MonoBehaviour
 
     private void UpdateSelectedVisual()
     {
-        slot1.RemoveFromClassList("slotSelected");
-        slot2.RemoveFromClassList("slotSelected");
-        slot3.RemoveFromClassList("slotSelected");
+        slot1.RemoveFromClassList("_slot_Style--Selected");
+        slot2.RemoveFromClassList("_slot_Style--Selected");
+        slot3.RemoveFromClassList("_slot_Style--Selected");
 
         switch (InventoryManager.Instance.SelectedSlot)
         {
             case 0:
-                slot1.AddToClassList("slotSelected");
+                slot1.AddToClassList("_slot_Style--Selected");
                 break;
 
             case 1:
-                slot2.AddToClassList("slotSelected");
+                slot2.AddToClassList("_slot_Style--Selected");
                 break;
 
             case 2:
-                slot3.AddToClassList("slotSelected");
+                slot3.AddToClassList("_slot_Style--Selected");
                 break;
         }
     }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            Debug.Log("TAB PRESIONADO");
+
             inventoryOpen = !inventoryOpen;
 
             root.style.display = inventoryOpen
@@ -88,4 +91,5 @@ public class InventoryController : MonoBehaviour
             }
         }
     }
+
 }
