@@ -8953,7 +8953,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 304240639}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e33eb7b85b46e840983f9a0a07ed031, type: 3}
   m_Name: 
@@ -8973,7 +8973,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 304240639}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18c0538713fe5b5419c69bcf4c6aa92e, type: 3}
   m_Name: 
@@ -20861,7 +20861,6 @@ GameObject:
   - component: {fileID: 650208568}
   - component: {fileID: 650208567}
   - component: {fileID: 650208569}
-  - component: {fileID: 650208570}
   m_Layer: 5
   m_Name: InventoryUI
   m_TagString: Untagged
@@ -20919,18 +20918,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9265f1ff4a8f02044acdcac6ec2b4018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HotBarController
---- !u!114 &650208570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 650208566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 995914d9610cd274b9882224e69a8724, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryUIController
+  uiDocument: {fileID: 650208567}
+  hotbarSize: 3
 --- !u!1 &651698513
 GameObject:
   m_ObjectHideFlags: 0
@@ -65913,7 +65902,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1786837619
 Transform:
   m_ObjectHideFlags: 0
@@ -65936,7 +65925,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1786837618}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e296f35e2e1fd4f439c3d842907750c9, type: 3}
   m_Name: 
@@ -79568,7 +79557,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2841705531463313733}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd83500ac13630e4aa2b8c55c3c99e3e, type: 3}
   m_Name: 
@@ -79632,7 +79621,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3312892345243576641}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 399156789fd58cc41bfcf9c5960c934d, type: 3}
   m_Name: 
@@ -82976,7 +82965,7 @@ GameObject:
   - component: {fileID: 7377148270106590256}
   - component: {fileID: 7335541053663391143}
   m_Layer: 0
-  m_Name: pickable
+  m_Name: Pickable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86693,7 +86682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickAble
   itemData: {fileID: 11400000, guid: fd044ab83aa92d346897872e0524895b, type: 2}
-  quantity: 3
+  quantity: 1
   destroyOnPickUp: 1
 --- !u!114 &4634245357608796846
 MonoBehaviour:
@@ -87747,10 +87736,11 @@ Transform:
   m_GameObject: {fileID: 5154640065898634149}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38.932434, y: 0.22000067, z: 461.49484}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 38.932434, y: 0.22, z: 461.49484}
+  m_LocalScale: {x: 1.1999682, y: 1.1999682, z: 1.1999682}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5293649686381294511}
   - {fileID: 3040605390736125989}
   - {fileID: 1775324721763543850}
   - {fileID: 7491530792711131236}
@@ -87769,7 +87759,6 @@ Transform:
   - {fileID: 6664209840570373417}
   - {fileID: 6661418980908813821}
   - {fileID: 2132754857517174375}
-  - {fileID: 5293649686381294511}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &5531305967927558432

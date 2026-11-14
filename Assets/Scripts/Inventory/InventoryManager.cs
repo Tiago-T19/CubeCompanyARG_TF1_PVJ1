@@ -1,6 +1,10 @@
 using System;
 using UnityEngine;
 
+
+// oculto por el momento hasta arreglar el inventario
+
+
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance { get; private set; }
@@ -144,3 +148,60 @@ public class InventoryManager : MonoBehaviour
         OnInventoryChanged?.Invoke();
     }
 }
+
+
+// Arreglo de inventoryManager temporal
+/*public class InventoryManager : MonoBehaviour
+{
+    public static InventoryManager Instance { get; private set; }
+    [SerializeField] private int inventorySize = 3;
+    private InventorySlot[] slots;
+
+    public Action OnInventoryChanged;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        slots = new InventorySlot[inventorySize];
+    }
+
+    public bool AddItem(ItemData itemData, int quantity)
+    {
+        Debug.Log("Agregando: " + itemData.itemName);
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i] != null && slots[i].itemData == itemData)
+            {
+                slots[i].quantity += quantity;
+                OnInventoryChanged?.Invoke();
+                return true;
+            }
+        }
+
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i] == null)
+            {
+                slots[i] = new InventorySlot(itemData, quantity);
+                OnInventoryChanged?.Invoke();
+                return true;
+            }
+        }
+        return false; // No hay espacio en el inventario
+    }
+
+
+    // Prueba de codigo para obtener los slots del inventario temporal
+    public InventorySlot GetSlot(int index)
+    {
+        if (index < 0 || index >= slots.Length) return null;
+        return slots[index];
+    }
+
+    // fin de prueba de codigo para obtener los slots del inventario temporal
+}*/

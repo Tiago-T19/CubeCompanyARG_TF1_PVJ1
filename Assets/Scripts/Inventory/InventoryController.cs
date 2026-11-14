@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityCursor = UnityEngine.Cursor;
 
+
+// Ocutlo por el momento hasta arreglar el inventario
+
 public class InventoryController : MonoBehaviour
 {
     private VisualElement root;
