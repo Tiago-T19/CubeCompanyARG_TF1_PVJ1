@@ -1,9 +1,12 @@
 //using System;
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.UIElements;
-using UnityCursor = UnityEngine.Cursor;
+using UnityCursor = UnityEngine.Cursor;*/
 
-public class InventoryController : MonoBehaviour
+
+// Ocutlo por el momento hasta arreglar el inventario
+
+/*public class InventoryController : MonoBehaviour
 {
     private VisualElement root;
     private bool inventoryOpen = false;
@@ -85,4 +88,4 @@ public class InventoryController : MonoBehaviour
             }
         }
     }
-}
+}*/
