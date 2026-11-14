@@ -12,3 +12,15 @@
     border-bottom-width: 3px;
     border-left-width: 3px;
 }
+
+._slot_Style--Selected {
+    background-color: rgb(0, 0, 0);
+    border-left-color: rgb(4, 10, 252);
+    border-right-color: rgb(4, 10, 252);
+    border-top-color: rgb(4, 10, 252);
+    border-bottom-color: rgb(4, 10, 252);
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+}
