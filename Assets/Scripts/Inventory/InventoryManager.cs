@@ -5,7 +5,7 @@ using UnityEngine;
 // oculto por el momento hasta arreglar el inventario
 
 
-/*public class InventoryManager : MonoBehaviour
+public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance { get; private set; }
 
@@ -147,11 +147,11 @@ using UnityEngine;
 
         OnInventoryChanged?.Invoke();
     }
-}*/
+}
 
 
 // Arreglo de inventoryManager temporal
-public class InventoryManager : MonoBehaviour
+/*public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance { get; private set; }
     [SerializeField] private int inventorySize = 3;
@@ -204,4 +204,4 @@ public class InventoryManager : MonoBehaviour
     }
 
     // fin de prueba de codigo para obtener los slots del inventario temporal
-}
+}*/

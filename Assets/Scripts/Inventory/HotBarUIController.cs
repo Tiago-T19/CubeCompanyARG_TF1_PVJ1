@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 
 //oculto por el momento hasta arreglar el inventario
 
-/*public class HotBarUIController : MonoBehaviour
+public class HotBarUIController : MonoBehaviour
 {
     private UIDocument document;
 
@@ -63,10 +63,10 @@ using UnityEngine.UIElements;
             slot3.image = slots[2].itemData.icon.texture;
         }
     }
-}*/
+}
 
 // Arreglo de hotBarUIcontroller temporal
-public class HotBarUIController : MonoBehaviour
+/*public class HotBarUIController : MonoBehaviour
 {
     [SerializeField] private UIDocument uiDocument;
     [SerializeField] private int hotbarSize = 3;
@@ -169,7 +169,14 @@ public class HotBarUIController : MonoBehaviour
             }
         }
     }
-
+    
     // probando codigo finalizado
 
 }
+*/
+
+// segundo intento
+
+
+
+

@@ -12,11 +12,11 @@ public class PlayerInteraction : MonoBehaviour
 
         if (currentObject != null && Input.GetKeyDown(KeyCode.E))
         {
-            // ===== PICKABLE =====
+           /* // ===== PICKABLE =====
 
             // se oculta de manera temporal hasta arreglar el inventario y la interaccion con los objetos
 
-            /* PickAble pickAble = ((MonoBehaviour)currentObject).GetComponent<PickAble>();
+            PickAble pickAble = ((MonoBehaviour)currentObject).GetComponent<PickAble>();
 
              if (pickAble != null)
              {
@@ -30,14 +30,14 @@ public class PlayerInteraction : MonoBehaviour
 
                  return;
              }
-            */
+            
             // ===== FIN PICKABLE =====
-
+           */
 
 
 
             // ===== PICKABLE 2 de prueba =====
-            Pickable pickable = ((MonoBehaviour)currentObject).GetComponent<Pickable>();
+           Pickable pickable = ((MonoBehaviour)currentObject).GetComponent<Pickable>();
 
             if (pickable != null)
             {
@@ -64,7 +64,7 @@ public class PlayerInteraction : MonoBehaviour
                 return;
             }
             // ===== FIN PICKABLE 2 de prueba =====
-
+           
 
             if (currentObject.canInteract())
             {

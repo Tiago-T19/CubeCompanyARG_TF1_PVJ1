@@ -58,7 +58,7 @@ public class Pickable: MonoBehaviour, IInteractable
     // Métodos requeridos por la interfaz IInteractable
     public bool canInteract()
     {
-        return !_pickedUp && itemData != null;
+        return ! _pickedUp;
     }
 
     public void Interact()
