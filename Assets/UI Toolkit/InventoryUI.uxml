@@ -1,20 +1,52 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/slot_style.uss?fileID=7433441132597879392&amp;guid=1ddc169eba514804ab6ef3b2e8be8091&amp;type=3#slot_style"/>
-    <ui:VisualElement name="hotbar-grid" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; align-items: flex-end; justify-content: center;">
+    <ui:VisualElement name="hotbar-grid" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; align-items: flex-end; justify-content: center; position: absolute; bottom: 0; left: 0; right: 0;">
         <ui:VisualElement name="slot1" class="_slot_style" style="flex-grow: 0; width: 130px; height: 130px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; background-color: rgb(126, 113, 138);">
-            <ui:Image source="" name="slot01" style="width: 122px; height: 122px; background-image: none; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);">
+            <ui:Image source="" name="slot01" style="width: 120px; height: 120px; background-image: none; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);">
                 <ui:Label text="0" name="slot-quantity" style="position: absolute; right: auto; bottom: 0; color: rgb(0, 255, 93); font-size: 27px; left: 0;"/>
             </ui:Image>
         </ui:VisualElement>
         <ui:VisualElement name="slot2" class="_slot_style" style="flex-grow: 0; width: 130px; height: 130px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; background-color: rgb(126, 113, 138);">
-            <ui:Image source="" name="slot02" style="width: 122px; height: 122px; background-image: none; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);">
+            <ui:Image source="" name="slot02" style="width: 120px; height: 120px; background-image: none; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);">
                 <ui:Label text="0" name="slot-quantity" style="position: absolute; right: auto; bottom: 0; color: rgb(0, 255, 93); font-size: 27px; left: 0;"/>
             </ui:Image>
         </ui:VisualElement>
         <ui:VisualElement name="slot3" class="_slot_style" style="flex-grow: 0; width: 130px; height: 130px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; background-color: rgb(126, 113, 138);">
-            <ui:Image source="" name="slot03" style="width: 122px; height: 122px; background-image: none; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);">
+            <ui:Image source="" name="slot03" style="width: 120px; height: 120px; background-image: none; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);">
                 <ui:Label text="0" name="slot-quantity" style="position: absolute; right: auto; bottom: 0; color: rgb(0, 255, 93); font-size: 27px; left: 0;"/>
             </ui:Image>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="inventory-panel" style="flex-grow: 1; left: 0; bottom: 0; right: 0; top: 0; align-items: center; justify-content: center; position: absolute;">
+        <ui:VisualElement name="inventory-container" style="flex-grow: 1; width: 500px; height: 390px; position: absolute; top: auto; background-color: rgba(138, 146, 167, 0.957); border-top-width: 4px; border-right-width: 4px; border-bottom-width: 4px; border-left-width: 4px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; border-left-color: rgb(144, 49, 49); border-right-color: rgb(144, 49, 49); border-top-color: rgb(144, 49, 49); border-bottom-color: rgb(144, 49, 49); -unity-text-align: upper-left; align-items: center; justify-content: center; bottom: 135px; left: auto;">
+            <ui:VisualElement name="inventory-grid-pull" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap-reverse; justify-content: center; align-items: center; align-self: flex-start; align-content: center; width: 489px; height: 286px; position: absolute; top: 80px; left: 2px;">
+                <ui:VisualElement name="slot4" class="_slot_style" style="flex-grow: 0; width: 130px; height: 130px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; background-color: rgb(126, 113, 138);">
+                    <ui:Image source="" name="slot04" style="width: 120px; height: 120px; background-image: none; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);">
+                        <ui:Label text="0" name="slot-quantity" style="position: absolute; right: auto; bottom: 0; color: rgb(0, 255, 93); font-size: 27px; left: 0;"/>
+                    </ui:Image>
+                </ui:VisualElement>
+                <ui:VisualElement name="slot5" class="_slot_style" style="flex-grow: 0; width: 130px; height: 130px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; background-color: rgb(126, 113, 138);">
+                    <ui:Image source="" name="slot05" style="width: 120px; height: 120px; background-image: none; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);">
+                        <ui:Label text="0" name="slot-quantity" style="position: absolute; right: auto; bottom: 0; color: rgb(0, 255, 93); font-size: 27px; left: 0;"/>
+                    </ui:Image>
+                </ui:VisualElement>
+                <ui:VisualElement name="slot6" class="_slot_style" style="flex-grow: 0; width: 130px; height: 130px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; background-color: rgb(126, 113, 138);">
+                    <ui:Image source="" name="slot06" style="width: 120px; height: 120px; background-image: none; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);">
+                        <ui:Label text="0" name="slot-quantity" style="position: absolute; right: auto; bottom: 0; color: rgb(0, 255, 93); font-size: 27px; left: 0;"/>
+                    </ui:Image>
+                </ui:VisualElement>
+                <ui:VisualElement name="slot7" class="_slot_style" style="flex-grow: 0; width: 130px; height: 130px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; background-color: rgb(126, 113, 138);">
+                    <ui:Image source="" name="slot07" style="width: 120px; height: 120px; background-image: none; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);">
+                        <ui:Label text="0" name="slot-quantity" style="position: absolute; right: auto; bottom: 0; color: rgb(0, 255, 93); font-size: 27px; left: 0;"/>
+                    </ui:Image>
+                </ui:VisualElement>
+                <ui:VisualElement name="slot8" class="_slot_style" style="flex-grow: 0; width: 130px; height: 130px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; background-color: rgb(126, 113, 138);">
+                    <ui:Image source="" name="slot08" style="width: 120px; height: 120px; background-image: none; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);">
+                        <ui:Label text="0" name="slot-quantity" style="position: absolute; right: auto; bottom: 0; color: rgb(0, 255, 93); font-size: 27px; left: 0;"/>
+                    </ui:Image>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:Label text="Mochila" name="inventory-title" style="position: absolute; align-items: stretch; -unity-text-align: middle-center; height: 57px; width: 170px; top: 10px; left: auto; font-size: 40px; -unity-font-style: bold;"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
