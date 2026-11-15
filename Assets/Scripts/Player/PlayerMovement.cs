@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] private float speed = 5f;
 
-    // Esta propiedad es la que usa EnemigoEspecial para ralentizar al Player
     public float Speed
     {
         get { return speed; }
@@ -38,11 +37,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float rayDistance = 2f;
     [SerializeField] private LayerMask groundLayer;
 
-    // Opcional TP3 - descomenta cuando crees el PlayerStats.asset
-    // public PlayerStats stats;
-    // private float SpeedReal => stats != null ? stats.velocidad : speed;
-    // private float JumpReal => stats != null ? stats.fuerzaSalto : jumpForce;
-
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -52,18 +46,17 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // --- GAME MANAGER ---
         if (GameManager.Instance != null && GameManager.Instance.estadoActual != EstadoJuego.Jugando)
         {
             moveHorizontal = 0;
             moveVertical = 0;
-            UpdateAnimator(0);
+            UpdateAnimator();
             return;
         }
 
         if (isStop)
         {
-            UpdateAnimator(0);
+            UpdateAnimator();
             return;
         }
 
@@ -76,15 +69,11 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
         }
 
-        Vector3 horizontalVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
-        float currentSpeed = horizontalVelocity.magnitude;
-
-        UpdateAnimator(currentSpeed);
+        UpdateAnimator();
     }
 
     private void FixedUpdate()
     {
-        // --- GAME MANAGER ---
         if (GameManager.Instance != null && GameManager.Instance.estadoActual != EstadoJuego.Jugando)
         {
             rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
@@ -115,19 +104,17 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, rotateY, 0f);
     }
 
-    private void UpdateAnimator(float speedValue)
+    private void UpdateAnimator()
     {
         if (animator != null)
         {
-            animator.SetFloat("Speed", speedValue);
+            float currentSpeed = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z).magnitude;
+            animator.SetFloat("Speed", currentSpeed);
         }
     }
 
-    // --- RALENTIZACION: la maneja el Player, no el enemigo ---
     public void AplicarRalentizacion(float factor, float duracion)
     {
-        // Si ya estaba lento, NO volvemos a multiplicar.
-        // Solo reiniciamos el timer de 3 segundos.
         if (!estaRalentizado)
         {
             velocidadBaseGuardada = speed;
