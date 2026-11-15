@@ -1,45 +1,56 @@
 using UnityEngine;
+using System.Collections;
 
 public class Elevador : MonoBehaviour
 {
     [Header("Puntos de Destino")]
-    [Tooltip("Posición del piso inferior")]
     [SerializeField] private Transform puntoInferior;
-    [Tooltip("Posición del piso superior")]
     [SerializeField] private Transform puntoSuperior;
 
     [Header("Configuración")]
     [SerializeField] private float velocidad = 3f;
+    [SerializeField] private ControlPuertas controlPuertas;
 
     private Transform objetivoActual;
+    private bool enMovimiento = false;
 
     void Start()
     {
         objetivoActual = puntoSuperior;
     }
 
-    void Update()
+    public void LlamarOActivarAscensor()
     {
-        MoverAscensor();
+        if (!enMovimiento)
+        {
+            StartCoroutine(SecuenciaAscensor());
+        }
     }
 
-    void MoverAscensor()
+    IEnumerator SecuenciaAscensor()
     {
-        if (puntoInferior == null || puntoSuperior == null) return;
+        enMovimiento = true;
 
-        transform.position = Vector3.MoveTowards(transform.position, objetivoActual.position, velocidad * Time.deltaTime);
-
-        if (Vector3.Distance(transform.position, objetivoActual.position) < 0.01f)
+        if (controlPuertas != null)
         {
-            if (objetivoActual == puntoSuperior)
-            {
-                objetivoActual = puntoInferior;
-            }
-            else
-            {
-                objetivoActual = puntoSuperior;
-            }
+            controlPuertas.CerrarPuertas();
+            yield return new WaitForSeconds(1.5f);
         }
+
+        while (Vector3.Distance(transform.position, objetivoActual.position) > 0.01f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, objetivoActual.position, velocidad * Time.deltaTime);
+            yield return null;
+        }
+
+        if (controlPuertas != null)
+        {
+            controlPuertas.AbrirPuertas();
+        }
+
+        objetivoActual = (objetivoActual == puntoSuperior) ? puntoInferior : puntoSuperior;
+
+        enMovimiento = false;
     }
 
     private void OnCollisionEnter(Collision collision)
