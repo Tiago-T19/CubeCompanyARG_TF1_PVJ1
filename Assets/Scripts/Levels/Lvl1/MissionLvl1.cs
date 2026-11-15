@@ -10,7 +10,7 @@ public class MissionLvl1 : MonoBehaviour
         ReachHospital, // Seguir camino al hospital
         RestorePower, // Minijuego (WirePuzzle)
         EnterHospital, // Entrar al hospital
-        Completed
+        Completed // Nivel 1 completado
     }
 
     [Header("Estado de la mision")]
@@ -42,7 +42,7 @@ public class MissionLvl1 : MonoBehaviour
     {
         if (currentStep != MissionStep.NotStarted) return;
 
-        Debug.Log("<color=blue><b>Encuentra una forma de pasar</b></color>");
+        Debug.Log("<color=white><b>(1) Encuentra una forma de pasar (1234)</b></color>");
 
         ChangeStep(MissionStep.FindPassword);
     }
@@ -51,7 +51,7 @@ public class MissionLvl1 : MonoBehaviour
     {
         if (currentStep != MissionStep.FindPassword) return;
 
-        Debug.Log("<color=blue><b>¡Se abrio la puerta! Puedes seguir tu camino</b></color>");
+        Debug.Log("<color=white><b>(2) ¡Se abrio la puerta! Puedes seguir tu camino</b></color>");
 
         ChangeStep(MissionStep.ReachHospital);
     }
@@ -60,7 +60,7 @@ public class MissionLvl1 : MonoBehaviour
     {
         if (currentStep != MissionStep.ReachHospital) return;
 
-        Debug.Log("<color=blue><b>Busca la forma de entrar al hospital</b></color>");
+        Debug.Log("<color=white><b>(3) Busca la forma de entrar al hospital</b></color>");
 
         ChangeStep(MissionStep.RestorePower);
     }
@@ -69,7 +69,7 @@ public class MissionLvl1 : MonoBehaviour
     {
         if (currentStep != MissionStep.RestorePower) return;
 
-        Debug.Log("<color=blue><b>¡Se abrio la puerta! Puedes entrar</b></color>");
+        Debug.Log("<color=white><b>(4) ¡Se abrio la puerta! Puedes entrar</b></color>");
 
         ChangeStep(MissionStep.EnterHospital);
     }
@@ -77,7 +77,7 @@ public class MissionLvl1 : MonoBehaviour
     {
         if (currentStep != MissionStep.EnterHospital) return;
 
-        Debug.Log("<color=green><b>¡Nivel 1 completado!</b></color>");
+        Debug.Log("<color=green><b>(5) ¡Nivel 1 completado!</b></color>");
 
         ChangeStep(MissionStep.Completed);
     }
@@ -85,9 +85,6 @@ public class MissionLvl1 : MonoBehaviour
     private void ChangeStep(MissionStep newStep)
     {
         currentStep = newStep;
-
-        Debug.Log($"<color=blue><b>Mission: {currentStep}</b></color>");
-
         OnMissionStepChanged?.Invoke(currentStep);
     }
 }

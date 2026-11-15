@@ -7,6 +7,9 @@ public class WirePuzzle : MonoBehaviour
     [Header("Panel de cables")]
     [SerializeField] private GameObject puzzlePanel;
 
+    [Header("Puerta")]
+    [SerializeField] private GameObject door;
+
     [Header("Camara")]
     [SerializeField] private CameraFollow cameraFollow;
 
@@ -125,6 +128,7 @@ public class WirePuzzle : MonoBehaviour
                 OnPuzzleCompleted?.Invoke();
 
                 // Aqui puedes agregar la logica para abrir la puerta o realizar cualquier accion
+                door.SetActive(false);
 
                 ClosePuzzle();
             }

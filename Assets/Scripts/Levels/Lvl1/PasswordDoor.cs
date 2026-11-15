@@ -6,6 +6,7 @@ public class PasswordDoor : MonoBehaviour
 {
     [Header("Contraseña")]
     [SerializeField] private string correctPassword;
+    [SerializeField] private GameObject door;
 
     [Header("Interfaz")]
     [SerializeField] private GameObject passwordPanel;
@@ -51,6 +52,7 @@ public class PasswordDoor : MonoBehaviour
             OnPasswordCompleted?.Invoke();
 
             // Aqui puedes agregar la logica para abrir la puerta o realizar cualquier accion
+            door.SetActive(false);
 
             // Cerramos la interfaz
             ClosePasswordPanel();
