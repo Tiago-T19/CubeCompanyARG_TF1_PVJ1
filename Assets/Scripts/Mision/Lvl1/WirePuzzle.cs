@@ -25,8 +25,8 @@ public class WirePuzzle : MonoBehaviour
     };
 
     private int[] rightColorOrder; // Orden de los colores
-    private int selectedLeftIndex = -1; // Guarda el conector seleccionado del lado izquierdo
-    private int matchedPairs; // Cantidad de parejas conectadas correctamente
+    private int selectedLeftIndex = -1; // Guarda el conector seleccionado del lado izquierdo 
+    private int matchedPairs; // Parejas contectadas
                     
     public event Action OnPuzzleCompleted; // Avisa cuando el puzzle se completa
 
@@ -65,15 +65,14 @@ public class WirePuzzle : MonoBehaviour
         // Comprobamos que tengamos cuatro botones por lado
         if (leftButtons.Length != wireColors.Length || rightButtons.Length != wireColors.Length) return;
 
-        rightColorOrder = new int[wireColors.Length]; // Inicializamos el orden de colores
+        rightColorOrder = new int[wireColors.Length]; // Orden de los colores
 
         // Asignamos los colores al lado izquierdo
         for (int i = 0; i < wireColors.Length; i++)
         {
             leftButtons[i].image.color = wireColors[i];
 
-            // Guardamos el indice del color correspondiente
-            rightColorOrder[i] = i;
+            rightColorOrder[i] = i; // Orden de los colores
 
             int index = i;
 
@@ -81,7 +80,7 @@ public class WirePuzzle : MonoBehaviour
             leftButtons[i].onClick.AddListener(() => SelectLeftWire(index));
         }
 
-        ShuffleRightWires(); // Mezclamos el orden de los cables derechos
+        ShuffleRightWires(); // Mezclamos el orden 
 
         // Asignamos los colores y eventos al lado derecho
         for (int i = 0; i < rightButtons.Length; i++)
@@ -97,11 +96,10 @@ public class WirePuzzle : MonoBehaviour
     private void SelectLeftWire(int index)
     {
         // No permite seleccionar un cable ya conectado
-        if (!leftButtons[index].interactable) return;
+        // interactable indica si el boton puede recibir interacciones
+        if (!leftButtons[index].interactable) return; 
 
         selectedLeftIndex = index;
-
-        Debug.Log("Cable seleccionado: " + wireColors[index]);
     }
 
     private void SelectRightWire(int index)
@@ -112,7 +110,7 @@ public class WirePuzzle : MonoBehaviour
         // Comprobamos si los colores coinciden
         if (rightColorOrder[index] == selectedLeftIndex)
         {
-            // Deshabilitamos ambos conectores
+            // Deshabilitamos ambos botones
             leftButtons[selectedLeftIndex].interactable = false;
             rightButtons[index].interactable = false;
 
@@ -126,7 +124,7 @@ public class WirePuzzle : MonoBehaviour
                 Debug.Log("<color=green><b>¡Energía restablecida!</b></color>");
                 OnPuzzleCompleted?.Invoke();
 
-                // Sea lo que haya despues de completar el puzzle
+                // Aqui puedes agregar la logica para abrir la puerta o realizar cualquier accion
 
                 ClosePuzzle();
             }
