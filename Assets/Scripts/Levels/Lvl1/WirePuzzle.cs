@@ -28,7 +28,7 @@ public class WirePuzzle : MonoBehaviour
     private int selectedLeftIndex = -1; // Guarda el conector seleccionado del lado izquierdo 
     private int matchedPairs; // Parejas contectadas
                     
-    public event Action OnPuzzleCompleted; // Avisa cuando el puzzle se completa
+    public static event Action OnPuzzleCompleted; // Avisa cuando el puzzle se completa
 
 
     private void Start()

@@ -14,7 +14,7 @@ public class PasswordDoor : MonoBehaviour
     [Header("Camara")]
     [SerializeField] private CameraFollow cameraFollow;
 
-    public event Action OnPasswordCompleted; // Avisa cuando el puzzle se completa
+    public static event Action OnPasswordCompleted; // Avisa cuando el puzzle se completa
 
     public void OpenPasswordPanel()
     {
