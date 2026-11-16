@@ -67,8 +67,6 @@ public class UIManager : MonoBehaviour
         if (VictoryPanel) VictoryPanel.SetActive(state == GameState.Victory);
         if (GameOverPanel) GameOverPanel.SetActive(state == GameState.GameOver);
 
-        if (state == GameState.Playing) { Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false; Time.timeScale = 1f; }
-        else { Cursor.lockState = CursorLockMode.None; Cursor.visible = true; if (state != GameState.Start) Time.timeScale = 0f; }
     }
 
     void UpdatePuntaje(int p) { if (puntajeText) puntajeText.text = "Puntos: " + p.ToString(); }
