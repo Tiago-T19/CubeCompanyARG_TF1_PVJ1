@@ -21,7 +21,7 @@ public class MissionLvl1 : MonoBehaviour
 
     private void OnEnable()
     {
-        // Escuchamos cuando se completa
+        // Escuchamos los eventos
         PasswordDoor.OnPasswordCompleted += PasswordAccepted;
         WirePuzzle.OnPuzzleCompleted += PowerRestored;
     }
