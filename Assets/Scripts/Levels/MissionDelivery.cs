@@ -8,7 +8,7 @@ public class MissionDelivery : MonoBehaviour
 
     public void Delivery()
     {
-        missionManager.DeliverObjects(); // Entrega el objeto de mision
+     //   missionManager.DeliverObjects(); // Entrega el objeto de mision
         missionManager.ShowMissionStatus(); // Muestra el estado de la mision
         door.SetActive(false); // Abre la puerta
     }
