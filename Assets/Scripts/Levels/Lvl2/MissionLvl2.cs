@@ -13,6 +13,7 @@ public class MissionLvl2 : MonoBehaviour
     }
 
     [Header("Estado de la mision")]
+    [SerializeField] private GameObject missionPanel; // Panel de la mision
     [SerializeField] private MissionStep currentStep; // Estado actual de la mision
     public MissionStep CurrentStep => currentStep;
 
@@ -42,6 +43,7 @@ public class MissionLvl2 : MonoBehaviour
         if (currentStep != MissionStep.NotStarted) return;
 
         Debug.Log("<color=white><b>(1) Recolecta los cinco datos</b></color>");
+        missionPanel.SetActive(true);
 
         ChangeStep(MissionStep.CollectData);
     }

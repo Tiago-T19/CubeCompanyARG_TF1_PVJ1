@@ -14,6 +14,7 @@ public class MissionLvl1 : MonoBehaviour
     }
 
     [Header("Estado de la mision")]
+    [SerializeField] private GameObject missionPanel; // Panel de la mision
     [SerializeField] private MissionStep currentStep; // Estado actual de la mision
     public MissionStep CurrentStep => currentStep;
 
@@ -43,6 +44,7 @@ public class MissionLvl1 : MonoBehaviour
         if (currentStep != MissionStep.NotStarted) return;
 
         Debug.Log("<color=white><b>(1) Encuentra una forma de pasar (1234)</b></color>");
+        missionPanel.SetActive(true);
 
         ChangeStep(MissionStep.FindPassword);
     }

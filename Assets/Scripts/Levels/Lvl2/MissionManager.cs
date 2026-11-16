@@ -31,7 +31,7 @@ public class MissionManager : MonoBehaviour
 
     private void Start()
     {
-        // Avisa el estado inicial 0/5 para que el HUD arranque bien
+        // Avisa el estado inicial
         OnMissionProgressChanged?.Invoke(recoveredObjects, totalMissionObjects);
     }
 
