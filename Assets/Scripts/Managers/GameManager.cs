@@ -23,12 +23,18 @@ public class GameManager : MonoBehaviour
     public int itemsRecolectados = 0;
     public bool jefeFinalMuerto = false;
 
+    [Header("Stats del jugador (ScriptableObject)")]
+    [Tooltip("Si queda vacío se carga solo desde Resources/PlayerStats")]
+    [SerializeField] private PlayerStats playerStats;
+    public PlayerStats Stats => playerStats;
+
     void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            if (playerStats == null) playerStats = Resources.Load<PlayerStats>("PlayerStats");
             ResetDatos();
         }
         else
@@ -135,6 +141,12 @@ public class GameManager : MonoBehaviour
 
     public void ResetDatos()
     {
+        // Partida nueva: el PlayerStats vuelve a sus valores base (se pierden las compras)
+        if (playerStats != null)
+        {
+            playerStats.ResetStats();
+            vidaMax = playerStats.vidaMax;
+        }
         vidaActual = vidaMax;
         puntajeAcumulado = 0;
         itemsRecolectados = 0;
@@ -149,6 +161,15 @@ public class GameManager : MonoBehaviour
     {
         puntajeAcumulado += p;
         OnPuntajeCambiado?.Invoke(puntajeAcumulado);
+    }
+
+    // Tienda: descuenta puntos solo si alcanzan
+    public bool GastarPuntos(int cantidad)
+    {
+        if (cantidad < 0 || puntajeAcumulado < cantidad) return false;
+        puntajeAcumulado -= cantidad;
+        OnPuntajeCambiado?.Invoke(puntajeAcumulado);
+        return true;
     }
 
     public void MatarJefeFinal()

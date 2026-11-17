@@ -39,6 +39,34 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float rayDistance = 2f;
     [SerializeField] private LayerMask groundLayer;
 
+    // Stats del jugador (ScriptableObject). Si no hay, usa los valores del Inspector.
+    private PlayerStats Stats => GameManager.Instance != null ? GameManager.Instance.Stats : null;
+    private float JumpReal => Stats != null ? Stats.fuerzaSalto : jumpForce;
+    private float velocidadInspector;
+
+    void Awake()
+    {
+        velocidadInspector = speed;
+    }
+
+    // Toma la velocidad del PlayerStats y escucha si se compra una mejora en la tienda
+    void OnEnable()
+    {
+        RestaurarVelocidad();
+        if (Stats != null) Stats.OnStatsChanged += RestaurarVelocidad;
+    }
+
+    void OnDisable()
+    {
+        if (Stats != null) Stats.OnStatsChanged -= RestaurarVelocidad;
+    }
+
+    // Vuelve a la velocidad normal (la usa EnemigoEspecial después de ralentizar)
+    public void RestaurarVelocidad()
+    {
+        speed = Stats != null ? Stats.velocidad : velocidadInspector;
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -68,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+            rb.AddForce(new Vector3(0, JumpReal, 0), ForceMode.Impulse);
             if (AudioManager.Instance != null) AudioManager.Instance.PlayJump();
         }
 
