@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Slider healthBar;
     [SerializeField] private HealthSystem playerHealth;
     [SerializeField] private GameObject creditosPanel;
+    [SerializeField] private GameObject opcionesPanel;
 
     [Header("Mision - solo Level1")]
     [SerializeField] private TextMeshProUGUI missionText;
@@ -58,6 +59,7 @@ public class UIManager : MonoBehaviour
         // Siempre arrancamos con creditos apagado.
         // Asi si volves al menu desde Pausa o GameOver no queda abierto.
         if (creditosPanel) creditosPanel.SetActive(false);
+        if (opcionesPanel) opcionesPanel.SetActive(false);
 
         if (InicioPanel) InicioPanel.SetActive(state == GameState.Start);
         if (HUDPanel) HUDPanel.SetActive(state == GameState.Playing);
@@ -65,8 +67,6 @@ public class UIManager : MonoBehaviour
         if (VictoryPanel) VictoryPanel.SetActive(state == GameState.Victory);
         if (GameOverPanel) GameOverPanel.SetActive(state == GameState.GameOver);
 
-        if (state == GameState.Playing) { Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false; Time.timeScale = 1f; }
-        else { Cursor.lockState = CursorLockMode.None; Cursor.visible = true; if (state != GameState.Start) Time.timeScale = 0f; }
     }
 
     void UpdatePuntaje(int p) { if (puntajeText) puntajeText.text = "Puntos: " + p.ToString(); }
@@ -98,12 +98,34 @@ public class UIManager : MonoBehaviour
         if (InicioPanel) InicioPanel.SetActive(true);
     }
 
+    public void MostrarOpciones()
+    {
+        if (opcionesPanel == null)
+        {
+            Debug.LogWarning("[UIManager] OpcionesPanel no asignado.");
+            return;
+        }
+        if (InicioPanel) InicioPanel.SetActive(false);
+        opcionesPanel.SetActive(true);
+    }
+
+    public void VolverDeOpciones()
+    {
+        if (opcionesPanel) opcionesPanel.SetActive(false);
+        if (InicioPanel) InicioPanel.SetActive(true);
+    }
+
     // Alias para conectar directo desde los botones
     public void Btn_Creditos() => MostrarCreditos();
     public void Btn_VolverCreditos() => VolverDeCreditos();
+
+    public void Btn_Opciones() => MostrarOpciones();
+    public void Btn_VolverOpciones() => VolverDeOpciones();
 
     public void Btn_Reanudar() { GameManager.Instance.ReanudarJuego(); }
     public void Btn_Reiniciar() { GameManager.Instance.ReiniciarNivel(); }
     public void Btn_MenuPrincipal() { GameManager.Instance.VolverMenu(); }
     public void Btn_Salir() { GameManager.Instance.SalirDelJuego(); }
+
+
 }

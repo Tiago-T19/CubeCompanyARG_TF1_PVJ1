@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] private float speed = 5f;
-
     public float Speed
     {
         get { return speed; }
@@ -22,12 +21,15 @@ public class PlayerMovement : MonoBehaviour
         set { isStop = value; }
     }
 
+    [Header("Pasos en asfalto")]
+    [SerializeField] private float footstepInterval = 0.4f;
+    private float footstepTimer = 0f;
+
     private float moveHorizontal;
     private float moveVertical;
     private Rigidbody rb;
     private Animator animator;
 
-    // --- Ralentizacion ---
     private bool estaRalentizado = false;
     private float velocidadBaseGuardada;
     private Coroutine corutinaRalentizacion;
@@ -50,13 +52,13 @@ public class PlayerMovement : MonoBehaviour
         {
             moveHorizontal = 0;
             moveVertical = 0;
-            UpdateAnimator();
+            UpdateAnimator(0);
             return;
         }
 
         if (isStop)
         {
-            UpdateAnimator();
+            UpdateAnimator(0);
             return;
         }
 
@@ -67,9 +69,28 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+            if (AudioManager.Instance != null) AudioManager.Instance.PlayJump();
         }
 
-        UpdateAnimator();
+        Vector3 horizontalVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
+        float currentSpeed = horizontalVelocity.magnitude;
+
+        bool estaMoviendose = Mathf.Abs(moveHorizontal) > 0.1f || Mathf.Abs(moveVertical) > 0.1f;
+        if (isGrounded && estaMoviendose && currentSpeed > 0.5f)
+        {
+            footstepTimer -= Time.deltaTime;
+            if (footstepTimer <= 0f)
+            {
+                if (AudioManager.Instance != null) AudioManager.Instance.PlayFootstep();
+                footstepTimer = footstepInterval;
+            }
+        }
+        else
+        {
+            footstepTimer = 0f;
+        }
+
+        UpdateAnimator(currentSpeed);
     }
 
     private void FixedUpdate()
@@ -79,13 +100,11 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
             return;
         }
-
         if (isStop)
         {
             rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
             return;
         }
-
         Vector3 movement = (transform.forward * moveVertical + transform.right * moveHorizontal).normalized;
         rb.linearVelocity = new Vector3(movement.x * speed, rb.linearVelocity.y, movement.z * speed);
     }
@@ -94,7 +113,6 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 origin = transform.position;
         isGrounded = Physics.Raycast(origin, Vector3.down, rayDistance, groundLayer);
-
         Color colorRay = isGrounded ? Color.green : Color.red;
         Debug.DrawRay(origin, Vector3.down * rayDistance, colorRay);
     }
@@ -104,15 +122,12 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, rotateY, 0f);
     }
 
-    private void UpdateAnimator()
+    private void UpdateAnimator(float speedValue)
     {
-        if (animator != null)
-        {
-            float currentSpeed = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z).magnitude;
-            animator.SetFloat("Speed", currentSpeed);
-        }
+        if (animator != null) animator.SetFloat("Speed", speedValue);
     }
 
+    // Lo usa EnemigoEspecial: no se apila y reinicia el timer si te vuelven a pegar
     public void AplicarRalentizacion(float factor, float duracion)
     {
         if (!estaRalentizado)
@@ -121,7 +136,6 @@ public class PlayerMovement : MonoBehaviour
             speed = velocidadBaseGuardada * factor;
             estaRalentizado = true;
         }
-
         if (corutinaRalentizacion != null) StopCoroutine(corutinaRalentizacion);
         corutinaRalentizacion = StartCoroutine(RutinaRalentizacion(duracion));
     }

@@ -34,13 +34,21 @@ public class HealthSystem : MonoBehaviour
 
         if (isPlayer)
         {
+            if (AudioManager.Instance != null) AudioManager.Instance.PlayHurt();
             OnChangeHealthPlayer?.Invoke(currentHealth / maxHealth);
             if (GameManager.Instance) GameManager.Instance.SetVida(currentHealth);
             if (currentHealth <= 0) GameManager.Instance.Derrota();
         }
         else
         {
-            if (currentHealth <= 0) Die();
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+            else
+            {
+                if (AudioManager.Instance != null) AudioManager.Instance.PlayZombieHurt(transform);
+            }
         }
     }
 
@@ -57,6 +65,7 @@ public class HealthSystem : MonoBehaviour
 
     void Die()
     {
+        if (AudioManager.Instance != null) AudioManager.Instance.PlayZombieDeath(transform);
         OnDeath?.Invoke();
         int puntos = datosEnemigo != null ? datosEnemigo.puntosAlMorir : 10;
         if (GameManager.Instance) GameManager.Instance.AddPuntos(puntos);

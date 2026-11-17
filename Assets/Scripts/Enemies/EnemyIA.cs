@@ -20,9 +20,9 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] protected AIState currentState = AIState.Patrol;
 
     [Header("Patrulla Aleatoria (Random NavMesh)")]
-    [SerializeField] private float patrolRadius = 15f; // Radio máximo desde el origen para buscar puntos al azar
+    [SerializeField] private float patrolRadius = 15f; // Radio mÃ¡ximo desde el origen para buscar puntos al azar
     [SerializeField] private float waitTimeAtPoint = 2f;
-    private Vector3 startPosition; // Posición inicial para calcular el radio de patrulla
+    private Vector3 startPosition; // PosiciÃ³n inicial para calcular el radio de patrulla
     protected bool isWaitingAtPoint;
 
     protected NavMeshAgent agent;
@@ -156,7 +156,8 @@ public class EnemyAI : MonoBehaviour
     protected virtual void ExecuteAttack()
     {
         if (playerHealth == null) return;
-        Debug.Log($"¡Enemigo {data?.nombre ?? "Común"} ataca e inflige {DamageReal} de daño!");
+        Debug.Log($"Â¡Enemigo {data?.nombre ?? "ComÃºn"} ataca e inflige {DamageReal} de daÃ±o!");
+        if (AudioManager.Instance != null) AudioManager.Instance.PlayZombieAttack(transform);
         playerHealth.TakeDamage(DamageReal);
     }
 
@@ -191,7 +192,7 @@ public class EnemyAI : MonoBehaviour
         isWaitingAtPoint = false;
     }
 
-    // Método que calcula una posición aleatoria válida dentro del NavMesh
+    // MÃ©todo que calcula una posiciÃ³n aleatoria vÃ¡lida dentro del NavMesh
     protected void GoToNextRandomPoint()
     {
         Vector3 randomDirection = Random.insideUnitSphere * patrolRadius;
