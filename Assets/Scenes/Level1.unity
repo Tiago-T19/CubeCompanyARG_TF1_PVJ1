@@ -498,9 +498,10 @@ MonoBehaviour:
   currentState: 0
   vidaActual: 100
   vidaMax: 100
-  puntajeAcumulado: 0
+  puntajeAcumulado: 500
   itemsRecolectados: 0
   jefeFinalMuerto: 0
+  playerStats: {fileID: 0}
 --- !u!1001 &12531167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51948,7 +51949,7 @@ GameObject:
   - component: {fileID: 1361428179}
   - component: {fileID: 1361428178}
   - component: {fileID: 1361428177}
-  - component: {fileID: 1361428176}
+  - component: {fileID: 1361428180}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -51971,20 +51972,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4825965621015071353}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1361428176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1361428174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3b691b1e2a1b24498688f1ef1f4e934, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DoorTeleport
-  targetSceneName: Tienda
-  playerTag: Player
 --- !u!65 &1361428177
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -52063,6 +52050,34 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361428174}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1361428180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361428174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 909597a7d0d8f9c40acb4fec73075d23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShopDoor
+  accion: 0
+  escenaTienda: Tienda
+  radioDeteccion: 3
+  capaJugador:
+    serializedVersion: 2
+    m_Bits: 64
+  teclaInteraccion: 101
+  renderersBrillo:
+  - {fileID: 1361428178}
+  luz: {fileID: 0}
+  colorBrillo: {r: 1, g: 0.7, b: 0.15, a: 1}
+  intensidadMin: 1
+  intensidadMax: 3
+  velocidadPulso: 2.5
+  multiplicadorCerca: 2
+  cartel: {fileID: 0}
 --- !u!1001 &1361960976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69815,7 +69830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2dbee28eacba7dd42845e0153c4da642, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 434.2
+      value: 435.25
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2dbee28eacba7dd42845e0153c4da642, type: 3}
       propertyPath: m_LocalRotation.w
@@ -73734,6 +73749,9 @@ MonoBehaviour:
   progressText: {fileID: 1505746918}
   missionManager: {fileID: 1593340122}
   virusObject: {fileID: 2057070453}
+  panelMision: {fileID: 0}
+  segundosVisible: 5
+  duracionFundido: 0.5
 --- !u!1001 &1841156800
 PrefabInstance:
   m_ObjectHideFlags: 0
