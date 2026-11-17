@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -14,6 +15,15 @@ public class MissionUI : MonoBehaviour
     [Header("Progreso")]
     [SerializeField] private MissionManager missionManager;
     [SerializeField] private VirusObject virusObject;
+
+    [Header("Cartel temporal (opcional)")]
+    [Tooltip("El recuadro gris de la misión. Si lo dejás vacío, el cartel queda siempre visible")]
+    [SerializeField] private GameObject panelMision;
+    [SerializeField] private float segundosVisible = 5f;
+    [SerializeField] private float duracionFundido = 0.5f;
+
+    private CanvasGroup grupoPanel;
+    private Coroutine rutinaCartel;
 
     private void OnEnable()
     {
@@ -147,6 +157,44 @@ public class MissionUI : MonoBehaviour
     {
         if (objectiveText != null)
             objectiveText.text = objective;
+
+        if (!string.IsNullOrEmpty(objective)) MostrarTemporal();
+    }
+
+    // Muestra el cartel y lo oculta solo después de unos segundos (corrutina con fundido)
+    private void MostrarTemporal()
+    {
+        // Si no se asignó el panel, usa el padre del texto del objetivo (el recuadro de la misión)
+        if (panelMision == null && objectiveText != null && objectiveText.transform.parent != null
+            && objectiveText.transform.parent.GetComponent<Canvas>() == null)
+            panelMision = objectiveText.transform.parent.gameObject;
+
+        if (panelMision == null || !isActiveAndEnabled) return;
+
+        if (grupoPanel == null)
+        {
+            grupoPanel = panelMision.GetComponent<CanvasGroup>();
+            if (grupoPanel == null) grupoPanel = panelMision.AddComponent<CanvasGroup>();
+        }
+
+        if (rutinaCartel != null) StopCoroutine(rutinaCartel);
+        rutinaCartel = StartCoroutine(RutinaCartel());
+    }
+
+    private IEnumerator RutinaCartel()
+    {
+        grupoPanel.alpha = 1f;
+        yield return new WaitForSeconds(segundosVisible);
+
+        float t = 0f;
+        while (t < duracionFundido)
+        {
+            t += Time.deltaTime;
+            grupoPanel.alpha = Mathf.Lerp(1f, 0f, t / duracionFundido);
+            yield return null;
+        }
+        grupoPanel.alpha = 0f;
+        rutinaCartel = null;
     }
 
     private void UpdateMissionProgress(int recovered, int total)
@@ -154,6 +202,7 @@ public class MissionUI : MonoBehaviour
         if (progressText == null) return;
 
         progressText.text = $"Datos: {recovered}/{total}";
+        MostrarTemporal(); // al juntar un dato vuelve a aparecer un rato
     }
 
     private void UpdateVirusProgress(int recovered, int total)
@@ -161,5 +210,6 @@ public class MissionUI : MonoBehaviour
         if (progressText == null) return;
 
         progressText.text = $"Frascos: {recovered}/{total}";
+        MostrarTemporal();
     }
 }
