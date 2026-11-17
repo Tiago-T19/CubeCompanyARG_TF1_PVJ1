@@ -39,6 +39,7 @@ public class GunController : MonoBehaviour
         }
 
         currentAmmo--;
+        if (AudioManager.Instance != null) AudioManager.Instance.PlayShoot();
 
         Debug.Log("Disparo. Balas: " + currentAmmo);
 
@@ -65,6 +66,7 @@ public class GunController : MonoBehaviour
 
     private void Reload()
     {
+        if (AudioManager.Instance != null) AudioManager.Instance.PlayReload();
         currentAmmo = maxAmmo;
 
         Debug.Log("Recargando...");
