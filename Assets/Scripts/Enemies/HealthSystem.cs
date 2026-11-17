@@ -20,10 +20,41 @@ public class HealthSystem : MonoBehaviour
     {
         maxHealth = datosEnemigo != null ? datosEnemigo.vidaMax : 100f;
 
-        if (isPlayer && GameManager.Instance != null)
-            currentHealth = GameManager.Instance.GetVida();
+        if (isPlayer)
+            RefrescarVidaJugador();
         else
             currentHealth = maxHealth;
+    }
+
+    // Al volver de la tienda el jugador se reactiva: releemos la vida (puede haber comprado mejoras)
+    void OnEnable()
+    {
+        if (!isPlayer) return;
+        RefrescarVidaJugador();
+        // Si se compra vida en la tienda, el jugador se entera por evento
+        if (GameManager.Instance != null && GameManager.Instance.Stats != null)
+            GameManager.Instance.Stats.OnStatsChanged += RefrescarVidaJugador;
+    }
+
+    void OnDisable()
+    {
+        if (isPlayer && GameManager.Instance != null && GameManager.Instance.Stats != null)
+            GameManager.Instance.Stats.OnStatsChanged -= RefrescarVidaJugador;
+    }
+
+    // El jugador toma su vida máxima del PlayerStats y su vida actual del GameManager
+    void RefrescarVidaJugador()
+    {
+        GameManager gm = GameManager.Instance;
+        if (gm == null)
+        {
+            currentHealth = maxHealth;
+            return;
+        }
+
+        if (gm.Stats != null) maxHealth = gm.Stats.vidaMax;
+        currentHealth = Mathf.Clamp(gm.GetVida(), 0, maxHealth);
+        OnChangeHealthPlayer?.Invoke(currentHealth / maxHealth);
     }
 
     public void TakeDamage(float dmg)
