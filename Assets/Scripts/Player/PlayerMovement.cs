@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] private float speed = 5f;
+    [SerializeField] private float speed = 8f;
     public float Speed
     {
         get { return speed; }
@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Raycast Settings")]
     [SerializeField] private bool isGrounded;
-    [SerializeField] private float rayDistance = 2f;
+    [SerializeField] private float rayDistance = 0.2f;
     [SerializeField] private LayerMask groundLayer;
 
     // Stats del jugador (ScriptableObject). Si no hay, usa los valores del Inspector.

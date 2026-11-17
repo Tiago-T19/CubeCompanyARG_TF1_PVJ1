@@ -501,6 +501,7 @@ MonoBehaviour:
   puntajeAcumulado: 0
   itemsRecolectados: 0
   jefeFinalMuerto: 0
+  playerStats: {fileID: 0}
 --- !u!1001 &12531167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48885,12 +48886,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e33eb7b85b46e840983f9a0a07ed031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  speed: 5
+  speed: 8
   jumpForce: 7
   isStop: 0
   footstepInterval: 0.4
   isGrounded: 0
-  rayDistance: 2
+  rayDistance: 0.2
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
