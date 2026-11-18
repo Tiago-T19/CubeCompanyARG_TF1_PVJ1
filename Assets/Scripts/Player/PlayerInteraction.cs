@@ -59,6 +59,7 @@ public class PlayerInteraction : MonoBehaviour
                     currentObject = null;
 
                     pickable.TryPickUp();
+                    if (AudioManager.Instance != null) AudioManager.Instance.PlayPickup();
                 }
 
                 return;

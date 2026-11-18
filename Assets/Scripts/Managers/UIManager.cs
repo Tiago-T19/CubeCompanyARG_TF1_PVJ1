@@ -81,6 +81,7 @@ public class UIManager : MonoBehaviour
     // --- CREDITOS: Panel_Inicio - Panel_Creditos ---
     public void MostrarCreditos()
     {
+        if (AudioManager.Instance != null) AudioManager.Instance.PlayClick();
         if (creditosPanel == null)
         {
             Debug.LogWarning("[UIManager] CreditosPanel no asignado.");
@@ -92,12 +93,14 @@ public class UIManager : MonoBehaviour
 
     public void VolverDeCreditos()
     {
+        if (AudioManager.Instance != null) AudioManager.Instance.PlayClick();
         if (creditosPanel) creditosPanel.SetActive(false);
         if (InicioPanel) InicioPanel.SetActive(true);
     }
 
     public void MostrarOpciones()
     {
+        if (AudioManager.Instance != null) AudioManager.Instance.PlayClick();
         if (opcionesPanel == null)
         {
             Debug.LogWarning("[UIManager] OpcionesPanel no asignado.");
@@ -109,6 +112,7 @@ public class UIManager : MonoBehaviour
 
     public void VolverDeOpciones()
     {
+        if (AudioManager.Instance != null) AudioManager.Instance.PlayClick();
         if (opcionesPanel) opcionesPanel.SetActive(false);
         if (InicioPanel) InicioPanel.SetActive(true);
     }
@@ -120,10 +124,9 @@ public class UIManager : MonoBehaviour
     public void Btn_Opciones() => MostrarOpciones();
     public void Btn_VolverOpciones() => VolverDeOpciones();
 
-    public void Btn_Reanudar() { GameManager.Instance.ReanudarJuego(); }
-    public void Btn_Reiniciar() { GameManager.Instance.ReiniciarNivel(); }
-    public void Btn_MenuPrincipal() { GameManager.Instance.VolverMenu(); }
-    public void Btn_Salir() { GameManager.Instance.SalirDelJuego(); }
-
+    public void Btn_Reanudar() { if (AudioManager.Instance != null) AudioManager.Instance.PlayClick(); GameManager.Instance.ReanudarJuego(); }
+    public void Btn_Reiniciar() { if (AudioManager.Instance != null) AudioManager.Instance.PlayClick(); GameManager.Instance.ReiniciarNivel(); }
+    public void Btn_MenuPrincipal() { if (AudioManager.Instance != null) AudioManager.Instance.PlayClick(); GameManager.Instance.VolverMenu(); }
+    public void Btn_Salir() { if (AudioManager.Instance != null) AudioManager.Instance.PlayClick(); GameManager.Instance.SalirDelJuego(); }
 
 }
