@@ -16,10 +16,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject opcionesPanel;
 
     [Header("Mision - solo Level1")]
-    [SerializeField] private TextMeshProUGUI missionText;
-    [Tooltip("El GameObject que tiene el MissionManager en Level1")]
-    [SerializeField] private MissionManager missionManager;
-
+    [SerializeField] private GunController gunController;
+    [SerializeField] private TextMeshProUGUI ammoText;
     void OnEnable()
     {
         if (GameManager.Instance != null)
@@ -32,10 +30,10 @@ public class UIManager : MonoBehaviour
         if (playerHealth != null) playerHealth.OnChangeHealthPlayer += UpdateHealth;
 
         // Mision: nos suscribimos y pedimos el valor actual para mostrar 0/5 al arrancar
-        if (missionManager != null)
+        if (gunController != null)
         {
-            missionManager.OnMissionProgressChanged += UpdateMissionText;
-            UpdateMissionText(missionManager.RecoveredObjects, missionManager.TotalMissionObjects);
+            gunController.OnAmmoProgressChanged += UpdateAmmoText;
+            UpdateAmmoText(gunController.CurrentAmmo, gunController.MaxAmmo);
         }
     }
 
@@ -48,9 +46,9 @@ public class UIManager : MonoBehaviour
         }
         if (playerHealth != null) playerHealth.OnChangeHealthPlayer -= UpdateHealth;
 
-        if (missionManager != null)
+        if (gunController != null)
         {
-            missionManager.OnMissionProgressChanged -= UpdateMissionText;
+            gunController.OnAmmoProgressChanged -= UpdateAmmoText;
         }
     }
 
@@ -69,13 +67,13 @@ public class UIManager : MonoBehaviour
 
     }
 
-    void UpdatePuntaje(int p) { if (puntajeText) puntajeText.text = "Puntos: " + p.ToString(); }
+    void UpdatePuntaje(int p) { if (puntajeText) puntajeText.text = p.ToString(); }
     void UpdateHealth(float p) { if (healthBar) healthBar.value = p; }
 
-    // --- MISION HUD ---
-    private void UpdateMissionText(int recovered, int total)
+    // --- Balas HUD ---
+    private void UpdateAmmoText(int recovered, int total)
     {
-        if (missionText) missionText.text = $"Objetos: {recovered}/{total}";
+        if (ammoText) ammoText.text = $"{recovered} / {total}";
     }
 
     public void TogglePanel(GameObject panel) { panel.SetActive(!panel.activeSelf); }

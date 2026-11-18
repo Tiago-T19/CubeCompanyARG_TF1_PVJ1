@@ -10,8 +10,9 @@ public class WirePuzzle : MonoBehaviour
     [Header("Puerta")]
     [SerializeField] private GameObject door;
 
-    [Header("Camara")]
+    [Header("Jugador")]
     [SerializeField] private CameraFollow cameraFollow;
+    [SerializeField] private PlayerMovement playerMovement;
 
     [Header("Conectores")]
     [SerializeField] private Button[] leftButtons;
@@ -49,6 +50,7 @@ public class WirePuzzle : MonoBehaviour
 
         // Desactivamos el script de seguimiento de la camara
         cameraFollow.enabled = false;
+        playerMovement.IsStop = true;
     }
 
     public void ClosePuzzle()
@@ -61,6 +63,7 @@ public class WirePuzzle : MonoBehaviour
 
         // Activamos el script de seguimiento de la camara
         cameraFollow.enabled = true;
+        playerMovement.IsStop = false;
     }
 
     private void InitializePuzzle()

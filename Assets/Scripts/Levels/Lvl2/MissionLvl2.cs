@@ -6,9 +6,10 @@ public class MissionLvl2 : MonoBehaviour
     public enum MissionStep // Flujo de la mision
     {
         NotStarted, // La mision aun no empieza
-        CollectData, // Recolectar los datos (MissionObject)
-        FindVirus, // Seguir camino al hospital
-        ExitHospital, // Salir del hospital
+        FindVirus, // Seguir camino al laberinto (VirusObject)
+        RestorePower, // Minijuego (WirePuzzle)
+        ExitMaze, // Salir del laberinto
+        EscapeCity, // Escapar de la ciudad 
         Completed // Nivel 2 completado
     }
 
@@ -22,15 +23,15 @@ public class MissionLvl2 : MonoBehaviour
     private void OnEnable()
     {
         // Escuchamos los eventos
-        MissionManager.OnAllObjectsCollected += AllDataCollected;
         VirusObject.OnVirusObjectCollected += VirusCollected;
+        WirePuzzle.OnPuzzleCompleted += PowerRestored;
     }
 
     private void OnDisable()
     {
         // Dejamos de escuchar los eventos
-        MissionManager.OnAllObjectsCollected -= AllDataCollected;
         VirusObject.OnVirusObjectCollected -= VirusCollected;
+        WirePuzzle.OnPuzzleCompleted -= PowerRestored;
     }
 
     private void Start()
@@ -45,30 +46,39 @@ public class MissionLvl2 : MonoBehaviour
         Debug.Log("<color=white><b>(1) Recolecta los cinco datos</b></color>");
         missionPanel.SetActive(true);
 
-        ChangeStep(MissionStep.CollectData);
-    }
-
-    private void AllDataCollected()
-    {
-        if (currentStep != MissionStep.CollectData) return;
-
-        Debug.Log("<color=white><b>(2) Encuentra el frasco del virus</b></color>");
-
         ChangeStep(MissionStep.FindVirus);
     }
 
-    private void VirusCollected()
+    private void VirusCollected() //PowerRestored
     {
         if (currentStep != MissionStep.FindVirus) return;
 
-        Debug.Log("<color=white><b>(3) Encuentra la salida del hospital</b></color>");
+        Debug.Log("<color=white><b>(2) Encuentra el frasco del virus</b></color>");
 
-        ChangeStep(MissionStep.ExitHospital);
+        ChangeStep(MissionStep.RestorePower);
     }
 
-    public void HospitalExitReached()
+    private void PowerRestored()
     {
-        if (currentStep != MissionStep.ExitHospital) return;
+        if (currentStep != MissionStep.RestorePower) return;
+
+        Debug.Log("<color=white><b>(3) Encuentra la salida del hospital</b></color>");
+
+        ChangeStep(MissionStep.ExitMaze);
+    }
+
+    public void MazeExitReached()
+    {
+        if (currentStep != MissionStep.ExitMaze) return;
+
+        Debug.Log("<color=green><b>(4) ¡Nivel 2 completado!</b></color>");
+
+        ChangeStep(MissionStep.EscapeCity);
+    }
+
+    public void EscapeCityReached()
+    {
+        if (currentStep != MissionStep.EscapeCity) return;
 
         Debug.Log("<color=green><b>(4) ¡Nivel 2 completado!</b></color>");
 

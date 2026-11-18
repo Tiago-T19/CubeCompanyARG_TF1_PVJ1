@@ -12,8 +12,9 @@ public class PasswordDoor : MonoBehaviour
     [SerializeField] private GameObject passwordPanel;
     [SerializeField] private TMP_InputField passwordInput;
 
-    [Header("Camara")]
+    [Header("Jugador")]
     [SerializeField] private CameraFollow cameraFollow;
+    [SerializeField] private PlayerMovement playerMovement;
 
     public static event Action OnPasswordCompleted; // Avisa cuando el puzzle se completa
 
@@ -23,9 +24,9 @@ public class PasswordDoor : MonoBehaviour
         // Liberamos el cursor para utilizar la interfaz
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
-        // Desactivamos el script de seguimiento de la camara
-        cameraFollow.enabled = false;
+        
+        cameraFollow.enabled = false; // Desactivamos el script de seguimiento de la camara
+        playerMovement.IsStop = true; // Desactivamos el movimiento del jugador
     }
 
     public void ClosePasswordPanel()
@@ -36,8 +37,8 @@ public class PasswordDoor : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        // Activamos el script de seguimiento de la camara
-        cameraFollow.enabled = true;
+        cameraFollow.enabled = true; // Activamos el script de seguimiento de la camara
+        playerMovement.IsStop = false; // Activamos el movimiento del jugador
     }
 
     public void CheckPassword()

@@ -1,7 +1,5 @@
 using UnityEngine;
 using System;
-using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
 
 public class MissionObject : MonoBehaviour
 {
@@ -19,9 +17,14 @@ public class MissionObject : MonoBehaviour
 
         OnMissionObjectCollected?.Invoke(); // Avisamos que se recogio un objeto
 
-        if (ScoreManager.Instance != null)
+        /*  if (ScoreManager.Instance != null)
+          {
+              ScoreManager.Instance.AddPoints(points); // Suma los puntos
+          } */
+
+        if (GameManager.Instance != null)
         {
-            ScoreManager.Instance.AddPoints(points); // Suma los puntos
+            GameManager.Instance.AddPuntos(points); // Suma los puntos
         }
 
         Destroy(gameObject); // Eliminamos el objeto del escenario

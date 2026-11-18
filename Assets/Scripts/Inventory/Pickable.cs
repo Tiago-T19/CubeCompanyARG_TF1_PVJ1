@@ -41,7 +41,7 @@ using UnityEngine;
 
 // Arreglo de inventario temporal
 
-public class Pickable: MonoBehaviour, IInteractable
+public class Pickable : MonoBehaviour, IInteractable
 {
     [Header("Item")]
     [SerializeField] private ItemData itemData;
@@ -54,17 +54,39 @@ public class Pickable: MonoBehaviour, IInteractable
     public ItemData ItemData => itemData;
 
     public int Quantity => quantity;
+    private Outline outline; // Componente de Outline para resaltar el objeto
 
     // Métodos requeridos por la interfaz IInteractable
+
     public bool canInteract()
     {
-        return ! _pickedUp;
+        return !_pickedUp;
+    }
+
+    void Awake()
+    {
+        outline = gameObject.AddComponent<Outline>();
+        outline.OutlineMode = Outline.Mode.OutlineVisible;
+        outline.OutlineColor = Color.yellow;
+        outline.OutlineWidth = 5f;
+        outline.enabled = false;
     }
 
     public void Interact()
     {
         TryPickUp();
     }
+
+    public void OnFocusGained()
+    {
+        outline.enabled = true; // Activamos el Outline cuando el jugador mira el objeto
+    }
+
+    public void OnFocusLost()
+    {
+        outline.enabled = false; // Desactivamos el Outline cuando el jugador deja de mirar el objeto
+    }
+
     public bool TryPickUp()
     {
         if (_pickedUp || itemData == null) return false;
@@ -78,10 +100,10 @@ public class Pickable: MonoBehaviour, IInteractable
         bool added = InventoryManager.Instance.AddItem(itemData, quantity);
 
         if (added)
-        { 
+        {
             Debug.Log($"Recogido {quantity} x {itemData.itemName} x {quantity}");
             if (destroyOnPickUp)
-             Destroy(gameObject);
+                Destroy(gameObject);
         }
     }
 }

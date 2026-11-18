@@ -12,39 +12,39 @@ public class PlayerInteraction : MonoBehaviour
 
         if (currentObject != null && Input.GetKeyDown(KeyCode.E))
         {
-           /* // ===== PICKABLE =====
+            /* // ===== PICKABLE =====
 
-            // se oculta de manera temporal hasta arreglar el inventario y la interaccion con los objetos
+             // se oculta de manera temporal hasta arreglar el inventario y la interaccion con los objetos
 
-            PickAble pickAble = ((MonoBehaviour)currentObject).GetComponent<PickAble>();
+             PickAble pickAble = ((MonoBehaviour)currentObject).GetComponent<PickAble>();
 
-             if (pickAble != null)
-             {
-                 if (pickAble.TryPickUp())
-                 {
-                     InventoryManager.Instance.AddItem(
-                         pickAble.ItemData,
-                         pickAble.Quantity
-                     );
-                 }
+              if (pickAble != null)
+              {
+                  if (pickAble.TryPickUp())
+                  {
+                      InventoryManager.Instance.AddItem(
+                          pickAble.ItemData,
+                          pickAble.Quantity
+                      );
+                  }
 
-                 return;
-             }
-            
-            // ===== FIN PICKABLE =====
-           */
+                  return;
+              }
+
+             // ===== FIN PICKABLE =====
+            */
 
 
 
             // ===== PICKABLE 2 de prueba =====
-           Pickable pickable = ((MonoBehaviour)currentObject).GetComponent<Pickable>();
+            Pickable pickable = ((MonoBehaviour)currentObject).GetComponent<Pickable>();
 
             if (pickable != null)
             {
                 if (pickable.canInteract())
                 {
                     // TODO: Descomentar cuando el nuevo inventario esté listo
-                    
+
                     if (InventoryManager.Instance != null)
                     {
                         InventoryManager.Instance.AddItem(
@@ -64,7 +64,7 @@ public class PlayerInteraction : MonoBehaviour
                 return;
             }
             // ===== FIN PICKABLE 2 de prueba =====
-           
+
 
             if (currentObject.canInteract())
             {
@@ -86,7 +86,7 @@ public class PlayerInteraction : MonoBehaviour
         if (interactable != null && !nearbyObjects.Contains(interactable)) // Si no esta en la lista
         {
             nearbyObjects.Add(interactable); // Agrega a la lista
-            Debug.Log("<color=white>Presiona <color=purple>E</color> para interactuar</color>");
+            interactable.OnFocusGained(); // Resalta el objeto
         }
     }
 
@@ -97,6 +97,7 @@ public class PlayerInteraction : MonoBehaviour
         if (interactable != null)
         {
             nearbyObjects.Remove(interactable); // Quita de la lista
+            interactable.OnFocusLost(); // Desresalta el objeto
         }
     }
 
