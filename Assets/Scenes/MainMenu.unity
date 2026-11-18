@@ -3552,8 +3552,8 @@ MonoBehaviour:
   playerHealth: {fileID: 0}
   creditosPanel: {fileID: 1003861208}
   opcionesPanel: {fileID: 1902009101}
-  missionText: {fileID: 0}
-  missionManager: {fileID: 0}
+  gunController: {fileID: 0}
+  ammoText: {fileID: 0}
 --- !u!1 &1484801090
 GameObject:
   m_ObjectHideFlags: 0
@@ -3801,13 +3801,12 @@ MonoBehaviour:
   gameplayMusic: {fileID: 8300000, guid: fd46ff8f57afe3849827380701c52980, type: 3}
   victoryMusic: {fileID: 8300000, guid: 5ad3965b2300231478aa0dc2846dff82, type: 3}
   gameOverMusic: {fileID: 8300000, guid: 4dbbd7b9042c31240babb4d345bc121a, type: 3}
+  shopMusic: {fileID: 8300000, guid: 0de57fba91c1498428cb9433e6dcedb1, type: 3}
   jumpClip: {fileID: 8300000, guid: 0f22d1e9856aa08438e11ab49c9c0a2b, type: 3}
   shootClip: {fileID: 8300000, guid: 2a4fccd867fa01548ac2749f9bd3f719, type: 3}
   reloadClip: {fileID: 8300000, guid: 55d0b609668c5c24a8d4bb2e2981af7b, type: 3}
-  impactClip: {fileID: 0}
   pickupClip: {fileID: 8300000, guid: 5cf52fe12f4942e428e49333a3cb9ae8, type: 3}
   clickClip: {fileID: 8300000, guid: e468faa5cb45220418322bf7000a1cd7, type: 3}
-  doorClip: {fileID: 0}
   hurtClip: {fileID: 8300000, guid: d66b61e7d12e51641bc3425eb442fe17, type: 3}
   footstepClips:
   - {fileID: 8300000, guid: 56621d9e2d78b184581d257e29905509, type: 3}

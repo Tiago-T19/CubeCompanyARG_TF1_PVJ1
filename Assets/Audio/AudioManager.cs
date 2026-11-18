@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -20,15 +21,14 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip gameplayMusic;
     [SerializeField] private AudioClip victoryMusic;
     [SerializeField] private AudioClip gameOverMusic;
+    [SerializeField] private AudioClip shopMusic;
 
     [Header("SFX - Genericos")]
     [SerializeField] private AudioClip jumpClip;
     [SerializeField] private AudioClip shootClip;
     [SerializeField] private AudioClip reloadClip;
-    [SerializeField] private AudioClip impactClip;
     [SerializeField] private AudioClip pickupClip;
     [SerializeField] private AudioClip clickClip;
-    [SerializeField] private AudioClip doorClip;
     [SerializeField] private AudioClip hurtClip;
 
     [Header("SFX - Pasos en asfalto")]
@@ -41,6 +41,7 @@ public class AudioManager : MonoBehaviour
 
     private GameState musicaActual = (GameState)(-1);
     private bool suscrito = false;
+    private bool enTienda = false;
 
     void Awake()
     {
@@ -59,7 +60,12 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    void OnEnable() { Suscribirse(); }
+    void OnEnable()
+    {
+        Suscribirse();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
+    }
 
     void OnDisable()
     {
@@ -68,6 +74,8 @@ public class AudioManager : MonoBehaviour
             GameManager.Instance.OnChangeState -= CambiarMusicaSegunEstado;
             suscrito = false;
         }
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneUnloaded -= OnSceneUnloaded;
     }
 
     void Start()
@@ -86,11 +94,52 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    // --- TIENDA ---
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "Tienda")
+        {
+            ReproducirMusicaTienda();
+        }
+    }
+
+    private void OnSceneUnloaded(Scene scene)
+    {
+        // Cuando se descarga Tienda volvemos a la musica de Level1
+        if (scene.name == "Tienda")
+        {
+            enTienda = false;
+            ReproducirMusicaGameplay();
+        }
+    }
+
+    private void ReproducirMusicaTienda()
+    {
+        if (musicSource == null || shopMusic == null) return;
+        enTienda = true;
+        if (musicSource.clip == shopMusic && musicSource.isPlaying) return;
+        musicSource.Stop();
+        musicaActual = GameState.Playing;
+        musicSource.clip = shopMusic;
+        musicSource.loop = true;
+        musicSource.Play();
+    }
+
+    private void ReproducirMusicaGameplay()
+    {
+        if (musicSource == null || gameplayMusic == null) return;
+        musicSource.Stop();
+        musicaActual = GameState.Playing;
+        musicSource.clip = gameplayMusic;
+        musicSource.loop = true;
+        musicSource.Play();
+    }
+
     private void CambiarMusicaSegunEstado(GameState estado)
     {
         if (musicSource == null) return;
+        if (enTienda) return;
 
-        // Pausa: no cambia de clip, solo pausa
         if (estado == GameState.Paused)
         {
             if (musicSource.isPlaying) musicSource.Pause();
@@ -98,7 +147,6 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        // Volver de pausa: seguir la misma musica sin reiniciar
         if (estado == GameState.Playing && musicaActual == GameState.Paused)
         {
             musicSource.UnPause();
@@ -130,10 +178,8 @@ public class AudioManager : MonoBehaviour
     public void PlayJump() => PlaySFX(jumpClip);
     public void PlayShoot() => PlaySFX(shootClip);
     public void PlayReload() => PlaySFX(reloadClip);
-    public void PlayImpact() => PlaySFX(impactClip);
     public void PlayPickup() => PlaySFX(pickupClip);
     public void PlayClick() => PlaySFX(clickClip);
-    public void PlayDoor() => PlaySFX(doorClip);
     public void PlayHurt() => PlaySFX(hurtClip);
 
     public void PlayFootstep()
