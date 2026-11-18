@@ -83,24 +83,43 @@ public class MissionUI : MonoBehaviour
                 UpdateObjective("");
                 break;
 
+            case MissionLvl1.MissionStep.CollectData:
+                UpdateObjective("<b>Recolecta los cinco datos por la ciudad</b>");
+
+                if (progressText != null)
+                {
+                    progressText.gameObject.SetActive(true);
+
+                    if (missionManager != null)
+                    {
+                        UpdateMissionProgress(missionManager.RecoveredObjects, missionManager.TotalMissionObjects);
+                    }
+                }
+
+                break;
+
+            case MissionLvl1.MissionStep.ReachMaze:
+                UpdateObjective("<b>Encuentra el laberinto</b>");
+                if (progressText != null)
+                    progressText.gameObject.SetActive(false);
+                break;
+
             case MissionLvl1.MissionStep.FindPassword:
-                UpdateObjective("<b>(1) Encuentra una forma de pasar (1234)</b>");
+                UpdateObjective("<b>Encuentra la forma de entrar al laberinto</b>");
+                if (progressText != null)
+                    progressText.gameObject.SetActive(false);
                 break;
 
-            case MissionLvl1.MissionStep.ReachHospital:
-                UpdateObjective("<b>(2) Dirígete al hospital</b>");
-                break;
-
-            case MissionLvl1.MissionStep.RestorePower:
-                UpdateObjective("<b>(3) Encuentra la forma de entrar al hospital</b>");
-                break;
-
-            case MissionLvl1.MissionStep.EnterHospital:
-                UpdateObjective("<b>(4) Entra al hospital</b>");
+            case MissionLvl1.MissionStep.EnterMaze:
+                UpdateObjective("<b>Entra al laberinto</b>");
+                if (progressText != null)
+                    progressText.gameObject.SetActive(false);
                 break;
 
             case MissionLvl1.MissionStep.Completed:
                 UpdateObjective("<b>¡Nivel completado!</b>");
+                if (progressText != null)
+                    progressText.gameObject.SetActive(false);
                 break;
         }
     }
@@ -113,21 +132,9 @@ public class MissionUI : MonoBehaviour
                 UpdateObjective("");
                 break;
 
-            case MissionLvl2.MissionStep.CollectData:
-                UpdateObjective("<b>(1) Recolecta los cinco datos</b>");
-                if (progressText != null)
-                {
-                    progressText.gameObject.SetActive(true);
-
-                    if (missionManager != null)
-                    {
-                        UpdateMissionProgress(missionManager.RecoveredObjects, missionManager.TotalMissionObjects);
-                    }
-                }
-                break;
-
             case MissionLvl2.MissionStep.FindVirus:
-                UpdateObjective("<b>(2) Encuentra el frasco del virus</b>");
+                UpdateObjective("<b>Encuentra el frasco del virus</b>");
+
                 if (progressText != null)
                 {
                     progressText.gameObject.SetActive(true);
@@ -137,10 +144,23 @@ public class MissionUI : MonoBehaviour
                         UpdateVirusProgress(virusObject.RecoveredObjects, virusObject.TotalVirusObjects);
                     }
                 }
+
                 break;
 
-            case MissionLvl2.MissionStep.ExitHospital:
-                UpdateObjective("<b>(3) Encuentra la salida del hospital</b>");
+            case MissionLvl2.MissionStep.RestorePower:
+                UpdateObjective("<b>Restaura la energia</b>");
+                if (progressText != null)
+                    progressText.gameObject.SetActive(false);
+                break;
+
+            case MissionLvl2.MissionStep.ExitMaze:
+                UpdateObjective("<b>Sal del laberinto</b>");
+                if (progressText != null)
+                    progressText.gameObject.SetActive(false);
+                break;
+
+            case MissionLvl2.MissionStep.EscapeCity:
+                UpdateObjective("<b>Escapa</b>");
                 if (progressText != null)
                     progressText.gameObject.SetActive(false);
                 break;
@@ -183,10 +203,20 @@ public class MissionUI : MonoBehaviour
 
     private IEnumerator RutinaCartel()
     {
-        grupoPanel.alpha = 1f;
-        yield return new WaitForSeconds(segundosVisible);
+        grupoPanel.alpha = 0f;
 
         float t = 0f;
+        while (t < duracionFundido)
+        {
+            t += Time.deltaTime;
+            grupoPanel.alpha = Mathf.Lerp(0f, 1f, t / duracionFundido);
+            yield return null;
+        }
+        grupoPanel.alpha = 1f;
+
+        yield return new WaitForSeconds(segundosVisible);
+
+        t = 0f;
         while (t < duracionFundido)
         {
             t += Time.deltaTime;
