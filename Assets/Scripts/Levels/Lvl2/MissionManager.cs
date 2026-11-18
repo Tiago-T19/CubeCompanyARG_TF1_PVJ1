@@ -7,16 +7,11 @@ public class MissionManager : MonoBehaviour
 
     private int recoveredObjects; // Objetos recogidos
     public int RecoveredObjects => recoveredObjects;
-   // private int deliveredObjects; // Objetos entregados
-   // public int DeliveredObjects => deliveredObjects;
-   // public int PendingObjects => recoveredObjects - deliveredObjects;
     public int TotalMissionObjects => totalMissionObjects;
 
     // Evento para el HUD: avisa (recogidos, total) cada vez que cambia
     public event Action<int, int> OnMissionProgressChanged;
 
-    // AllObjectsDelivered sera TRUE cuando la cantidad de objetos entregados sea mayor o igual al total requerido
-   // public bool AllObjectsDelivered => deliveredObjects >= totalMissionObjects;
     public static event Action OnAllObjectsCollected;
 
     private void OnEnable()
@@ -63,20 +58,4 @@ public class MissionManager : MonoBehaviour
     {
         Debug.Log($"<color=purple><b>Objetos: <color=white>{recoveredObjects}/{totalMissionObjects}</color></b></color>");
     }
-
-    /*
-    public void DeliverObjects()
-    {
-        if (PendingObjects <= 0) return;
-
-        deliveredObjects = recoveredObjects; // Registra la entrega
-
-        Debug.Log($"<color=green>Objetos entregados: <color=white>{deliveredObjects}/{totalMissionObjects}</color></color>");
-
-        if (AllObjectsDelivered)
-        {
-            Debug.Log("<color=green>Mision completada</color>");
-        }
-    }
-    */
 }
