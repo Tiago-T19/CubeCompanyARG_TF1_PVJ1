@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class GunController : MonoBehaviour
 
@@ -7,14 +8,21 @@ public class GunController : MonoBehaviour
     public float range = 100f;
     [SerializeField] private LayerMask enemyLayer;
     public int maxAmmo = 30;
+    public int MaxAmmo => maxAmmo;
     private int currentAmmo;
+    public int CurrentAmmo => currentAmmo;
 
     private Camera cam;
+
+    public event Action<int, int> OnAmmoProgressChanged;
 
     private void Start()
     {
         currentAmmo = maxAmmo;
         cam = Camera.main;
+
+        // Avisa el estado inicial
+        OnAmmoProgressChanged?.Invoke(currentAmmo, maxAmmo);
     }
 
     private void Update()
@@ -39,6 +47,10 @@ public class GunController : MonoBehaviour
         }
 
         currentAmmo--;
+
+        // Avisa al HUD
+        OnAmmoProgressChanged?.Invoke(currentAmmo, maxAmmo);
+
         if (AudioManager.Instance != null) AudioManager.Instance.PlayShoot();
 
         Debug.Log("Disparo. Balas: " + currentAmmo);
@@ -68,6 +80,9 @@ public class GunController : MonoBehaviour
     {
         if (AudioManager.Instance != null) AudioManager.Instance.PlayReload();
         currentAmmo = maxAmmo;
+
+        // Avisa al HUD
+        OnAmmoProgressChanged?.Invoke(currentAmmo, maxAmmo);
 
         Debug.Log("Recargando...");
     }

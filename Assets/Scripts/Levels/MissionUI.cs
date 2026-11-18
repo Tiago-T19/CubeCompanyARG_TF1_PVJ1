@@ -231,7 +231,7 @@ public class MissionUI : MonoBehaviour
     {
         if (progressText == null) return;
 
-        progressText.text = $"Datos: {recovered}/{total}";
+        progressText.text = $"Datos: {recovered} / {total}";
         MostrarTemporal(); // al juntar un dato vuelve a aparecer un rato
     }
 
@@ -239,7 +239,7 @@ public class MissionUI : MonoBehaviour
     {
         if (progressText == null) return;
 
-        progressText.text = $"Frascos: {recovered}/{total}";
+        progressText.text = $"Frascos: {recovered} / {total}";
         MostrarTemporal();
     }
 }
