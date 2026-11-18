@@ -33205,7 +33205,7 @@ MonoBehaviour:
   playerHealth: {fileID: 1289446277}
   creditosPanel: {fileID: 0}
   opcionesPanel: {fileID: 180252501}
-  gunController: {fileID: 2101122572}
+  gunController: {fileID: 5531305967927558433}
   ammoText: {fileID: 290999099}
 --- !u!4 &960103844
 Transform:
@@ -33261,6 +33261,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 38883795}
     m_Modifications:
+    - target: {fileID: 350363562550552230, guid: 49e50de4c7be9844084f78e312b63d65, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 350363562550552230, guid: 49e50de4c7be9844084f78e312b63d65, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 2841705529721071516, guid: 49e50de4c7be9844084f78e312b63d65, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.437977
@@ -84871,17 +84879,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2841705529721071516, guid: 49e50de4c7be9844084f78e312b63d65, type: 3}
   m_PrefabInstance: {fileID: 964876839}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2101122572 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 350363562550552230, guid: 49e50de4c7be9844084f78e312b63d65, type: 3}
-  m_PrefabInstance: {fileID: 964876839}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd83500ac13630e4aa2b8c55c3c99e3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GunController
 --- !u!1001 &2102507966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85449,8 +85446,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   target_p: {fileID: 5154640065898634149}
-  distance: 5
-  Offset: {x: 0, y: 1.5, z: 0}
+  distance: 4
+  Offset: {x: -1, y: 1.5, z: 0}
   sensitivityX: 4
   sensitivityY: 4
   minYAngle: -20
@@ -93600,6 +93597,8 @@ GameObject:
   - component: {fileID: 1289446276}
   - component: {fileID: 1289446275}
   - component: {fileID: 1289446281}
+  - component: {fileID: 5531305967927558433}
+  - component: {fileID: 5531305967927558434}
   - component: {fileID: 5531305967927558432}
   m_Layer: 6
   m_Name: Player
@@ -94180,6 +94179,40 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 2.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5531305967927558433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5154640065898634149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd83500ac13630e4aa2b8c55c3c99e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GunController
+  damage: 15
+  range: 100
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  maxAmmo: 30
+--- !u!114 &5531305967927558434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5154640065898634149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbccdfed8c8e93349b1fe471be14ed7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AimOutline
+  range: 100
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!4 &5601697111627066751
 Transform:
   m_ObjectHideFlags: 0

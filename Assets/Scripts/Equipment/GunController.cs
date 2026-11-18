@@ -4,7 +4,7 @@ using System;
 public class GunController : MonoBehaviour
 
 {
-    public float damage = 15f;
+    public float damage = 50f;
     public float range = 100f;
     [SerializeField] private LayerMask enemyLayer;
     public int maxAmmo = 30;
@@ -66,8 +66,7 @@ public class GunController : MonoBehaviour
         {
             Debug.Log("Impactó en " + hit.collider.name);
 
-            HealthSystem health =
-            hit.collider.GetComponent<HealthSystem>();
+            HealthSystem health = hit.collider.GetComponentInParent<HealthSystem>();
 
             if (health != null)
             {

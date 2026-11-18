@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private GameObject target_p;
-    [SerializeField] private float distance = 5.0f;
+    [SerializeField] private float distance = 4.0f;
     [SerializeField] private Vector3 Offset = new Vector3(0, 1.5f, 0);
     [SerializeField] private float sensitivityX = 4.0f;
     [SerializeField] private float sensitivityY = 2.0f;
