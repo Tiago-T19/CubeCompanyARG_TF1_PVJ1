@@ -17,11 +17,6 @@ public class MissionObject : MonoBehaviour
 
         OnMissionObjectCollected?.Invoke(); // Avisamos que se recogio un objeto
 
-        /*  if (ScoreManager.Instance != null)
-          {
-              ScoreManager.Instance.AddPoints(points); // Suma los puntos
-          } */
-
         if (GameManager.Instance != null)
         {
             GameManager.Instance.AddPuntos(points); // Suma los puntos

@@ -34,9 +34,9 @@ public class VirusObject : MonoBehaviour
         OnVirusProgressChanged?.Invoke(recoveredObjects, totalVirusObjects);
 
 
-        if (ScoreManager.Instance != null)
+        if (GameManager.Instance != null)
         {
-            ScoreManager.Instance.AddPoints(points); // Suma los puntos
+            GameManager.Instance.AddPuntos(points); // Suma los puntos
         }
 
         Destroy(gameObject); // Eliminamos el objeto del escenario
