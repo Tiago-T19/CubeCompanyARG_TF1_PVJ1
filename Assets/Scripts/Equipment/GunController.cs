@@ -2,8 +2,12 @@ using UnityEngine;
 using System;
 
 public class GunController : MonoBehaviour
-
 {
+    [Header("Efecto de impacto")]
+    [SerializeField] private GameObject vfx;
+    [SerializeField] private float vfxDuration = 2f;
+
+    [Header("Características")]
     public float damage = 50f;
     public float range = 100f;
     [SerializeField] private LayerMask enemyLayer;
@@ -65,6 +69,12 @@ public class GunController : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, range, enemyLayer))
         {
             Debug.Log("Impactó en " + hit.collider.name);
+
+            if (vfx != null)
+            {
+                GameObject effect = Instantiate(vfx, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(effect, vfxDuration);
+            }
 
             HealthSystem health = hit.collider.GetComponentInParent<HealthSystem>();
 
