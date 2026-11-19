@@ -59,8 +59,6 @@ public class MissionLvl1 : MonoBehaviour
     {
         if (currentStep != MissionStep.ReachMaze) return;
 
-        Debug.Log("<color=white><b>(3) Busca la forma de entrar al hospital</b></color>");
-
         ChangeStep(MissionStep.FindPassword);
     }
 
@@ -68,15 +66,11 @@ public class MissionLvl1 : MonoBehaviour
     {
         if (currentStep != MissionStep.FindPassword) return;
 
-        Debug.Log("<color=white><b>(4) ¡Se abrio la puerta! Puedes entrar</b></color>");
-
         ChangeStep(MissionStep.EnterMaze);
     }
     public void MazeEntered()
     {
         if (currentStep != MissionStep.EnterMaze) return;
-
-        Debug.Log("<color=green><b>(5) ¡Nivel 1 completado!</b></color>");
 
         ChangeStep(MissionStep.Completed);
     }

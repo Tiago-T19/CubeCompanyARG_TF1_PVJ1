@@ -2,9 +2,13 @@ using UnityEngine;
 using System;
 
 public class GunController : MonoBehaviour
-
 {
-    public float damage = 15f;
+    [Header("Efecto de impacto")]
+    [SerializeField] private GameObject vfx;
+    [SerializeField] private float vfxDuration = 2f;
+
+    [Header("Características")]
+    public float damage = 50f;
     public float range = 100f;
     [SerializeField] private LayerMask enemyLayer;
     public int maxAmmo = 30;
@@ -66,8 +70,13 @@ public class GunController : MonoBehaviour
         {
             Debug.Log("Impactó en " + hit.collider.name);
 
-            HealthSystem health =
-            hit.collider.GetComponent<HealthSystem>();
+            if (vfx != null)
+            {
+                GameObject effect = Instantiate(vfx, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(effect, vfxDuration);
+            }
+
+            HealthSystem health = hit.collider.GetComponentInParent<HealthSystem>();
 
             if (health != null)
             {

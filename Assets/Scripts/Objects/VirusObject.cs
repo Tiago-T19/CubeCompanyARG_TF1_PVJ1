@@ -3,9 +3,13 @@ using System;
 
 public class VirusObject : MonoBehaviour
 {
-    [Header("Virus Object")]
+    [Header("Configuracion")]
     [SerializeField] private int totalVirusObjects = 1; // Total requerido para completar la mision
     [SerializeField] private int points; // Puntos que se suman al recoger
+
+    [Header("Efecto")]
+    [SerializeField] private GameObject vfx; // Efecto visual al recoger el objeto
+    [SerializeField] private float vfxDuration = 3f;
 
     private int recoveredObjects; // Objetos recogidos
     public int RecoveredObjects => recoveredObjects;
@@ -30,15 +34,21 @@ public class VirusObject : MonoBehaviour
 
         recoveredObjects++; // Suma un objeto recogido
 
+        if (vfx != null)
+        {
+            GameObject effect = Instantiate(vfx, transform.position, Quaternion.identity);
+        }
+
         OnVirusObjectCollected?.Invoke(); // Avisamos que se recogio un objeto
         OnVirusProgressChanged?.Invoke(recoveredObjects, totalVirusObjects);
 
 
-        if (ScoreManager.Instance != null)
+        if (GameManager.Instance != null)
         {
-            ScoreManager.Instance.AddPoints(points); // Suma los puntos
+            GameManager.Instance.AddPuntos(points); // Suma los puntos
         }
 
-        Destroy(gameObject); // Eliminamos el objeto del escenario
+        gameObject.SetActive(false);
+        Destroy(gameObject, vfxDuration); // Eliminamos el objeto del escenario
     }
 }

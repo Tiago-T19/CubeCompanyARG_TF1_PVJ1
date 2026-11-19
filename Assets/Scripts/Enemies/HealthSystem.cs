@@ -98,7 +98,7 @@ public class HealthSystem : MonoBehaviour
     {
         if (AudioManager.Instance != null) AudioManager.Instance.PlayZombieDeath(transform);
         OnDeath?.Invoke();
-        int puntos = datosEnemigo != null ? datosEnemigo.puntosAlMorir : 10;
+        int puntos = datosEnemigo != null ? datosEnemigo.puntosAlMorir : 50;
         if (GameManager.Instance) GameManager.Instance.AddPuntos(puntos);
         Destroy(gameObject);
     }

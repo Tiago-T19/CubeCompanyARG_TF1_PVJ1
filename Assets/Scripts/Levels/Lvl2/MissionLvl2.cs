@@ -43,7 +43,6 @@ public class MissionLvl2 : MonoBehaviour
     {
         if (currentStep != MissionStep.NotStarted) return;
 
-        Debug.Log("<color=white><b>(1) Recolecta los cinco datos</b></color>");
         missionPanel.SetActive(true);
 
         ChangeStep(MissionStep.FindVirus);
@@ -53,16 +52,12 @@ public class MissionLvl2 : MonoBehaviour
     {
         if (currentStep != MissionStep.FindVirus) return;
 
-        Debug.Log("<color=white><b>(2) Encuentra el frasco del virus</b></color>");
-
         ChangeStep(MissionStep.RestorePower);
     }
 
     private void PowerRestored()
     {
         if (currentStep != MissionStep.RestorePower) return;
-
-        Debug.Log("<color=white><b>(3) Encuentra la salida del hospital</b></color>");
 
         ChangeStep(MissionStep.ExitMaze);
     }
@@ -71,16 +66,12 @@ public class MissionLvl2 : MonoBehaviour
     {
         if (currentStep != MissionStep.ExitMaze) return;
 
-        Debug.Log("<color=green><b>(4) ¡Nivel 2 completado!</b></color>");
-
         ChangeStep(MissionStep.EscapeCity);
     }
 
     public void EscapeCityReached()
     {
         if (currentStep != MissionStep.EscapeCity) return;
-
-        Debug.Log("<color=green><b>(4) ¡Nivel 2 completado!</b></color>");
 
         ChangeStep(MissionStep.Completed);
     }
