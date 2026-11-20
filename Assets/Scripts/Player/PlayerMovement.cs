@@ -6,9 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] private float speed = 5f;
-
-    // Esta propiedad es la que usa EnemigoEspecial para ralentizar al Player
+    [SerializeField] private float speed = 8f;
     public float Speed
     {
         get { return speed; }
@@ -23,25 +21,51 @@ public class PlayerMovement : MonoBehaviour
         set { isStop = value; }
     }
 
+    [Header("Pasos en asfalto")]
+    [SerializeField] private float footstepInterval = 0.4f;
+    private float footstepTimer = 0f;
+
     private float moveHorizontal;
     private float moveVertical;
     private Rigidbody rb;
     private Animator animator;
 
-    // --- Ralentizacion ---
     private bool estaRalentizado = false;
     private float velocidadBaseGuardada;
     private Coroutine corutinaRalentizacion;
 
     [Header("Raycast Settings")]
     [SerializeField] private bool isGrounded;
-    [SerializeField] private float rayDistance = 2f;
+    [SerializeField] private float rayDistance = 0.2f;
     [SerializeField] private LayerMask groundLayer;
 
-    // Opcional TP3 - descomenta cuando crees el PlayerStats.asset
-    // public PlayerStats stats;
-    // private float SpeedReal => stats != null ? stats.velocidad : speed;
-    // private float JumpReal => stats != null ? stats.fuerzaSalto : jumpForce;
+    // Stats del jugador (ScriptableObject). Si no hay, usa los valores del Inspector.
+    private PlayerStats Stats => GameManager.Instance != null ? GameManager.Instance.Stats : null;
+    private float JumpReal => Stats != null ? Stats.fuerzaSalto : jumpForce;
+    private float velocidadInspector;
+
+    void Awake()
+    {
+        velocidadInspector = speed;
+    }
+
+    // Toma la velocidad del PlayerStats y escucha si se compra una mejora en la tienda
+    void OnEnable()
+    {
+        RestaurarVelocidad();
+        if (Stats != null) Stats.OnStatsChanged += RestaurarVelocidad;
+    }
+
+    void OnDisable()
+    {
+        if (Stats != null) Stats.OnStatsChanged -= RestaurarVelocidad;
+    }
+
+    // Vuelve a la velocidad normal (la usa EnemigoEspecial después de ralentizar)
+    public void RestaurarVelocidad()
+    {
+        speed = Stats != null ? Stats.velocidad : velocidadInspector;
+    }
 
     void Start()
     {
@@ -52,7 +76,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // --- GAME MANAGER ---
         if (GameManager.Instance != null && GameManager.Instance.estadoActual != EstadoJuego.Jugando)
         {
             moveHorizontal = 0;
@@ -73,30 +96,43 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+            rb.AddForce(new Vector3(0, JumpReal, 0), ForceMode.Impulse);
+            if (AudioManager.Instance != null) AudioManager.Instance.PlayJump();
         }
 
         Vector3 horizontalVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
         float currentSpeed = horizontalVelocity.magnitude;
+
+        bool estaMoviendose = Mathf.Abs(moveHorizontal) > 0.1f || Mathf.Abs(moveVertical) > 0.1f;
+        if (isGrounded && estaMoviendose && currentSpeed > 0.5f)
+        {
+            footstepTimer -= Time.deltaTime;
+            if (footstepTimer <= 0f)
+            {
+                if (AudioManager.Instance != null) AudioManager.Instance.PlayFootstep();
+                footstepTimer = footstepInterval;
+            }
+        }
+        else
+        {
+            footstepTimer = 0f;
+        }
 
         UpdateAnimator(currentSpeed);
     }
 
     private void FixedUpdate()
     {
-        // --- GAME MANAGER ---
         if (GameManager.Instance != null && GameManager.Instance.estadoActual != EstadoJuego.Jugando)
         {
             rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
             return;
         }
-
         if (isStop)
         {
             rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
             return;
         }
-
         Vector3 movement = (transform.forward * moveVertical + transform.right * moveHorizontal).normalized;
         rb.linearVelocity = new Vector3(movement.x * speed, rb.linearVelocity.y, movement.z * speed);
     }
@@ -105,7 +141,6 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 origin = transform.position;
         isGrounded = Physics.Raycast(origin, Vector3.down, rayDistance, groundLayer);
-
         Color colorRay = isGrounded ? Color.green : Color.red;
         Debug.DrawRay(origin, Vector3.down * rayDistance, colorRay);
     }
@@ -117,24 +152,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateAnimator(float speedValue)
     {
-        if (animator != null)
-        {
-            animator.SetFloat("Speed", speedValue);
-        }
+        if (animator != null) animator.SetFloat("Speed", speedValue);
     }
 
-    // --- RALENTIZACION: la maneja el Player, no el enemigo ---
+    // Lo usa EnemigoEspecial: no se apila y reinicia el timer si te vuelven a pegar
     public void AplicarRalentizacion(float factor, float duracion)
     {
-        // Si ya estaba lento, NO volvemos a multiplicar.
-        // Solo reiniciamos el timer de 3 segundos.
         if (!estaRalentizado)
         {
             velocidadBaseGuardada = speed;
             speed = velocidadBaseGuardada * factor;
             estaRalentizado = true;
         }
-
         if (corutinaRalentizacion != null) StopCoroutine(corutinaRalentizacion);
         corutinaRalentizacion = StartCoroutine(RutinaRalentizacion(duracion));
     }

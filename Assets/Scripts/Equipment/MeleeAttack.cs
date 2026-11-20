@@ -3,7 +3,7 @@ using UnityEngine;
 public class MeleeAttack : MonoBehaviour
 
 {
-    public float damage = 10f;
+    public float damage = 40f;
     public float range = 2f;
     [SerializeField] private LayerMask enemyLayer;
     private Camera cam;
@@ -34,8 +34,7 @@ public class MeleeAttack : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit, range, enemyLayer))
         {
-            HealthSystem health =
-            hit.collider.GetComponent<HealthSystem>();
+            HealthSystem health = hit.collider.GetComponentInParent<HealthSystem>();
 
             if (health != null)
             {

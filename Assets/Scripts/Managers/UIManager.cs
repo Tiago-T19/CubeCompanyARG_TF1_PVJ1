@@ -13,12 +13,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Slider healthBar;
     [SerializeField] private HealthSystem playerHealth;
     [SerializeField] private GameObject creditosPanel;
+    [SerializeField] private GameObject opcionesPanel;
 
     [Header("Mision - solo Level1")]
-    [SerializeField] private TextMeshProUGUI missionText;
-    [Tooltip("El GameObject que tiene el MissionManager en Level1")]
-    [SerializeField] private MissionManager missionManager;
-
+    [SerializeField] private GunController gunController;
+    [SerializeField] private TextMeshProUGUI ammoText;
     void OnEnable()
     {
         if (GameManager.Instance != null)
@@ -31,10 +30,10 @@ public class UIManager : MonoBehaviour
         if (playerHealth != null) playerHealth.OnChangeHealthPlayer += UpdateHealth;
 
         // Mision: nos suscribimos y pedimos el valor actual para mostrar 0/5 al arrancar
-        if (missionManager != null)
+        if (gunController != null)
         {
-            missionManager.OnMissionProgressChanged += UpdateMissionText;
-            UpdateMissionText(missionManager.RecoveredObjects, missionManager.TotalMissionObjects);
+            gunController.OnAmmoProgressChanged += UpdateAmmoText;
+            UpdateAmmoText(gunController.CurrentAmmo, gunController.MaxAmmo);
         }
     }
 
@@ -47,9 +46,9 @@ public class UIManager : MonoBehaviour
         }
         if (playerHealth != null) playerHealth.OnChangeHealthPlayer -= UpdateHealth;
 
-        if (missionManager != null)
+        if (gunController != null)
         {
-            missionManager.OnMissionProgressChanged -= UpdateMissionText;
+            gunController.OnAmmoProgressChanged -= UpdateAmmoText;
         }
     }
 
@@ -58,6 +57,7 @@ public class UIManager : MonoBehaviour
         // Siempre arrancamos con creditos apagado.
         // Asi si volves al menu desde Pausa o GameOver no queda abierto.
         if (creditosPanel) creditosPanel.SetActive(false);
+        if (opcionesPanel) opcionesPanel.SetActive(false);
 
         if (InicioPanel) InicioPanel.SetActive(state == GameState.Start);
         if (HUDPanel) HUDPanel.SetActive(state == GameState.Playing);
@@ -65,17 +65,15 @@ public class UIManager : MonoBehaviour
         if (VictoryPanel) VictoryPanel.SetActive(state == GameState.Victory);
         if (GameOverPanel) GameOverPanel.SetActive(state == GameState.GameOver);
 
-        if (state == GameState.Playing) { Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false; Time.timeScale = 1f; }
-        else { Cursor.lockState = CursorLockMode.None; Cursor.visible = true; if (state != GameState.Start) Time.timeScale = 0f; }
     }
 
-    void UpdatePuntaje(int p) { if (puntajeText) puntajeText.text = "Puntos: " + p.ToString(); }
+    void UpdatePuntaje(int p) { if (puntajeText) puntajeText.text = p.ToString(); }
     void UpdateHealth(float p) { if (healthBar) healthBar.value = p; }
 
-    // --- MISION HUD ---
-    private void UpdateMissionText(int recovered, int total)
+    // --- Balas HUD ---
+    private void UpdateAmmoText(int recovered, int total)
     {
-        if (missionText) missionText.text = $"Objetos: {recovered}/{total}";
+        if (ammoText) ammoText.text = $"{recovered} / {total}";
     }
 
     public void TogglePanel(GameObject panel) { panel.SetActive(!panel.activeSelf); }
@@ -83,6 +81,7 @@ public class UIManager : MonoBehaviour
     // --- CREDITOS: Panel_Inicio - Panel_Creditos ---
     public void MostrarCreditos()
     {
+        if (AudioManager.Instance != null) AudioManager.Instance.PlayClick();
         if (creditosPanel == null)
         {
             Debug.LogWarning("[UIManager] CreditosPanel no asignado.");
@@ -94,7 +93,27 @@ public class UIManager : MonoBehaviour
 
     public void VolverDeCreditos()
     {
+        if (AudioManager.Instance != null) AudioManager.Instance.PlayClick();
         if (creditosPanel) creditosPanel.SetActive(false);
+        if (InicioPanel) InicioPanel.SetActive(true);
+    }
+
+    public void MostrarOpciones()
+    {
+        if (AudioManager.Instance != null) AudioManager.Instance.PlayClick();
+        if (opcionesPanel == null)
+        {
+            Debug.LogWarning("[UIManager] OpcionesPanel no asignado.");
+            return;
+        }
+        if (InicioPanel) InicioPanel.SetActive(false);
+        opcionesPanel.SetActive(true);
+    }
+
+    public void VolverDeOpciones()
+    {
+        if (AudioManager.Instance != null) AudioManager.Instance.PlayClick();
+        if (opcionesPanel) opcionesPanel.SetActive(false);
         if (InicioPanel) InicioPanel.SetActive(true);
     }
 
@@ -102,8 +121,12 @@ public class UIManager : MonoBehaviour
     public void Btn_Creditos() => MostrarCreditos();
     public void Btn_VolverCreditos() => VolverDeCreditos();
 
-    public void Btn_Reanudar() { GameManager.Instance.ReanudarJuego(); }
-    public void Btn_Reiniciar() { GameManager.Instance.ReiniciarNivel(); }
-    public void Btn_MenuPrincipal() { GameManager.Instance.VolverMenu(); }
-    public void Btn_Salir() { GameManager.Instance.SalirDelJuego(); }
+    public void Btn_Opciones() => MostrarOpciones();
+    public void Btn_VolverOpciones() => VolverDeOpciones();
+
+    public void Btn_Reanudar() { if (AudioManager.Instance != null) AudioManager.Instance.PlayClick(); GameManager.Instance.ReanudarJuego(); }
+    public void Btn_Reiniciar() { if (AudioManager.Instance != null) AudioManager.Instance.PlayClick(); GameManager.Instance.ReiniciarNivel(); }
+    public void Btn_MenuPrincipal() { if (AudioManager.Instance != null) AudioManager.Instance.PlayClick(); GameManager.Instance.VolverMenu(); }
+    public void Btn_Salir() { if (AudioManager.Instance != null) AudioManager.Instance.PlayClick(); GameManager.Instance.SalirDelJuego(); }
+
 }

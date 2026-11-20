@@ -1,62 +1,1357 @@
-### Ejemplo de README por sección: 
+# Trabajo Final Integrador
+> Asignatura: Programación de Videojuegos I 
+Carrera: Tecnicatura Universitaria en Diseño Integral de Videojuegos (TUDIVJ) — UNJu |
+Trabajo Final Integrador: Desarrollo de un Vertical Slice 3D/2D en Unity con Arquitectura desacoplada, Sistemas
+de Gameplay, Audio Mixer, UI, Empaquetado y Publicación en itch.io |
+Equipo Docente: Mg. Ing. Ariel Alejandro Vega | Tecn. Kevin Alexis Roman Llampa
+### Grupo: CubeCompanyARG
+| **Integrantes** | **LU** | **UsuarioGithub** | **Rama** | **Rol** |
+|---|---|---|---|---|
+| Carla Dalila Angelo | TUV000563 | AngeloCarla | AngeloCarla | Desarrollador |
+| Sebastian Luciano Martinez | TUV000621 | SebasMartinez07 | SebasMartinez | Desarrollador |
+| Tiago L. Misael Tolaba | TUV000834 | Tiago-T19 | TolabaTiago | Desarrollador |
+| Mailen Anaid Castro | TUV000582 | Mailen565 | MailenCastro | Desarrollador |
+| Lucas Joaquin Aldapi | TUV000559 | Readyplayer24 | LucasAldapi | Desarrollador |
 
-1. **Encabezado:** Nombre del proyecto, tus datos personales (Nombre, Apellido, LU) y los datos de la asignatura. 
-2. **Descripción:** Explicación conceptual corta del nivel para que quien revise el repositorio entienda el objetivo del juego sin necesidad de abrir Unity. 
-3. **Tabla de Controles:** Cuadro simple que indica qué teclas se usan y para qué sirven. 
-4. **Capturas de Pantalla:** Capturas de pantalla o un GIF animado mostrando el juego en funcionamiento. 
-5. **Explicación de Codigo:** Detalle de los codigos principales del TP1 (**Invocaciones temporizadas**, **Corrutinas** y **Emparentamiento con `SetParent\`**), incluyendo fragmentos cortos de código en C#.
+___
+## 🛠️ Version de Unity
 
-# `Ejemplo de Estructura de Readme `
+> Unity: Unity 6.3 LTS
+Proyecto: 3D
+Lenguaje: C#
+___
 
-#  Parkour 3D: [Nombre del Proyecto / Juego] 
+## 🎮 Descripcion del Proyecto
+La Última Resistencia Urbana es un videojuego de acción y supervivencia con perspectiva de tercera persona desarrollado bajo una estética LowPoly. Ambientado en una ciudad asolada por una crisis urbana y el colapso total, el jugador asume el rol de un sobreviviente que debe gestionar sus recursos, abrirse paso a través de sectores bloqueados y asegurar zonas estratégicas clave, como el distrito policial y los accesos principales del territorio.
+___
+## 🕹️ Controles del Jugador
+| Accion | Tecla/Boton | Descripcion|
+|-----|-----------|--------|
+| **Movimiento** | `W` , `A` , `S` , `D` / `Flechas` | Mueve al personaje por el escenario |
+| **Saltar** | `ESPACIO` | Saltar por el mapa |
+| **Interactuar** | `E` / Contacto con zona (`Trigger`) | Interactua con objetos y recolecta |
+| **Ver Mision** | `Q` | permite ver el estado de los objetos de mision si fueron recogidos o no |
+| **Inventario** | `TAB` | Interactua con objetos y recolecta |
+| **Disparar/Atacar** | `CLICK IZQUIERDO` | Disapara y ataca  |
+| **Usar consumible** | `CLICK DERECHO` | Permite usar el botiquin  |
 
-> **Asignatura:** Programación de Videojuegos I 
-> **Carrera:** Tecnicatura Universitaria en Diseño Integral de Videojuegos (TUDIVJ) — UNJu 
-> **Trabajo Práctico N° 1:** Entorno Interactivo 3D, Temporizadores y Git/GitHub 
-> **Estudiante:** [Nombre y Apellido] 
-> **LU:** [Tu Número de LU] 
->**Equipo Docente:** Mg. Ing. Ariel Alejandro Vega | Tecn. Kevin Alexis Roman Llampa 
---- 
-## 🎮 Descripción del Proyecto  
 
-<!-- 
-Párrafo breve (3 a 5 líneas) explicando de qué trata tu nivel de juego.
-Ejemplo: "En este proyecto el jugador debe recorrer un circuito de plataformas en espacio abierto, esquivando trampas temporizadas y generadores de obstáculos. El objetivo final es encontrar el objeto clave, transportarlo hasta la zona de Meta y activar el pedestal de victoria."
--->
+___
+## ⚙️ Mecanicas
+### 1. Interaccion del jugador
+- **Encargado:** Carla Angelo
 
-[Escribe aquí la descripción de tu juego] 
+    El jugador puede interactuar con los objetos del entorno al acercarse a ellos y presionar la tecla `E`. Para ello, los objetos deben tener el componente `Interactable.cs`, que implementa la interfaz `IInteractable`, y contar con un script que defina la accion que realizaran
 
-Algo
-dos
---- 
+    Esta mecanica permite recoger los objetos principales necesarios para completar la mision, y realizar otras interacciones con elementos del escenario
 
-## 🕹️ Controles del Jugador 
-| Acción | Tecla / Botón | Descripción | 
-| :--- | :--- | :--- | 
-| **Movimiento** | `W`, `A`, `S`, `D` / Flechas | Mover al personaje por el escenario | 
-| **Salto** | `Espacio` | Saltar entre plataformas | 
-| **Interactuar / Recolectar** | `E` / Contacto con zona(`Trigger`) | Recolectar el objeto clave o activar Power-Up | 
+    Ademas, se incorpora un efecto de contorno `(QuickOutline)` para destacar visualmente los objetos cuando el jugador puede interactuar con ellos
 
---- 
-## 📸 Capturas de Pantalla  
+### 2. Niveles
+- **Encargado:** Carla Angelo
 
-<!-- 
-Inserta 1 o 2 imágenes o GIFs animados del juego en ejecución.
-Puedes colocar la imagen dentro de tu carpeta del proyecto (ej: Assets/Documentation/demo.gif)
-o subirla a GitHub y pegar la ruta aquí.
---> 
-![Vista General del Nivel Parkour 3D](ruta/a/tu/imagen\_o\_gif.gif) 
+   Se desarrollo un sistema de misiones independiente para cada nivel, utilizando estados `(enum)` para controlar el progreso y los objetivos que debe completar el jugador
 
---- 
-## 📝 Explicación Técnica de Codigo: 
-<!-- Explica los scripts  detallando su nombre, el funcionamiento brevemente y un fragmento qque destaque o resalte del script -->  
+    Nivel 1:
+    - Recolectar los cinco objetos con datos
+    - Llegar hasta el laberinto
+    - Encontrar la contraseña para abrir la puerta
+    - Entrar al laberinto y completar el nivel
 
-### 1. Invocaciones Temporizadas (`InvokeRepeating`)
+    Nivel 2:
+    - Encontrar el frasco del virus
+    - Minijuego de colores
+    - Encontrar la salida del laberinto
+    - Escapar de la ciudad
 
-* **Script principal:** `[NombreDelScript.cs]` 
-* **Funcionamiento:** Ejemplo: Se utilizó `InvokeRepeating` para instanciar proyectiles cada 2 segundos desde un punto fijo en el techo. 
-```csharp 
-// Fragmento destacado del script: 
-private void Start() {
- InvokeRepeating(nameof(SpawnObstaculo), tiempoInicial, intervaloRepeticion); 
+    La comunicacion entre los distintos componentes se realiza mediante eventos `(Action)`, que permiten actualizar el estado de la mision cuando el jugador completa una actividad. Tambien se incorporo un panel de mision, para mostrar en pantalla, los objetivos y el progreso de las misiones
+
+### 3. Minijuegos
+- **Encargado:** Carla Angelo
+
+    Se desarrollaron dos minijuegos que forman parte del progreso de las misiones:  
+    
+    Minijuego de contraseña:
+    - Permite ingresar una contraseña mediante un campo de texto
+    - Comprueba si la contraseña ingresada coincide con la correcta
+    - Si la respuesta es valida, se abre el acceso correspondiente y se notifica la finalizacion del desafio
+
+    Minijuego de conexion de colores:
+    - Presenta cuatro colores en ambos lados (botones)
+    - El orden de los colores de un lado se mezcla aleatoriamente
+    - El jugador debe seleccionar las conexiones correspondientes
+    - Al completar todas las parejas correctamente, se notifica la finalizacion del minijuego
+
+    Durante ambos desafios se bloquea el movimiento del jugador y se desactiva temporalmente el seguimiento de la camara para facilitar la interaccion con la interfaz
+   
+### 4. Sistema de inventario
+- **Encargado:** Tolaba Tiago
+
+El jugador cuenta con un inventario de acceso rápido de 3 espacios (slots) que le permite equipar y alternar dinámicamente entre su armamento (como un rifle M4 y un cuchillo) y objetos consumibles.
+
+Los botiquines de curación distribuidos por el mapa pueden recogerse e interactuar con este sistema, permitiendo al jugador acumular múltiples unidades para gestionar su salud de manera estratégica durante la partida.
+
+
+### 5. Sistema de equipamiento
+- **Encargado:** Tolaba Tiago
+
+El jugador tiene un sistema de equipamiento que  se encarga de administrar los recursos que tienen equipados en el inventario para que puedan usarse,  puede cambiar el objeto equipado con la "Rueda del Raton", se usara un contorno blanco para demostrar el item escogido.
+
+### 6. Sistema de Raycast para las armas
+- **Encargado:** Tolaba Tiago
+
+El Jugador Este sistema se encarga de crear un rayo para el arma M4 que le permite guiar el trayecto de la bala y impactar con los enemigos y tambien permite guiar el uso del cuchillo.
+
+### 7. Inteligencia Artificial y Enemigos (NavMesh)
+- **Encargado:** Martinez Sebastian
+
+   Los enemigos (zombies) utilizan el sistema de navegación NavMesh de Unity para desplazarse por el escenario de forma inteligente. Este sistema les permite detectar la posición actual del jugador y calcular la ruta más corta para perseguirlo.
+
+   La IA es capaz de evadir obstáculos y paredes del entorno dinámicamente durante la persecución, obligando al jugador a mantenerse en movimiento constante para sobrevivir.
+
+### 8. Sistema de Salud (Health System)
+- **Encargado:** Martinez Sebastian
+
+   Gestiona los puntos de vida tanto del jugador como de los enemigos. Las entidades reciben daño al ser atacadas (por ataques de zombies o disparos del jugador) y sus estadísticas de vida disminuyen en tiempo real.
+
+   En el caso del jugador, este sistema se comunica directamente con el inventario para poder restaurar puntos de salud utilizando botiquines. Si la salud de cualquier entidad llega a cero, se desencadena su destrucción o el estado de derrota.
+
+### 9. Gestor de la Partida (GameManager)
+- **Encargado:** Martinez Sebastian
+
+   Actúa como el núcleo de control del flujo del juego. Es el script central responsable de administrar los estados de la partida, controlando cuándo el juego está en curso, en pausa, o cuando se llega a las pantallas de Victoria y Game Over.
+
+   Además, coordina los eventos globales entre los demás scripts, validando si se cumplieron los requisitos de la misión para habilitar el nivel 2 y gestionando la transición de escenas.
+
+
+## 📝 Explicacion Tecnica de Codigo:
+### 1. Niveles
+- **Encargado:** Carla Angelo
+- **Scripts principales:** `MissionLvl1.cs` y `MissionLvl2.cs`
+- **Funcionamiento:** Scripts que manejan el progreso de ambos niveles
+
+### MissionLvl1.cs
+```csharp
+    public enum MissionStep // Flujo de la mision
+    {
+        NotStarted, // La mision aun no empieza
+        CollectData, // Recolectar los datos (MissionObject)
+        ReachMaze, // Seguir camino al laberinto
+        FindPassword, // Encontrar la contraseña para abrir la puerta (PasswordDoor)
+        EnterMaze, // Entrar al laberinto
+        Completed // Nivel 1 completado
+    }
+
+    public void StartMission()
+    {
+        if (currentStep != MissionStep.NotStarted) return;
+
+        missionPanel.SetActive(true);
+
+        ChangeStep(MissionStep.CollectData);
+    }
+
+    private void AllDataCollected()
+    {
+        if (currentStep != MissionStep.CollectData) return;
+
+        ChangeStep(MissionStep.ReachMaze);
+    }
+
+    public void MazeEntranceReached()
+    {
+        if (currentStep != MissionStep.ReachMaze) return;
+
+        ChangeStep(MissionStep.FindPassword);
+    }
+
+    private void PasswordAccepted()
+    {
+        if (currentStep != MissionStep.FindPassword) return;
+
+        ChangeStep(MissionStep.EnterMaze);
+    }
+    public void MazeEntered()
+    {
+        if (currentStep != MissionStep.EnterMaze) return;
+
+        ChangeStep(MissionStep.Completed);
+    }
+
+    private void ChangeStep(MissionStep newStep)
+    {
+        currentStep = newStep;
+        OnMissionStepChanged?.Invoke(currentStep);
+    }
+```
+### MissionLvl2.cs
+
+```csharp
+    public enum MissionStep // Flujo de la mision
+    {
+        NotStarted, // La mision aun no empieza
+        FindVirus, // Seguir camino al laberinto (VirusObject)
+        RestorePower, // Minijuego (WirePuzzle)
+        ExitMaze, // Salir del laberinto
+        EscapeCity, // Escapar de la ciudad 
+        Completed // Nivel 2 completado
+    }
+
+    public void StartMission()
+    {
+        if (currentStep != MissionStep.NotStarted) return;
+
+        missionPanel.SetActive(true);
+
+        ChangeStep(MissionStep.FindVirus);
+    }
+
+    private void VirusCollected() //PowerRestored
+    {
+        if (currentStep != MissionStep.FindVirus) return;
+
+        ChangeStep(MissionStep.RestorePower);
+    }
+
+    private void PowerRestored()
+    {
+        if (currentStep != MissionStep.RestorePower) return;
+
+        ChangeStep(MissionStep.ExitMaze);
+    }
+
+    public void MazeExitReached()
+    {
+        if (currentStep != MissionStep.ExitMaze) return;
+
+        ChangeStep(MissionStep.EscapeCity);
+    }
+
+    public void EscapeCityReached()
+    {
+        if (currentStep != MissionStep.EscapeCity) return;
+
+        ChangeStep(MissionStep.Completed);
+    }
+
+    private void ChangeStep(MissionStep newStep)
+    {
+        currentStep = newStep;
+        OnMissionStepChanged?.Invoke(currentStep);
+    }
+```
+
+### 2. Minijuegos
+- **Encargado:** Carla Angelo
+- **Scripts principales:** `PasswordDoor.cs` y `WirePuzzle.cs`
+- **Funcionamiento:** MInijuegos para los niveles
+
+### PasswordDoor.cs
+
+```csharp
+    public void CheckPassword()
+    {
+        // Obtenemos el texto que escribio el jugador
+        string enteredPassword = passwordInput.text;
+
+        // Comprobamos si coincide con la contraseña correcta
+        if (enteredPassword == correctPassword)
+        {
+            Debug.Log("<color=green>¡Contraseña correcta!</color>");
+            OnPasswordCompleted?.Invoke();
+
+            // Aqui puedes agregar la logica para abrir la puerta o realizar cualquier accion
+            door.SetActive(false);
+
+            // Cerramos la interfaz
+            ClosePasswordPanel();
+        }
+        else
+        {
+            // Mostramos el mensaje de error
+            Debug.Log("<color=red>¡Contraseña incorrecta!</color>");
+        }
+    }
+```
+### WirePuzzle.cs
+
+```csharp
+private void InitializePuzzle()
+{
+    // Comprobamos que tengamos cuatro botones por lado
+    if (leftButtons.Length != wireColors.Length || rightButtons.Length != wireColors.Length) return;
+
+    rightColorOrder = new int[wireColors.Length]; // Orden de los colores
+
+    // Asignamos los colores al lado izquierdo
+    for (int i = 0; i < wireColors.Length; i++)
+    {
+        leftButtons[i].image.color = wireColors[i];
+
+        rightColorOrder[i] = i; // Orden de los colores
+
+        int index = i;
+
+        // Detectamos cuando se selecciona un cable izquierdo
+        leftButtons[i].onClick.AddListener(() => SelectLeftWire(index));
+    }
+
+    ShuffleRightWires(); // Mezclamos el orden 
+
+    // Asignamos los colores y eventos al lado derecho
+    for (int i = 0; i < rightButtons.Length; i++)
+    {
+        rightButtons[i].image.color = wireColors[rightColorOrder[i]];
+
+        int index = i;
+
+        rightButtons[i].onClick.AddListener(() => SelectRightWire(index));
+    }
+}
+
+private void SelectLeftWire(int index)
+{
+    // No permite seleccionar un cable ya conectado
+    // interactable indica si el boton puede recibir interacciones
+    if (!leftButtons[index].interactable) return; 
+
+    selectedLeftIndex = index;
+}
+
+private void SelectRightWire(int index)
+{
+    // Primero hay que seleccionar un cable izquierdo
+    if (selectedLeftIndex == -1) return;
+
+    // Comprobamos si los colores coinciden
+    if (rightColorOrder[index] == selectedLeftIndex)
+    {
+        // Deshabilitamos ambos botones
+        leftButtons[selectedLeftIndex].interactable = false;
+        rightButtons[index].interactable = false;
+
+        matchedPairs++;
+
+        Debug.Log("<color=green>¡Cable conectado correctamente!</color>");
+
+        // Comprobamos si se completaron todas las conexiones
+        if (matchedPairs == wireColors.Length)
+        {
+            Debug.Log("<color=green><b>¡Energía restablecida!</b></color>");
+            OnPuzzleCompleted?.Invoke();
+
+            // Aqui puedes agregar la logica para abrir la puerta o realizar cualquier accion
+            door.SetActive(false);
+
+            ClosePuzzle();
+        }
+    }
+    else
+    {
+        Debug.Log("<color=red>Conexión incorrecta</color>");
+    }
+
+    // Limpiamos la selección
+    selectedLeftIndex = -1;
+}
+
+private void ShuffleRightWires()
+{
+    // Mezcla los colores del lado derecho
+    for (int i = rightColorOrder.Length - 1; i > 0; i--)
+    {
+        int randomIndex = UnityEngine.Random.Range(0, i + 1);
+
+        int temp = rightColorOrder[i];
+        rightColorOrder[i] = rightColorOrder[randomIndex];
+        rightColorOrder[randomIndex] = temp;
+    }
+}
+```
+
+### 4. Sistema de inventario
+- **Encargado:** Tolaba Tiago
+- **Scripts principales:** `InventoryManager.cs`, `HotBarUIController.cs`,`InventorySlot.cs`, `InventoryController.cs`, `ItemData.cs` y `PickAble.cs`
+- **Funcionamiento:**Gestiona un inventario de 3 espacios de acceso rápido, se pueden ver con la tecla ` TAB ` . Permite recoger objetos del entorno (como armas y botiquines), alternar su selección usando la rueda del ratón y utilizar consumibles para curar al jugador mediante el clic izquierdo, actualizando la interfaz en tiempo real.
+
+### InventoryManager.cs
+`OnInventoryChanged?.Invoke():` Dispara un evento que avisa a la interfaz (UI) que debe redibujar los iconos, evitando que la UI tenga que revisar el inventario en cada frame.
+
+```csharp
+    private void Update()
+    {
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+
+        // Cambio de slot con la rueda del ratón
+        if (scroll > 0f)
+        {
+            selectedSlot++;
+            if (selectedSlot >= slots.Length) selectedSlot = 0;
+            EquipSelectedItem();
+        }
+        if (scroll < 0f)
+        {
+            selectedSlot--;
+            if (selectedSlot < 0) selectedSlot = slots.Length - 1;
+            EquipSelectedItem();
+        }
+
+        // Uso de consumibles
+        if (Input.GetMouseButtonDown(0))
+        {
+            UseSelectedItem();
+        }
+    }
+
+    public bool AddItem(ItemData itemData, int quantity)
+    {
+        // 1. Busca si el objeto ya existe para acumularlo (stack)
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i] != null && slots[i].itemData == itemData)
+            {
+                slots[i].quantity += quantity;
+                OnInventoryChanged?.Invoke();
+                return true;
+            }
+        }
+
+        // 2. Si no existe, busca un espacio vacío
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i] == null)
+            {
+                slots[i] = new InventorySlot(itemData, quantity);
+                OnInventoryChanged?.Invoke();
+                return true;
+            }
+        }
+        return false; // Inventario lleno
+    }
+
+    private void UseSelectedItem()
+    {
+        if (slots[selectedSlot] == null) return;
+
+        ItemData item = slots[selectedSlot].itemData;
+
+        // Verifica si es consumible y cura al jugador
+        if (item.isConsumable)
+        {
+            HealthSystem player = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>();
+            if (player != null)
+            {
+                player.Heal(item.healAmount);
+            }
+
+            slots[selectedSlot].quantity--;
+            if (slots[selectedSlot].quantity <= 0) slots[selectedSlot] = null;
+            
+            OnInventoryChanged?.Invoke(); // Actualiza la UI
+        }
+    }
+    ```
+
+### HotBarUIController.c 
+Utiliza el sistema de consultas Query del UI Toolkit de Unity para encontrar los elementos de la interfaz por su nombre.+= UpdateUI y -= UpdateUI: Sigue el patrón observador. La interfaz "escucha" cuándo hay un cambio en el inventario para actualizar los iconos solo cuando es necesario, y se desconecta en OnDestroy para prevenir memory leaks osea fugas de memoria.  
+
+```csharp
+ private UIDocument document;
+
+ private Image slot1;
+ private Image slot2;
+ private Image slot3;
+
+ private void Start()
+ {
+     document = GetComponent<UIDocument>();
+
+     VisualElement root = document.rootVisualElement;
+
+     slot1 = root.Q<Image>("slot01");
+     slot2 = root.Q<Image>("slot02");
+     slot3 = root.Q<Image>("slot03");
+
+     Debug.Log("slot01: " + slot1);
+     Debug.Log("slot02: " + slot2);
+     Debug.Log("slot03: " + slot3);
+
+     InventoryManager.Instance.OnInventoryChanged += UpdateUI;
+
+     UpdateUI();
  }
+
+ private void OnDestroy()
+ {
+     if (InventoryManager.Instance != null)
+         InventoryManager.Instance.OnInventoryChanged -= UpdateUI;
+ }
+
+ private void UpdateUI()
+ {
+     if (InventoryManager.Instance == null)
+         return;
+
+     InventorySlot[] slots =
+         InventoryManager.Instance.GetSlots();
+
+     slot1.image = null;
+     slot2.image = null;
+     slot3.image = null;
+
+     if (slots.Length > 0 && slots[0] != null)
+     {
+         slot1.image = slots[0].itemData.icon.texture;
+     }
+
+     if (slots.Length > 1 && slots[1] != null)
+     {
+         slot2.image = slots[1].itemData.icon.texture;
+     }
+
+     if (slots.Length > 2 && slots[2] != null)
+     {
+         slot3.image = slots[2].itemData.icon.texture;
+     }
+ }
+
+```
+
+### InventorySlot.cs`
+Es una clase pura (no hereda de MonoBehaviour), diseñada exclusivamente como una estructura de datos ágil. Actúa como un contenedor que guarda la referencia de qué objeto está ocupando el espacio (itemData) y la cantidad acumulada del mismo (quantity).
+
+```csharp
+public ItemData itemData;
+public int quantity;
+public InventorySlot(ItemData data, int qty)
+{
+    this.itemData = data;
+    this.quantity = qty;
+}
+```
+
+### InventoryController.cs
+Este script se encarga de la experiencia visual y los controles de la interfaz usando UI Toolkit.
+root.style.display: Oculta o muestra el inventario general al presionar la tecla Tab.
+
+UnityCursor.lockState: Es fundamental en juegos 3D (First/Third Person), ya que libera el ratón cuando el inventario está abierto para que el jugador pueda interactuar con la UI, y lo vuelve a bloquear en el centro de la pantalla al cerrarlo.
+
+AddToClassList / RemoveFromClassList: Modifica dinámicamente las clases de estilo (similares a CSS) para crear el efecto visual de "resaltado" sobre el slot que el jugador está seleccionando con la rueda del ratón, separando la lógica del diseño visual.
+
+```csharp
+ private VisualElement root;
+ private bool inventoryOpen = false;
+
+ // Slots visuales
+ private VisualElement slot1;
+ private VisualElement slot2;
+ private VisualElement slot3;
+
+ private int selectedSlot = 0;
+ public int SelectedSlot => selectedSlot;
+
+ private void Start()
+ {
+     root = GetComponent<UIDocument>().rootVisualElement;
+     // Buscamos los contenedores de los slots
+     slot1 = root.Q<VisualElement>("Slot1");
+     slot2 = root.Q<VisualElement>("Slot2");
+     slot3 = root.Q<VisualElement>("Slot3");
+
+     // Resaltamos el primer slot
+     UpdateSelectedVisual();
+
+     root.style.display = DisplayStyle.None;
+
+     UnityCursor.lockState = CursorLockMode.Locked;
+     UnityCursor.visible = false;
+ }
+
+ private void UpdateSelectedVisual()
+ {
+     slot1.RemoveFromClassList("slotSelected");
+     slot2.RemoveFromClassList("slotSelected");
+     slot3.RemoveFromClassList("slotSelected");
+
+     switch (selectedSlot)
+     {
+         case 0:
+             slot1.AddToClassList("slotSelected");
+             break;
+
+         case 1:
+             slot2.AddToClassList("slotSelected");
+             break;
+
+         case 2:
+             slot3.AddToClassList("slotSelected");
+             break;
+     }
+ }
+
+ private void Update()
+ {
+     if (Input.GetKeyDown(KeyCode.Tab))
+     {
+         inventoryOpen = !inventoryOpen;
+
+         root.style.display = inventoryOpen
+             ? DisplayStyle.Flex
+             : DisplayStyle.None;
+
+         if (inventoryOpen)
+         {
+             UnityCursor.lockState = CursorLockMode.None;
+             UnityCursor.visible = true;
+         }
+         else
+         {
+             UnityCursor.lockState = CursorLockMode.Locked;
+             UnityCursor.visible = false;
+         }
+     }
+
+     HandleScrollWheel();
+ }
+
+ private void HandleScrollWheel()
+ {
+     float scroll = Input.GetAxis("Mouse ScrollWheel");
+
+     int maxSlots =
+         InventoryManager.Instance.GetSlots().Length;
+
+     if (scroll > 0f)
+     {
+         selectedSlot--;
+
+         if (selectedSlot < 0)
+             selectedSlot = maxSlots - 1;
+
+         UpdateSelectedVisual();
+
+         Debug.Log("Slot Seleccionado: " + selectedSlot);
+     }
+
+     if (scroll < 0f)
+     {
+         selectedSlot++;
+
+         if (selectedSlot >= maxSlots)
+             selectedSlot = 0;
+
+         UpdateSelectedVisual();
+
+         Debug.Log("Slot Seleccionado: " + selectedSlot);
+     }
+ }
+```
+
+### ItemData.cs
+Al heredar de ScriptableObject permite crear y modificar diferentes tipos de armas o botiquines directamente desde el menú de Unity sin tocar el código.
+
+```csharp
+[CreateAssetMenu(fileName = "ItemData", menuName = "Scriptable Objects/ItemData")]
+public class ItemData : ScriptableObject
+{
+    public string itemID;
+    public string itemName;
+    public Sprite icon;
+    public GameObject prefab;
+    
+    // Propiedades de Consumibles (Ej: Botiquín)
+    public bool isConsumable;
+    public int healAmount;
+}
+```
+
+### PickAble.cs
+Se conecta con el sistema de interacción general (implementando IInteractable). Al presionar la tecla de interacción, el objeto intenta recogerse y se destruye del mundo 3D.
+
+```csharp
+private bool pickedUp = false;
+
+public ItemData ItemData => itemData;
+public int Quantity => quantity;
+
+public bool canInteract()
+{
+    return !pickedUp;
+}
+
+public void Interact()
+{
+    TryPickUp();
+}
+
+public bool TryPickUp()
+{
+    if (pickedUp || itemData == null)
+        return false;
+
+    pickedUp = true;
+
+    if (destroyOnPickUp)
+        Destroy(gameObject);
+
+    return true;
+}
+```
+### 5. Sistema de equipamiento
+- **Encargado:** Tolaba Tiago
+- **Scripts principales:** `EquipmentManager.cs` 
+- **Funcionamiento:** Controla el uso de los items seleccionados para que les permitan atacar, disparar o consumir.
+
+### EquipmentManager.cs
+```csharp
+ public static EquipmentManager Instance;
+
+ public Transform handPoint;
+
+ private GameObject currentObject;
+
+ private void Awake()
+ {
+     Instance = this;
+ }
+
+ public void Equip(ItemData item)
+ {
+     if (currentObject != null)
+     {
+         Destroy(currentObject);
+     }
+
+     if (item.prefab != null)
+     {
+         currentObject = Instantiate(
+             item.prefab,
+             handPoint
+         );
+
+         currentObject.transform.localPosition = Vector3.zero;
+         currentObject.transform.localRotation = Quaternion.identity;
+     }
+ }
+```
+### 6. Sistema de Raycast 
+- **Encargado:** Tolaba Tiago
+- **Scripts principales:** `GunController.cs` y `MeleeAttack.cs`
+- **Funcionamiento:** Controla la mecánica de disparo del arma equipada (como la M4) utilizando la física de Raycast y el ataque a corta distancia con el cuchillo. 
+
+### GunController.cs
+Permite disparar un nuemro de 30 balas para luego poder recargar, cuenta con municion ilimitada
+```csharp
+public float damage = 15f;
+public float range = 100f;
+[SerializeField] private LayerMask enemyLayer;
+public int maxAmmo = 30;
+private int currentAmmo;
+
+private Camera cam;
+
+private void Start()
+{
+    currentAmmo = maxAmmo;
+    cam = Camera.main;
+}
+
+private void Update()
+{
+    if (Input.GetMouseButtonDown(0))
+    {
+        Shoot();
+    }
+
+    if (Input.GetKeyDown(KeyCode.R))
+    {
+        Reload();
+    }
+}
+
+private void Shoot()
+{
+    if (currentAmmo <= 0)
+    {
+        Debug.Log("Sin balas");
+        return;
+    }
+
+    currentAmmo--;
+
+    Debug.Log("Disparo. Balas: " + currentAmmo);
+
+    Ray ray = cam.ScreenPointToRay(
+        new Vector3(
+            Screen.width / 2,
+            Screen.height / 2
+        )
+    );
+
+    if (Physics.Raycast(ray, out RaycastHit hit, range, enemyLayer))
+    {
+        Debug.Log("Impactó en " + hit.collider.name);
+
+        HealthSystem health =
+        hit.collider.GetComponent<HealthSystem>();
+
+        if (health != null)
+        {
+            health.TakeDamage(damage);
+        }
+    }
+}
+
+private void Reload()
+{
+    currentAmmo = maxAmmo;
+
+    Debug.Log("Recargando...");
+}
+```
+
+### MeleeAttack.cs
+
+```csharp
+ public float damage = 10f;
+ public float range = 2f;
+ [SerializeField] private LayerMask enemyLayer;
+ private Camera cam;
+
+ private void Start()
+ {
+     cam = Camera.main;
+ }
+
+ private void Update()
+ {
+     if (Input.GetMouseButtonDown(0))
+     {
+         Attack();
+     }
+ }
+
+ private void Attack()
+ {
+     Debug.Log("Cuchillazo");
+
+     Ray ray = cam.ScreenPointToRay(
+         new Vector3(
+             Screen.width / 2,
+             Screen.height / 2
+         )
+     );
+
+     if (Physics.Raycast(ray, out RaycastHit hit, range, enemyLayer))
+     {
+         HealthSystem health =
+         hit.collider.GetComponent<HealthSystem>();
+
+         if (health != null)
+         {
+             health.TakeDamage(damage);
+         }
+     }
+ }
+```
+
+### 7. Inteligencia Artificial y Enemigos (NavMesh)
+- **Encargado:** Sebastián Luciano Martinez
+- **Scripts principales:** `EnemyIA.cs`.
+- **Funcionamiento:** Utiliza el sistema de NavMesh de Unity para el *pathfinding* (búsqueda de rutas) de los enemigos (zombies). Permite que la IA calcule dinámicamente la ruta más corta hacia la posición del jugador, evadiendo colisiones con paredes y obstáculos del escenario durante la persecución.
+
+
+```csharp
+
+[Header("Asigna el .asset o ScriptableObject de este enemigo")]
+    public EnemyData data;
+
+    public enum AIState { Patrol, Chase, Attack }
+
+    [Header("Estados")]
+    [SerializeField] protected AIState currentState = AIState.Patrol;
+
+    [Header("Patrulla Aleatoria (Random NavMesh)")]
+    [SerializeField] private float patrolRadius = 15f; // Radio maximo desde el origen para buscar puntos al azar
+    [SerializeField] private float waitTimeAtPoint = 2f;
+    private Vector3 startPosition; // Posicion inicial para calcular el radio de patrulla
+    protected bool isWaitingAtPoint;
+
+    protected NavMeshAgent agent;
+    protected Transform playerTransform;
+    protected HealthSystem playerHealth;
+    protected bool isAttacking = false;
+
+    // Lee del .asset si existe
+    protected float SpeedReal => data != null ? data.velocidad : speedFallback;
+    protected float DetectionRadiusReal => data != null ? data.detectionRadius : detectionRadiusFallback;
+    protected float AttackRadiusReal => data != null ? data.attackRadius : attackRadiusFallback;
+    protected float AttackCooldownReal => data != null ? data.attackCooldown : attackCooldownFallback;
+    protected float DamageReal => data != null ? data.danio : damageFallback;
+
+    protected virtual void Awake()
+    {
+        agent = GetComponent<NavMeshAgent>();
+        agent.speed = SpeedReal;
+    }
+
+    protected virtual void Start()
+    {
+        startPosition = transform.position;
+
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
+        {
+            playerTransform = playerObj.transform;
+            playerHealth = playerObj.GetComponent<HealthSystem>();
+
+            if (playerHealth == null)
+            {
+                Debug.LogWarning("El objeto con Tag 'Player' no tiene el componente HealthSystem adjunto.");
+            }
+        }
+        else
+        {
+            Debug.LogError("No hay GameObject con Tag Player para EnemyAI");
+        }
+
+        GoToNextRandomPoint();
+    }
+
+    protected virtual void Update()
+    {
+        if (playerTransform == null || (playerHealth != null && playerHealth.IsDead))
+        {
+            agent.isStopped = true;
+            return;
+        }
+
+        float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+
+        switch (currentState)
+        {
+            case AIState.Patrol:
+                UpdatePatrolState(distanceToPlayer);
+                break;
+            case AIState.Chase:
+                UpdateChaseState(distanceToPlayer);
+                break;
+            case AIState.Attack:
+                UpdateAttackState(distanceToPlayer);
+                break;
+        }
+    }
+
+    protected virtual void UpdatePatrolState(float distanceToPlayer)
+    {
+        agent.isStopped = false;
+
+        if (distanceToPlayer <= DetectionRadiusReal)
+        {
+            currentState = AIState.Chase;
+            return;
+        }
+
+        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+        {
+            if (!isWaitingAtPoint)
+            {
+                StartCoroutine(WaitAndMoveToRandomPoint());
+            }
+        }
+    }
+
+    protected virtual void UpdateChaseState(float distanceToPlayer)
+    {
+        agent.isStopped = false;
+        agent.SetDestination(playerTransform.position);
+
+        if (distanceToPlayer <= AttackRadiusReal)
+        {
+            currentState = AIState.Attack;
+            agent.isStopped = true;
+            return;
+        }
+
+        // Si el jugador se aleja demasiado, vuelve a patrullar de forma aleatoria
+        if (distanceToPlayer > DetectionRadiusReal * 1.2f)
+        {
+            currentState = AIState.Patrol;
+            GoToNextRandomPoint();
+        }
+    }
+
+    protected virtual void UpdateAttackState(float distanceToPlayer)
+    {
+        Vector3 direction = (playerTransform.position - transform.position);
+        direction.y = 0;
+        if (direction != Vector3.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(direction);
+        }
+
+        if (distanceToPlayer > AttackRadiusReal * 1.25f)
+        {
+            currentState = AIState.Chase;
+            agent.isStopped = false;
+            isAttacking = false;
+            StopAllCoroutines();
+            return;
+        }
+
+        if (!isAttacking)
+        {
+            StartCoroutine(AttackCooldownRoutine());
+        }
+    }
+
+    protected virtual void ExecuteAttack()
+    {
+        if (playerHealth == null) return;
+        Debug.Log($"Enemigo {data?.nombre ?? "Comun"} ataca e inflige {DamageReal} de dano!");
+        playerHealth.TakeDamage(DamageReal);
+    }
+
+    protected IEnumerator AttackCooldownRoutine()
+    {
+        isAttacking = true;
+        agent.isStopped = true;
+
+        ExecuteAttack();
+
+        yield return new WaitForSeconds(AttackCooldownReal);
+
+        isAttacking = false;
+
+        if (playerTransform != null && Vector3.Distance(transform.position, playerTransform.position) <= AttackRadiusReal)
+        {
+            agent.isStopped = true;
+        }
+        else
+        {
+            agent.isStopped = false;
+        }
+    }
+
+    protected IEnumerator WaitAndMoveToRandomPoint()
+    {
+        isWaitingAtPoint = true;
+        yield return new WaitForSeconds(waitTimeAtPoint);
+
+        GoToNextRandomPoint();
+
+        isWaitingAtPoint = false;
+    }
+
+    // Metodo que calcula una posicion aleatoria valida dentro del NavMesh
+    protected void GoToNextRandomPoint()
+    {
+        Vector3 randomDirection = Random.insideUnitSphere * patrolRadius;
+        randomDirection += startPosition; 
+
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(randomDirection, out hit, 5f, NavMesh.AllAreas))
+        {
+            agent.SetDestination(hit.position);
+        }
+    }
+
+    protected IEnumerator WaitAndMoveToNextPoint()
+    {
+        yield return StartCoroutine(WaitAndMoveToRandomPoint());
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, DetectionRadiusReal);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, AttackRadiusReal);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(Application.isPlaying ? startPosition : transform.position, patrolRadius);
+    }
+
+```
+
+### 8. Sistema de Salud (Health System)
+- **Encargado:** Sebastián Luciano Martinez
+- **Scripts principales:** `HealthSystem.cs`
+- **Funcionamiento:** Centraliza la gestión de los puntos de vida (HP) de las entidades del juego. Controla la lógica para recibir daño (proveniente de las armas o ataques enemigos), procesa la curación al consumir botiquines desde el inventario, y ejecuta los eventos de muerte o destrucción cuando la vida llega a cero.
+
+
+```csharp
+
+[SerializeField] private EnemyData datosEnemigo; // asset enemigo.
+    [SerializeField] private bool isPlayer = false;
+
+    private float maxHealth;
+    private float currentHealth;
+
+    public float CurrentHealth => currentHealth;
+    public float vidaMax => maxHealth;
+    public bool IsDead => currentHealth <= 0;
+
+    public event Action<float> OnChangeHealthPlayer;
+    public event Action OnDeath;
+
+    void Awake()
+    {
+        maxHealth = datosEnemigo != null ? datosEnemigo.vidaMax : 100f;
+
+        if (isPlayer && GameManager.Instance != null)
+            currentHealth = GameManager.Instance.GetVida();
+        else
+            currentHealth = maxHealth;
+    }
+
+    public void TakeDamage(float dmg)
+    {
+        currentHealth -= dmg;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        Debug.Log($"{gameObject.name} vida: {currentHealth}");
+
+        if (isPlayer)
+        {
+            OnChangeHealthPlayer?.Invoke(currentHealth / maxHealth);
+            if (GameManager.Instance) GameManager.Instance.SetVida(currentHealth);
+            if (currentHealth <= 0) GameManager.Instance.Derrota();
+        }
+        else
+        {
+            if (currentHealth <= 0) Die();
+        }
+    }
+
+    public void Heal(float amount)
+    {
+        currentHealth += amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        if (isPlayer)
+        {
+            OnChangeHealthPlayer?.Invoke(currentHealth / maxHealth);
+            if (GameManager.Instance) GameManager.Instance.SetVida(currentHealth);
+        }
+    }
+
+    void Die()
+    {
+        OnDeath?.Invoke();
+        int puntos = datosEnemigo != null ? datosEnemigo.puntosAlMorir : 10;
+        if (GameManager.Instance) GameManager.Instance.AddPuntos(puntos);
+        Destroy(gameObject);
+    }
+
+```
+
+### 9. Gestor de Partida (GameManager)
+- **Encargado:** Sebastián Luciano Martinez
+- **Scripts principales:** `GameManager.cs`
+- **Funcionamiento:** Actúa como el controlador principal (a menudo implementado como un Singleton) que administra los estados globales del juego. Gestiona el flujo de la partida, controlando la pausa, la carga de la interfaz de *Game Over* al morir el jugador, la pantalla de Victoria, y coordina la transición hacia el nivel 2 al completar los objetivos de la misión.
+
+
+```csharp
+
+public static GameManager Instance;
+
+    [Header("Estado")]
+    public EstadoJuego estadoActual = EstadoJuego.Inicio;
+    public GameState currentState = GameState.Start;
+
+    // Eventos que espera el UIManager
+    public event Action<GameState> OnChangeState;
+    public event Action<int> OnPuntajeCambiado;
+
+    [Header("Datos Persistentes")]
+    public float vidaActual = 100f;
+    public float vidaMax = 100f;
+    public int puntajeAcumulado = 0;
+    public int itemsRecolectados = 0;
+    public bool jefeFinalMuerto = false;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            ResetDatos();
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
+
+    void Start() => CambiarEstado(EstadoJuego.Inicio);
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (estadoActual == EstadoJuego.Jugando) PausarJuego();
+            else if (estadoActual == EstadoJuego.Pausa) ReanudarJuego();
+        }
+    }
+
+    public void CambiarEstado(EstadoJuego nuevo)
+    {
+        estadoActual = nuevo;
+        currentState = (GameState)nuevo;
+        Debug.Log($"[GameManager] Estado cambiado a: {estadoActual}");
+
+        if (nuevo == EstadoJuego.Pausa)
+            Time.timeScale = 0f;
+        else
+            Time.timeScale = 1f;
+
+        if (nuevo == EstadoJuego.Jugando)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
+        OnChangeState?.Invoke(currentState);
+    }
+
+    // --- CAMBIO DE NIVELES CON PANTALLA DE CARGA ---
+    public void IniciarJuego()
+    {
+        ResetDatos();
+        PlayerPrefs.SetString("NextScene", "Level1");
+        SceneManager.LoadScene("PantallaDeCarga");
+        CambiarEstado(EstadoJuego.Jugando);
+    }
+
+    public void EntrarComisaria()
+    {
+        PlayerPrefs.SetString("NextScene", "Level2");
+        SceneManager.LoadScene("PantallaDeCarga");
+        CambiarEstado(EstadoJuego.Jugando);
+    }
+
+    public void CargarNivel2() => EntrarComisaria();
+
+    public void SalirComisaria()
+    {
+        PlayerPrefs.SetString("NextScene", "Level1");
+        SceneManager.LoadScene("PantallaDeCarga");
+        CambiarEstado(EstadoJuego.Jugando);
+    }
+
+    public void VolverMenu()
+    {
+        PlayerPrefs.SetString("NextScene", "MainMenu");
+        SceneManager.LoadScene("PantallaDeCarga");
+        CambiarEstado(EstadoJuego.Inicio);
+    }
+
+    public void ReanudarJuego() => CambiarEstado(EstadoJuego.Jugando);
+    public void PausarJuego() => CambiarEstado(EstadoJuego.Pausa);
+    public void Victoria() => CambiarEstado(EstadoJuego.Victoria);
+    public void Derrota() => CambiarEstado(EstadoJuego.Derrota);
+
+    public void ReiniciarNivel()
+    {
+        Time.timeScale = 1f;
+        ResetDatos();
+        string escenaActual = SceneManager.GetActiveScene().name;
+        PlayerPrefs.SetString("NextScene", escenaActual);
+        SceneManager.LoadScene("PantallaDeCarga");
+        CambiarEstado(EstadoJuego.Jugando);
+    }
+
+    public void SalirDelJuego()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
+
+    // --- DATOS QUE VIAJAN ENTRE NIVELES ---
+    public void ResetDatos()
+    {
+        vidaActual = vidaMax;
+        puntajeAcumulado = 0;
+        itemsRecolectados = 0;
+        jefeFinalMuerto = false;
+        OnPuntajeCambiado?.Invoke(puntajeAcumulado);
+    }
+
+    public void SetVida(float v) { vidaActual = v; }
+    public float GetVida() => vidaActual;
+
+    public void AddPuntos(int p)
+    {
+        puntajeAcumulado += p;
+        OnPuntajeCambiado?.Invoke(puntajeAcumulado);
+    }
+
+    public void MatarJefeFinal()
+    {
+        jefeFinalMuerto = true;
+        Debug.Log("Jefe Final derrotado, ¡ya puedes escapar!");
+    }
+
+    public void AddItem(int c = 1) { itemsRecolectados += c; }
+
+
+```
+___
+
+## 📸 Capturas de Pantalla
+
+### Pantalla de Menu Inicial.
+
+![MenuInicial](Screenshots/MenuInicial.png)
+
+### Inventario con 3 Objetos, M4A1, Cuchillo y MedKit.
+
+![Inventario](Screenshots/Inventario.png)
+
+### 1/5 Objetos para recoger, esparcidos por el mapa.
+
+![Objeto](Screenshots/Objeto.png)
+
+### Puerta que abre cuando juntas 5/5 objetos.
+
+![Puerta](Screenshots/Puerta.png)
+
+### Estadio con JefeFinal y EnemigosComunes
+
+![Estadio](Screenshots/Estadio.png)
+
+### GoalZone con la condición de matar al JefeFinal para lograr escapar.
+
+![GoalZone](Screenshots/GoalZone.png)
+
+### Pantalla de Victoria.
+
+![PantallaDeVictoria](Screenshots/Victoria.png)
+
+### Pantalla de GameOver.
+
+![PantallaGameOver](Screenshots/GameOver.png)
+___
+
+## ▶️ Como abrir y ejecutar el proyecto
+
+1. Descargar o clonar el repositorio desde GitHub.
+2. Abrir Unity Hub.
+3. Abrir el proyecto utilizando **Unity 6.3 LTS**
+4. Abrir la escena principal ubicada en `Assets/Scenes/`
+5. Presionar **Play** para ejecutar el juego
+6. Utilizar los controles indicados en la seccion **Controles del Jugador**
+___
+## 📚 Bibliografia
+- [README.md - Markdown](https://markdown.es)
+- [Material de clase — Programacion de Videojuegos I](https://virtual.unju.edu.ar/course/view.php?id=2520)
+- [Material dado por el profesor Kevin Alexis Roman Llampa](https://github.com/Kivito3d/TP3_PVJ1_2026.git)
+- Apuntes y ejemplos dados durante las clases de Programacion de Videojuegos I

@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     public EstadoJuego estadoActual = EstadoJuego.Inicio;
     public GameState currentState = GameState.Start;
 
-    // Eventos que espera el UIManager
     public event Action<GameState> OnChangeState;
     public event Action<int> OnPuntajeCambiado;
 
@@ -24,12 +23,18 @@ public class GameManager : MonoBehaviour
     public int itemsRecolectados = 0;
     public bool jefeFinalMuerto = false;
 
+    [Header("Stats del jugador (ScriptableObject)")]
+    [Tooltip("Si queda vacío se carga solo desde Resources/PlayerStats")]
+    [SerializeField] private PlayerStats playerStats;
+    public PlayerStats Stats => playerStats;
+
     void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            if (playerStats == null) playerStats = Resources.Load<PlayerStats>("PlayerStats");
             ResetDatos();
         }
         else
@@ -52,11 +57,15 @@ public class GameManager : MonoBehaviour
 
     public void CambiarEstado(EstadoJuego nuevo)
     {
+        // Evita llamar 2 veces al mismo estado (Derrota 3 veces en el mismo frame)
+        if (estadoActual == nuevo && nuevo != EstadoJuego.Inicio) return;
+
         estadoActual = nuevo;
         currentState = (GameState)nuevo;
         Debug.Log($"[GameManager] Estado cambiado a: {estadoActual}");
 
-        if (nuevo == EstadoJuego.Pausa)
+        // Solo GameManager maneja TimeScale y cursor. UIManager ya no lo toca.
+        if (nuevo == EstadoJuego.Pausa || nuevo == EstadoJuego.Derrota || nuevo == EstadoJuego.Victoria)
             Time.timeScale = 0f;
         else
             Time.timeScale = 1f;
@@ -75,7 +84,6 @@ public class GameManager : MonoBehaviour
         OnChangeState?.Invoke(currentState);
     }
 
-    // --- CAMBIO DE NIVELES CON PANTALLA DE CARGA ---
     public void IniciarJuego()
     {
         ResetDatos();
@@ -131,9 +139,14 @@ public class GameManager : MonoBehaviour
 #endif
     }
 
-    // --- DATOS QUE VIAJAN ENTRE NIVELES ---
     public void ResetDatos()
     {
+        // Partida nueva: el PlayerStats vuelve a sus valores base (se pierden las compras)
+        if (playerStats != null)
+        {
+            playerStats.ResetStats();
+            vidaMax = playerStats.vidaMax;
+        }
         vidaActual = vidaMax;
         puntajeAcumulado = 0;
         itemsRecolectados = 0;
@@ -150,10 +163,19 @@ public class GameManager : MonoBehaviour
         OnPuntajeCambiado?.Invoke(puntajeAcumulado);
     }
 
+    // Tienda: descuenta puntos solo si alcanzan
+    public bool GastarPuntos(int cantidad)
+    {
+        if (cantidad < 0 || puntajeAcumulado < cantidad) return false;
+        puntajeAcumulado -= cantidad;
+        OnPuntajeCambiado?.Invoke(puntajeAcumulado);
+        return true;
+    }
+
     public void MatarJefeFinal()
     {
         jefeFinalMuerto = true;
-        Debug.Log("Jefe Final derrotado, ¡ya puedes escapar!");
+        Debug.Log("Jefe Final derrotado, ya puedes escapar!");
     }
 
     public void AddItem(int c = 1) { itemsRecolectados += c; }

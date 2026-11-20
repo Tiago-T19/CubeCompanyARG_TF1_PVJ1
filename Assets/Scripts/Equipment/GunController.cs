@@ -1,20 +1,32 @@
 using UnityEngine;
+using System;
 
 public class GunController : MonoBehaviour
-
 {
-    public float damage = 15f;
+    [Header("Efecto de impacto")]
+    [SerializeField] private GameObject vfx;
+    [SerializeField] private float vfxDuration = 2f;
+
+    [Header("Características")]
+    public float damage = 50f;
     public float range = 100f;
     [SerializeField] private LayerMask enemyLayer;
     public int maxAmmo = 30;
+    public int MaxAmmo => maxAmmo;
     private int currentAmmo;
+    public int CurrentAmmo => currentAmmo;
 
     private Camera cam;
+
+    public event Action<int, int> OnAmmoProgressChanged;
 
     private void Start()
     {
         currentAmmo = maxAmmo;
         cam = Camera.main;
+
+        // Avisa el estado inicial
+        OnAmmoProgressChanged?.Invoke(currentAmmo, maxAmmo);
     }
 
     private void Update()
@@ -40,6 +52,11 @@ public class GunController : MonoBehaviour
 
         currentAmmo--;
 
+        // Avisa al HUD
+        OnAmmoProgressChanged?.Invoke(currentAmmo, maxAmmo);
+
+        if (AudioManager.Instance != null) AudioManager.Instance.PlayShoot();
+
         Debug.Log("Disparo. Balas: " + currentAmmo);
 
         Ray ray = cam.ScreenPointToRay(
@@ -53,8 +70,13 @@ public class GunController : MonoBehaviour
         {
             Debug.Log("Impactó en " + hit.collider.name);
 
-            HealthSystem health =
-            hit.collider.GetComponent<HealthSystem>();
+            if (vfx != null)
+            {
+                GameObject effect = Instantiate(vfx, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(effect, vfxDuration);
+            }
+
+            HealthSystem health = hit.collider.GetComponentInParent<HealthSystem>();
 
             if (health != null)
             {
@@ -65,7 +87,11 @@ public class GunController : MonoBehaviour
 
     private void Reload()
     {
+        if (AudioManager.Instance != null) AudioManager.Instance.PlayReload();
         currentAmmo = maxAmmo;
+
+        // Avisa al HUD
+        OnAmmoProgressChanged?.Invoke(currentAmmo, maxAmmo);
 
         Debug.Log("Recargando...");
     }
