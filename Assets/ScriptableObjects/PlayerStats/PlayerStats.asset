@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
   vidaMaxBase: 100
-  velocidadBase: 5
+  velocidadBase: 11
   fuerzaSaltoBase: 7
   vidaMax: 100
   velocidad: 5
