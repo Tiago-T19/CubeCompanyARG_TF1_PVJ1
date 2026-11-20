@@ -172,6 +172,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Shoes Shop
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 52f969fb493f02248ba2e0ab07d6d81f, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 52f969fb493f02248ba2e0ab07d6d81f, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.685217
@@ -248,6 +252,14 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 4c14ffc6a7f79e942885227ac141590c, type: 3}
       propertyPath: m_Name
       value: Building_Books Shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c14ffc6a7f79e942885227ac141590c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c14ffc6a7f79e942885227ac141590c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4c14ffc6a7f79e942885227ac141590c, type: 3}
       propertyPath: m_LocalScale.x
@@ -517,6 +529,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Residential_color03 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.679814
@@ -749,6 +765,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
       propertyPath: m_Name
       value: Building Sky_big_color03 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
       propertyPath: m_LocalScale.x
@@ -1070,6 +1090,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 5dd9f8de2583df543859013bcdc56639, type: 3}
       propertyPath: m_Name
       value: Building_Drug Store
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5dd9f8de2583df543859013bcdc56639, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5dd9f8de2583df543859013bcdc56639, type: 3}
       propertyPath: m_LocalScale.x
@@ -1942,6 +1966,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: e1d9101af5d96d94ca99efe2de0bac21, type: 3}
       propertyPath: m_Name
       value: Building_Coffee Shop (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e1d9101af5d96d94ca99efe2de0bac21, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e1d9101af5d96d94ca99efe2de0bac21, type: 3}
       propertyPath: m_LocalScale.x
@@ -4496,6 +4524,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_House_02_color01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 142c9543c08ae014bad9d177ad54a989, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 142c9543c08ae014bad9d177ad54a989, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.6541001
@@ -4644,6 +4676,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
       propertyPath: m_Name
       value: Building_Residential_color01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
       propertyPath: m_LocalScale.x
@@ -5359,6 +5395,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Residential_color02 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5745001
@@ -5435,6 +5475,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
       propertyPath: m_Name
       value: Building_Residential_color03 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
       propertyPath: m_LocalScale.x
@@ -6076,6 +6120,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Residential_color01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -6595,6 +6643,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Residential_color02 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.1434813
@@ -6671,6 +6723,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 8b3eca4c34b9e1148a3c4d42a48dd5b8, type: 3}
       propertyPath: m_Name
       value: Building_Chicken Shop (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8b3eca4c34b9e1148a3c4d42a48dd5b8, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8b3eca4c34b9e1148a3c4d42a48dd5b8, type: 3}
       propertyPath: m_LocalScale.x
@@ -7140,6 +7196,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
       propertyPath: m_Name
       value: Building Sky_big_color01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
       propertyPath: m_LocalScale.x
@@ -8869,6 +8929,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vehicle_Container_color03
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d20839e362efa3d4baa3d2ce1b4f2df4, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d20839e362efa3d4baa3d2ce1b4f2df4, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.6276
@@ -8946,6 +9010,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vehicle_Police Car (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.33
@@ -8960,7 +9028,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -170.72
+      value: -172.72
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8968,7 +9036,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 296.76
+      value: 292.76
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9255,6 +9323,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
       propertyPath: m_Name
       value: Building_Residential_color02 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
       propertyPath: m_LocalScale.x
@@ -9794,6 +9866,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_House_03_color01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 11c264ca1bac5d74d883c776435fa684, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 11c264ca1bac5d74d883c776435fa684, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.6983
@@ -9870,6 +9946,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: bc532b78ce09f234ea01da2deecfe035, type: 3}
       propertyPath: m_Name
       value: Building_Restaurant
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bc532b78ce09f234ea01da2deecfe035, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bc532b78ce09f234ea01da2deecfe035, type: 3}
       propertyPath: m_LocalScale.x
@@ -11389,6 +11469,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Residential_color01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -11909,6 +11993,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_small_color03 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 35807f23e7899e541b60b2fb2bbb51ef, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 35807f23e7899e541b60b2fb2bbb51ef, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.1453636
@@ -12414,6 +12502,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
       propertyPath: m_Name
       value: Building_Residential_color03 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
       propertyPath: m_LocalScale.x
@@ -13057,6 +13149,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_small_color01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5445883
@@ -13233,6 +13329,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_big_color01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.8959143
@@ -13309,6 +13409,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
       propertyPath: m_Name
       value: Building_Residential_color03 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
       propertyPath: m_LocalScale.x
@@ -13391,6 +13495,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
       propertyPath: m_Name
       value: Building Sky_big_color03 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
       propertyPath: m_LocalScale.x
@@ -14105,6 +14213,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_small_color03 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 35807f23e7899e541b60b2fb2bbb51ef, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 35807f23e7899e541b60b2fb2bbb51ef, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.4712443
@@ -14208,6 +14320,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: cc0981408e7c8db4f9f80a57938fd5e3, type: 3}
       propertyPath: m_Name
       value: Building Sky_small_color02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: cc0981408e7c8db4f9f80a57938fd5e3, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cc0981408e7c8db4f9f80a57938fd5e3, type: 3}
       propertyPath: m_LocalScale.x
@@ -14350,6 +14466,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 11c264ca1bac5d74d883c776435fa684, type: 3}
       propertyPath: m_Name
       value: Building_House_03_color01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 11c264ca1bac5d74d883c776435fa684, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 11c264ca1bac5d74d883c776435fa684, type: 3}
       propertyPath: m_LocalScale.x
@@ -14705,6 +14825,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Residential_color03 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.4767245
@@ -14989,6 +15113,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Residential_color01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.2155334
@@ -15065,6 +15193,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 4dc7028a3a83758439585b7c7c98cb27, type: 3}
       propertyPath: m_Name
       value: Building_Fast Food
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4dc7028a3a83758439585b7c7c98cb27, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4dc7028a3a83758439585b7c7c98cb27, type: 3}
       propertyPath: m_LocalScale.x
@@ -15304,6 +15436,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
       propertyPath: m_Name
       value: Building Sky_small_color01 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
       propertyPath: m_LocalScale.x
@@ -15656,6 +15792,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 35807f23e7899e541b60b2fb2bbb51ef, type: 3}
       propertyPath: m_Name
       value: Building Sky_small_color03
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 35807f23e7899e541b60b2fb2bbb51ef, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 35807f23e7899e541b60b2fb2bbb51ef, type: 3}
       propertyPath: m_LocalScale.x
@@ -16023,6 +16163,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_big_color01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -16121,6 +16265,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
       propertyPath: m_Name
       value: Building_Residential_color03 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
       propertyPath: m_LocalScale.x
@@ -16307,6 +16455,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
       propertyPath: m_Name
       value: Building_Residential_color02 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
       propertyPath: m_LocalScale.x
@@ -16502,6 +16654,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vehicle_Police Car (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.33
@@ -16516,7 +16672,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -186.53
+      value: -188.53
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16524,7 +16680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 296.76
+      value: 292.76
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -16606,6 +16762,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Fruits  Shop
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 931fa17f0ab17504bbfc8903e54e6a16, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 931fa17f0ab17504bbfc8903e54e6a16, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5745
@@ -16683,6 +16843,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vehicle_Police Car (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.33
@@ -16697,7 +16861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -181.46
+      value: -183.46
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16705,7 +16869,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 296.76
+      value: 292.76
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17812,6 +17976,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_big_color01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.086676
@@ -18060,6 +18228,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 121f662ea65e2cf40a50c66470757a9e, type: 3}
       propertyPath: m_Name
       value: Building_Auto Service
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 121f662ea65e2cf40a50c66470757a9e, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 121f662ea65e2cf40a50c66470757a9e, type: 3}
       propertyPath: m_LocalScale.x
@@ -19311,6 +19483,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vehicle_Police Car (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.33
@@ -19325,7 +19501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -191.08
+      value: -193.08
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19333,7 +19509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 296.76
+      value: 292.76
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -19938,6 +20114,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_Name
       value: Vehicle_Police Car
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalScale.x
@@ -21688,6 +21868,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Bar (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5883543
@@ -22145,6 +22329,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
       propertyPath: m_Name
       value: Building_Residential_color01 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
       propertyPath: m_LocalScale.x
@@ -22941,6 +23129,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Super Market
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c3e95e72d6dba334594c3c5c37fcf18a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c3e95e72d6dba334594c3c5c37fcf18a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.7131732
@@ -23268,6 +23460,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_big_color02
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -23429,6 +23625,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: e1d9101af5d96d94ca99efe2de0bac21, type: 3}
       propertyPath: m_Name
       value: Building_Coffee Shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e1d9101af5d96d94ca99efe2de0bac21, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e1d9101af5d96d94ca99efe2de0bac21, type: 3}
       propertyPath: m_LocalScale.x
@@ -24079,8 +24279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 697738370}
-  - component: {fileID: 697738372}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildersMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24251,38 +24450,6 @@ Transform:
   - {fileID: 1631645011}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &697738372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 697738369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 65d5f5cf3981f9f46aca00af1bfcce35, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!1001 &698001368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24294,6 +24461,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
       propertyPath: m_Name
       value: Building Sky_small_color01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
       propertyPath: m_LocalScale.x
@@ -24434,6 +24605,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
       propertyPath: m_Name
       value: Building Sky_big_color02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
       propertyPath: m_LocalScale.x
@@ -26559,6 +26734,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Music Store (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1682119d19a954f4a8020f36112606ed, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1682119d19a954f4a8020f36112606ed, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.8618898
@@ -26744,6 +26923,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
       propertyPath: m_Name
       value: Building Sky_small_color01 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
       propertyPath: m_LocalScale.x
@@ -27659,6 +27842,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 2dbee28eacba7dd42845e0153c4da642, type: 3}
       propertyPath: m_Name
       value: Building_House_03_color03
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2dbee28eacba7dd42845e0153c4da642, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2dbee28eacba7dd42845e0153c4da642, type: 3}
       propertyPath: m_LocalScale.x
@@ -28905,6 +29092,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Bar (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.7355218
@@ -29971,6 +30162,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Coffee Shop (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e1d9101af5d96d94ca99efe2de0bac21, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e1d9101af5d96d94ca99efe2de0bac21, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.9734005
@@ -30155,6 +30350,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 260808cfd9b21994d8c3007a7bc9934c, type: 3}
       propertyPath: m_Name
       value: Building_Gas Station
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 260808cfd9b21994d8c3007a7bc9934c, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 260808cfd9b21994d8c3007a7bc9934c, type: 3}
       propertyPath: m_LocalScale.x
@@ -30423,6 +30622,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
       propertyPath: m_Name
       value: Building_Residential_color03 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
       propertyPath: m_LocalScale.x
@@ -32350,6 +32553,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Fruits  Shop (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 931fa17f0ab17504bbfc8903e54e6a16, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 931fa17f0ab17504bbfc8903e54e6a16, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.7415544
@@ -32459,6 +32666,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Fast Food (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4dc7028a3a83758439585b7c7c98cb27, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4dc7028a3a83758439585b7c7c98cb27, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.3767679
@@ -32535,6 +32746,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
       propertyPath: m_Name
       value: Building_Residential_color02 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
       propertyPath: m_LocalScale.x
@@ -32740,6 +32955,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_big_color01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -32863,6 +33082,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_big_color01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.8959143
@@ -32940,6 +33163,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_small_color01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.4020858
@@ -32958,7 +33185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -33331,6 +33558,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
       propertyPath: m_Name
       value: Building_Residential_color01 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
       propertyPath: m_LocalScale.x
@@ -33989,6 +34220,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 1682119d19a954f4a8020f36112606ed, type: 3}
       propertyPath: m_Name
       value: Building_Music Store (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1682119d19a954f4a8020f36112606ed, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1682119d19a954f4a8020f36112606ed, type: 3}
       propertyPath: m_LocalScale.x
@@ -34761,6 +34996,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_small_color03 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 35807f23e7899e541b60b2fb2bbb51ef, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 35807f23e7899e541b60b2fb2bbb51ef, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.1453636
@@ -34837,6 +35076,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
       propertyPath: m_Name
       value: Building_Residential_color02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
       propertyPath: m_LocalScale.x
@@ -34941,6 +35184,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
       propertyPath: m_Name
       value: Building_Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
       propertyPath: m_LocalScale.x
@@ -35891,6 +36138,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vehicle_Police Car (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.035797
@@ -35987,6 +36238,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
       propertyPath: m_Name
       value: Building Sky_small_color01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
       propertyPath: m_LocalScale.x
@@ -36172,6 +36427,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 35807f23e7899e541b60b2fb2bbb51ef, type: 3}
       propertyPath: m_Name
       value: Building Sky_small_color03 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 35807f23e7899e541b60b2fb2bbb51ef, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 35807f23e7899e541b60b2fb2bbb51ef, type: 3}
       propertyPath: m_LocalScale.x
@@ -38361,6 +38620,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Bakery (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 65abb0f1b521f834bae80ea4c9d93734, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 65abb0f1b521f834bae80ea4c9d93734, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.6103528
@@ -38981,6 +39244,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Music Store (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1682119d19a954f4a8020f36112606ed, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1682119d19a954f4a8020f36112606ed, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.7778
@@ -39196,6 +39463,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 8b3eca4c34b9e1148a3c4d42a48dd5b8, type: 3}
       propertyPath: m_Name
       value: Building_Chicken Shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8b3eca4c34b9e1148a3c4d42a48dd5b8, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8b3eca4c34b9e1148a3c4d42a48dd5b8, type: 3}
       propertyPath: m_LocalScale.x
@@ -40342,6 +40613,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Residential_color02 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.1759071
@@ -40578,6 +40853,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 1682119d19a954f4a8020f36112606ed, type: 3}
       propertyPath: m_Name
       value: Building_Music Store
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1682119d19a954f4a8020f36112606ed, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1682119d19a954f4a8020f36112606ed, type: 3}
       propertyPath: m_LocalScale.x
@@ -41315,6 +41594,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 1682119d19a954f4a8020f36112606ed, type: 3}
       propertyPath: m_Name
       value: Building_Music Store (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1682119d19a954f4a8020f36112606ed, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1682119d19a954f4a8020f36112606ed, type: 3}
       propertyPath: m_LocalScale.x
@@ -42278,6 +42561,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Factory
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f6674c1362ba984468bc1e71a2323d66, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f6674c1362ba984468bc1e71a2323d66, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.50755
@@ -42875,6 +43162,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Fast Food
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4dc7028a3a83758439585b7c7c98cb27, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4dc7028a3a83758439585b7c7c98cb27, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.3767679
@@ -43142,6 +43433,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Pizza
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1d53359c70324d14c989d7058b50ec6b, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1d53359c70324d14c989d7058b50ec6b, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.6717
@@ -43368,6 +43663,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 4dc7028a3a83758439585b7c7c98cb27, type: 3}
       propertyPath: m_Name
       value: Building_Fast Food (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4dc7028a3a83758439585b7c7c98cb27, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4dc7028a3a83758439585b7c7c98cb27, type: 3}
       propertyPath: m_LocalScale.x
@@ -43603,6 +43902,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 9500f0cdde0097a4aac35ced7c1935d7, type: 3}
       propertyPath: m_Name
       value: Vehicle_Bus_color01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9500f0cdde0097a4aac35ced7c1935d7, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9500f0cdde0097a4aac35ced7c1935d7, type: 3}
       propertyPath: m_LocalScale.x
@@ -44904,6 +45207,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_big_color01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.8959143
@@ -45227,6 +45534,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Coffee Shop
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e1d9101af5d96d94ca99efe2de0bac21, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e1d9101af5d96d94ca99efe2de0bac21, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.6264749
@@ -45325,6 +45636,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 52f969fb493f02248ba2e0ab07d6d81f, type: 3}
       propertyPath: m_Name
       value: Building_Shoes Shop (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 52f969fb493f02248ba2e0ab07d6d81f, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 52f969fb493f02248ba2e0ab07d6d81f, type: 3}
       propertyPath: m_LocalScale.x
@@ -45587,6 +45902,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
       propertyPath: m_Name
       value: Building Sky_big_color01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
       propertyPath: m_LocalScale.x
@@ -46151,6 +46470,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vehicle_Ambulance
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9b25e71fd5b7ac6469539d930c6dc2e6, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9b25e71fd5b7ac6469539d930c6dc2e6, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.0972
@@ -46464,6 +46787,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
       propertyPath: m_Name
       value: Building_Bar (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
       propertyPath: m_LocalScale.x
@@ -47394,6 +47721,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Books Shop (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c14ffc6a7f79e942885227ac141590c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4c14ffc6a7f79e942885227ac141590c, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.7641068
@@ -47475,8 +47806,7 @@ GameObject:
   - component: {fileID: 1269320096}
   - component: {fileID: 1269320095}
   - component: {fileID: 1269320094}
-  - component: {fileID: 1269320097}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47559,38 +47889,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1269320097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1269320093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: a9599b4ce03b25047b6879bfa67426ef, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!1 &1270788353 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 97229e82747352a43b48688ec573f8e4, type: 3}
@@ -48232,6 +48530,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
       propertyPath: m_Name
       value: Building Sky_big_color03 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
       propertyPath: m_LocalScale.x
@@ -51369,6 +51671,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Auto Service (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 121f662ea65e2cf40a50c66470757a9e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 121f662ea65e2cf40a50c66470757a9e, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.9617295
@@ -51771,7 +52077,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: be4b0006d88c4c347af42d3a4116c9e5, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 1daa16275e874e4409066c992dfb00c8, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1001 &1375634476
 PrefabInstance:
@@ -52108,6 +52414,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
       propertyPath: m_Name
       value: Building Sky_big_color03 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
       propertyPath: m_LocalScale.x
@@ -53217,6 +53527,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 121f662ea65e2cf40a50c66470757a9e, type: 3}
       propertyPath: m_Name
       value: Building_Auto Service (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 121f662ea65e2cf40a50c66470757a9e, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 121f662ea65e2cf40a50c66470757a9e, type: 3}
       propertyPath: m_LocalScale.x
@@ -54817,6 +55131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Fast Food (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4dc7028a3a83758439585b7c7c98cb27, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4dc7028a3a83758439585b7c7c98cb27, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.9379182
@@ -54893,6 +55211,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: bc532b78ce09f234ea01da2deecfe035, type: 3}
       propertyPath: m_Name
       value: Building_Restaurant (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bc532b78ce09f234ea01da2deecfe035, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bc532b78ce09f234ea01da2deecfe035, type: 3}
       propertyPath: m_LocalScale.x
@@ -55726,6 +56048,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_big_color03 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -56287,6 +56613,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Residential_color02 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.1434813
@@ -56422,6 +56752,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 5dd9f8de2583df543859013bcdc56639, type: 3}
       propertyPath: m_Name
       value: Building_Drug Store (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5dd9f8de2583df543859013bcdc56639, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5dd9f8de2583df543859013bcdc56639, type: 3}
       propertyPath: m_LocalScale.x
@@ -56780,6 +57114,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
       propertyPath: m_Name
       value: Building_Residential_color01 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
       propertyPath: m_LocalScale.x
@@ -58004,6 +58342,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Auto Service (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 121f662ea65e2cf40a50c66470757a9e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 121f662ea65e2cf40a50c66470757a9e, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.8652939
@@ -58201,6 +58543,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
       propertyPath: m_Name
       value: Building_Residential_color01 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
       propertyPath: m_LocalScale.x
@@ -58730,6 +59076,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: e1d9101af5d96d94ca99efe2de0bac21, type: 3}
       propertyPath: m_Name
       value: Building_Coffee Shop (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e1d9101af5d96d94ca99efe2de0bac21, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e1d9101af5d96d94ca99efe2de0bac21, type: 3}
       propertyPath: m_LocalScale.x
@@ -59338,6 +59688,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_big_color03 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.8959143
@@ -59462,6 +59816,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 1682119d19a954f4a8020f36112606ed, type: 3}
       propertyPath: m_Name
       value: Building_Music Store (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1682119d19a954f4a8020f36112606ed, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1682119d19a954f4a8020f36112606ed, type: 3}
       propertyPath: m_LocalScale.x
@@ -59852,6 +60210,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
       propertyPath: m_Name
       value: Building_Residential_color01 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
       propertyPath: m_LocalScale.x
@@ -60388,6 +60750,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
       propertyPath: m_Name
       value: Building_Residential_color02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
       propertyPath: m_LocalScale.x
@@ -60942,6 +61308,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Restaurant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bc532b78ce09f234ea01da2deecfe035, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bc532b78ce09f234ea01da2deecfe035, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.0853567
@@ -61040,6 +61410,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 8b3eca4c34b9e1148a3c4d42a48dd5b8, type: 3}
       propertyPath: m_Name
       value: Building_Chicken Shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8b3eca4c34b9e1148a3c4d42a48dd5b8, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8b3eca4c34b9e1148a3c4d42a48dd5b8, type: 3}
       propertyPath: m_LocalScale.x
@@ -61161,6 +61535,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
       propertyPath: m_Name
       value: Building Sky_big_color02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
       propertyPath: m_LocalScale.x
@@ -61489,6 +61867,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_big_color03 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.8959143
@@ -61587,6 +61969,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
       propertyPath: m_Name
       value: Building Sky_big_color02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
       propertyPath: m_LocalScale.x
@@ -62542,6 +62928,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_House_04_color01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 63243ce2fd6113e4384abc2d949cb799, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 63243ce2fd6113e4384abc2d949cb799, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.4474351
@@ -63300,6 +63690,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_small_color01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.4020858
@@ -63398,6 +63792,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 142c9543c08ae014bad9d177ad54a989, type: 3}
       propertyPath: m_Name
       value: Building_House_02_color01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 142c9543c08ae014bad9d177ad54a989, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 142c9543c08ae014bad9d177ad54a989, type: 3}
       propertyPath: m_LocalScale.x
@@ -63528,6 +63926,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
       propertyPath: m_Name
       value: Building Sky_big_color02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
       propertyPath: m_LocalScale.x
@@ -64047,6 +64449,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_big_color01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -64145,6 +64551,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
       propertyPath: m_Name
       value: Building Sky_big_color02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
       propertyPath: m_LocalScale.x
@@ -64245,6 +64655,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vehicle_Police Car (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.33
@@ -64259,7 +64673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -196.62
+      value: -198.62
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -64267,7 +64681,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 296.76
+      value: 292.76
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -64570,6 +64984,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vehicle_Police Car (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.33
@@ -64584,7 +65002,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -176
+      value: -178
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -64592,7 +65010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 296.76
+      value: 292.76
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1af0a2c8773f85c40bdb120f32cd8a8a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -64673,6 +65091,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 35807f23e7899e541b60b2fb2bbb51ef, type: 3}
       propertyPath: m_Name
       value: Building Sky_small_color03
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 35807f23e7899e541b60b2fb2bbb51ef, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 35807f23e7899e541b60b2fb2bbb51ef, type: 3}
       propertyPath: m_LocalScale.x
@@ -64979,6 +65401,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_big_color03 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.8959143
@@ -65190,6 +65616,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
       propertyPath: m_Name
       value: Building Sky_big_color01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
       propertyPath: m_LocalScale.x
@@ -66177,6 +66607,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Bakery
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 65abb0f1b521f834bae80ea4c9d93734, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 65abb0f1b521f834bae80ea4c9d93734, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.096091
@@ -66253,6 +66687,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
       propertyPath: m_Name
       value: Building_Bar (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
       propertyPath: m_LocalScale.x
@@ -66911,6 +67349,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Drug Store (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5dd9f8de2583df543859013bcdc56639, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5dd9f8de2583df543859013bcdc56639, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.7395726
@@ -67420,6 +67862,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 4c14ffc6a7f79e942885227ac141590c, type: 3}
       propertyPath: m_Name
       value: Building_Books Shop (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c14ffc6a7f79e942885227ac141590c, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4c14ffc6a7f79e942885227ac141590c, type: 3}
       propertyPath: m_LocalScale.x
@@ -68353,6 +68799,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Drug Store (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5dd9f8de2583df543859013bcdc56639, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5dd9f8de2583df543859013bcdc56639, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.389129
@@ -68913,6 +69363,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_big_color03
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -69038,6 +69492,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 2dbee28eacba7dd42845e0153c4da642, type: 3}
       propertyPath: m_Name
       value: Building_House_03_color03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2dbee28eacba7dd42845e0153c4da642, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2dbee28eacba7dd42845e0153c4da642, type: 3}
       propertyPath: m_LocalScale.x
@@ -69204,6 +69662,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
       propertyPath: m_Name
       value: Building Sky_big_color03 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
       propertyPath: m_LocalScale.x
@@ -69675,6 +70137,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_small_color01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -69773,6 +70239,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
       propertyPath: m_Name
       value: Building Sky_big_color03 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
       propertyPath: m_LocalScale.x
@@ -70565,6 +71035,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_small_color01 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.4020858
@@ -70762,6 +71236,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 4c14ffc6a7f79e942885227ac141590c, type: 3}
       propertyPath: m_Name
       value: Building_Books Shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c14ffc6a7f79e942885227ac141590c, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4c14ffc6a7f79e942885227ac141590c, type: 3}
       propertyPath: m_LocalScale.x
@@ -70965,6 +71443,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_House_02_color02
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8c3b216cc2b6dc04496d15009bc913cd, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8c3b216cc2b6dc04496d15009bc913cd, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.6781528
@@ -71165,6 +71647,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
       propertyPath: m_Name
       value: Building Sky_small_color01 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
       propertyPath: m_LocalScale.x
@@ -71470,6 +71956,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 00b78b03851cb0748b61d9005fb73b49, type: 3}
       propertyPath: m_Name
       value: Estadio
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 00b78b03851cb0748b61d9005fb73b49, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 00b78b03851cb0748b61d9005fb73b49, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -72212,6 +72702,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_big_color01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.8959143
@@ -72928,6 +73422,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Super Market (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c3e95e72d6dba334594c3c5c37fcf18a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c3e95e72d6dba334594c3c5c37fcf18a, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.3002486
@@ -73516,6 +74014,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
       propertyPath: m_Name
       value: Building Sky_big_color02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
       propertyPath: m_LocalScale.x
@@ -74622,6 +75124,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_big_color02
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.8959143
@@ -74949,6 +75455,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_small_color01 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.0232768
@@ -75164,6 +75674,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
       propertyPath: m_Name
       value: Building Sky_big_color02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
       propertyPath: m_LocalScale.x
@@ -75780,6 +76294,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Bar (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.4805157
@@ -76369,6 +76887,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Gift Shop
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9ccda285cd5f1ce4fa00133b50ba5cbc, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9ccda285cd5f1ce4fa00133b50ba5cbc, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.1264374
@@ -76835,6 +77357,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
       propertyPath: m_Name
       value: Building_Residential_color01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 921b4e33443ab5943afa3c4841e74cae, type: 3}
       propertyPath: m_LocalScale.x
@@ -77437,6 +77963,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Residential_color03 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.6117816
@@ -77655,6 +78185,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_big_color01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.4681313
@@ -77783,6 +78317,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Super Market (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c3e95e72d6dba334594c3c5c37fcf18a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c3e95e72d6dba334594c3c5c37fcf18a, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.0852726
@@ -77909,6 +78447,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Clothing
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0c7bcaa85c9494849bc7a0a18b7f3324, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0c7bcaa85c9494849bc7a0a18b7f3324, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -78008,6 +78550,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Residential_color03
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0064eb002f3790247969e12119bbf9d2, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.679814
@@ -78106,6 +78652,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 931fa17f0ab17504bbfc8903e54e6a16, type: 3}
       propertyPath: m_Name
       value: Building_Fruits  Shop (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 931fa17f0ab17504bbfc8903e54e6a16, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 931fa17f0ab17504bbfc8903e54e6a16, type: 3}
       propertyPath: m_LocalScale.x
@@ -78462,6 +79012,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_big_color03 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.0548997
@@ -78730,6 +79284,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
       propertyPath: m_Name
       value: Building_Residential_color02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
       propertyPath: m_LocalScale.x
@@ -79205,6 +79763,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Bar (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.7436984
@@ -79432,6 +79994,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
       propertyPath: m_Name
       value: Building_Bar (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
       propertyPath: m_LocalScale.x
@@ -80264,6 +80830,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Residential_color02
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 246bcb60ae5be3744a4ea86bab749f44, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5745
@@ -80920,6 +81490,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_small_color01 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6a690a756dbd65141a09a3ad7fafacc4, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.4020858
@@ -81018,6 +81592,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 931fa17f0ab17504bbfc8903e54e6a16, type: 3}
       propertyPath: m_Name
       value: Building_Fruits  Shop (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 931fa17f0ab17504bbfc8903e54e6a16, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 931fa17f0ab17504bbfc8903e54e6a16, type: 3}
       propertyPath: m_LocalScale.x
@@ -81616,6 +82194,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
       propertyPath: m_Name
       value: Building Sky_big_color01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 22106dc63dce41746ad234a91af2d657, type: 3}
       propertyPath: m_LocalScale.x
@@ -82220,6 +82802,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Sky_big_color02 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.8959143
@@ -82318,6 +82904,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
       propertyPath: m_Name
       value: Building Sky_big_color02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
       propertyPath: m_LocalScale.x
@@ -83479,6 +84069,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
       propertyPath: m_Name
       value: Building Sky_big_color02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 694e1313d3f12e84aaf959ff6960ddaf, type: 3}
       propertyPath: m_LocalScale.x
@@ -85822,7 +86416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5395879512533538542, guid: 71052e0526ab9874d954614ebefbc044, type: 3}
       propertyPath: m_Name
-      value: Cylinder (1)
+      value: TeleportLaberinto
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -88495,6 +89089,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hospital
       objectReference: {fileID: 0}
+    - target: {fileID: 1066630636991586126, guid: 6edbe1edff1b04544a2c507c2461eeec, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5738698082755436615, guid: 6edbe1edff1b04544a2c507c2461eeec, type: 3}
       propertyPath: m_LocalScale.x
       value: 146.23
@@ -88509,15 +89107,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5738698082755436615, guid: 6edbe1edff1b04544a2c507c2461eeec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40.2
+      value: 49.2
       objectReference: {fileID: 0}
     - target: {fileID: 5738698082755436615, guid: 6edbe1edff1b04544a2c507c2461eeec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.48
+      value: 8.476859
       objectReference: {fileID: 0}
     - target: {fileID: 5738698082755436615, guid: 6edbe1edff1b04544a2c507c2461eeec, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -206.765
+      value: -205.765
       objectReference: {fileID: 0}
     - target: {fileID: 5738698082755436615, guid: 6edbe1edff1b04544a2c507c2461eeec, type: 3}
       propertyPath: m_LocalRotation.w
@@ -89001,7 +89599,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 57010563142124952, guid: 60da8dd38e2d1514aab2d14e0435f18d, type: 3}
       propertyPath: m_Name
-      value: Cube
+      value: Tienda
+      objectReference: {fileID: 0}
+    - target: {fileID: 57010563142124952, guid: 60da8dd38e2d1514aab2d14e0435f18d, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7985535825843699782, guid: 60da8dd38e2d1514aab2d14e0435f18d, type: 3}
       propertyPath: m_LocalScale.x
@@ -91455,6 +92057,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Comisaria
       objectReference: {fileID: 0}
+    - target: {fileID: 1253374313321336817, guid: ac0408304bc988d4bb4e3efd22184792, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5790615324000080947, guid: ac0408304bc988d4bb4e3efd22184792, type: 3}
       propertyPath: m_LocalScale.x
       value: 233.22856
@@ -91473,11 +92079,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5790615324000080947, guid: ac0408304bc988d4bb4e3efd22184792, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.3
+      value: 14.299999
       objectReference: {fileID: 0}
     - target: {fileID: 5790615324000080947, guid: ac0408304bc988d4bb4e3efd22184792, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -105.8
+      value: -109.8
       objectReference: {fileID: 0}
     - target: {fileID: 5790615324000080947, guid: ac0408304bc988d4bb4e3efd22184792, type: 3}
       propertyPath: m_LocalRotation.w
