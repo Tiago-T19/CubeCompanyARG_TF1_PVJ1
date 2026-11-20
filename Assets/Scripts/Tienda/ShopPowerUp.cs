@@ -49,6 +49,9 @@ public class ShopPowerUp : MonoBehaviour
 
     private void Start()
     {
+        // Si no se asignó la capa en el Inspector, usa la capa "Character"
+        if (capaJugador.value == 0) capaJugador = LayerMask.GetMask("Character");
+
         // Si ya se compró el máximo en visitas anteriores, no aparece
         if (item == null || ShopManager.Agotado(item))
         {

@@ -1,10 +1,8 @@
-using System.Collections;
 using UnityEngine;
 
-// Puerta que brilla. Sirve para ENTRAR a la tienda (en Level1)
+// Puerta de la tienda. Sirve para ENTRAR a la tienda (en Level1)
 // o para SALIR de ella (en la escena Tienda).
 // - Detecta al jugador con Physics.CheckSphere filtrado por LayerMask.
-// - Brilla con un pulso (corrutina) que se intensifica cuando el jugador está cerca.
 // - Con la tecla E entra o sale.
 public class ShopDoor : MonoBehaviour
 {
@@ -19,35 +17,17 @@ public class ShopDoor : MonoBehaviour
     [SerializeField] private LayerMask capaJugador;
     [SerializeField] private KeyCode teclaInteraccion = KeyCode.E;
 
-    [Header("Brillo")]
-    [SerializeField] private Renderer[] renderersBrillo;
-    [SerializeField] private Light luz;
-    [SerializeField] private Color colorBrillo = new Color(1f, 0.7f, 0.15f);
-    [SerializeField] private float intensidadMin = 1f;
-    [SerializeField] private float intensidadMax = 3f;
-    [SerializeField] private float velocidadPulso = 2.5f;
-    [Tooltip("Cuánto más brilla cuando el jugador está cerca")]
-    [SerializeField] private float multiplicadorCerca = 2f;
-
     [Header("Cartel 'Presioná E' (opcional)")]
     [SerializeField] private GameObject cartel;
 
     private bool jugadorCerca;
-    private float intensidadLuzBase = 1f;
-    private MaterialPropertyBlock bloque;
-    private static readonly int EmissionId = Shader.PropertyToID("_EmissionColor");
 
     private void Awake()
     {
-        bloque = new MaterialPropertyBlock();
-        if (luz != null) intensidadLuzBase = luz.intensity;
+        if (capaJugador.value == 0) capaJugador = LayerMask.GetMask("Character");
+        DoorTeleport viejo = GetComponent<DoorTeleport>();
+        if (viejo != null) viejo.enabled = false;
         if (cartel != null) cartel.SetActive(false);
-    }
-
-    // OnEnable (no Start) para que el brillo vuelva a arrancar al salir de la tienda
-    private void OnEnable()
-    {
-        StartCoroutine(PulsoBrillo());
     }
 
     private void Update()
@@ -136,33 +116,6 @@ public class ShopDoor : MonoBehaviour
     private bool EstaJugando()
     {
         return GameManager.Instance == null || GameManager.Instance.estadoActual == EstadoJuego.Jugando;
-    }
-
-    // Corrutina: pulso de brillo infinito mientras la puerta está activa
-    private IEnumerator PulsoBrillo()
-    {
-        while (true)
-        {
-            float t = (Mathf.Sin(Time.time * velocidadPulso) + 1f) * 0.5f;
-            float intensidad = Mathf.Lerp(intensidadMin, intensidadMax, t);
-            if (jugadorCerca) intensidad *= multiplicadorCerca;
-
-            foreach (Renderer r in renderersBrillo)
-            {
-                if (r == null) continue;
-                r.GetPropertyBlock(bloque);
-                bloque.SetColor(EmissionId, colorBrillo * intensidad);
-                r.SetPropertyBlock(bloque);
-            }
-
-            if (luz != null)
-            {
-                luz.color = colorBrillo;
-                luz.intensity = intensidadLuzBase * intensidad;
-            }
-
-            yield return null;
-        }
     }
 
     // Depuración visual en el editor
