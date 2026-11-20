@@ -88,6 +88,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             nearbyObjects.Add(interactable); // Agrega a la lista
             interactable.OnFocusGained(); // Resalta el objeto
+            Debug.Log("<color=white>Presiona <color=purple>E</color> para interactuar</color>");
         }
     }
 
