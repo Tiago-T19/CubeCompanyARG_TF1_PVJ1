@@ -10,7 +10,7 @@ public class PlayerStats : ScriptableObject
 {
     [Header("Valores base (con los que arranca una partida nueva)")]
     [SerializeField] private float vidaMaxBase = 100f;
-    [SerializeField] private float velocidadBase = 5f;
+    [SerializeField] private float velocidadBase = 11f;
     [SerializeField] private float fuerzaSaltoBase = 7f;
 
     [Header("Valores actuales (los modifica la tienda en juego)")]
