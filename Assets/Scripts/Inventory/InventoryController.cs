@@ -69,6 +69,18 @@ public class InventoryController : MonoBehaviour
     }
     private void Update()
     {
+        // Si el juego entra en pausa y el inventario está abierto
+        if (GameManager.Instance != null &&
+            GameManager.Instance.estadoActual == EstadoJuego.Pausa &&
+            inventoryOpen)
+        {
+            CloseInventory();
+            return;
+        }
+        // no se puede abrir el inventario si el juego no está en estado "Jugando"
+        if (GameManager.Instance.estadoActual != EstadoJuego.Jugando)
+            return;
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             Debug.Log("TAB PRESIONADO");
@@ -81,15 +93,32 @@ public class InventoryController : MonoBehaviour
 
             if (inventoryOpen)
             {
+                GameManager.Instance.inventarioAbierto = true;
+
                 UnityCursor.lockState = CursorLockMode.None;
                 UnityCursor.visible = true;
             }
             else
             {
+                GameManager.Instance.inventarioAbierto = false;
+
                 UnityCursor.lockState = CursorLockMode.Locked;
                 UnityCursor.visible = false;
             }
         }
+    }
+
+    // Arreglo para que el inventario no este abierto en el menu de pausa y los puzzles
+    public void CloseInventory()
+    {
+        inventoryOpen = false;
+
+        root.style.display = DisplayStyle.None;
+
+        UnityCursor.lockState = CursorLockMode.Locked;
+        UnityCursor.visible = false;
+
+        GameManager.Instance.inventarioAbierto = false;
     }
 
 }

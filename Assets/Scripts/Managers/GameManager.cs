@@ -13,6 +13,11 @@ public class GameManager : MonoBehaviour
     public EstadoJuego estadoActual = EstadoJuego.Inicio;
     public GameState currentState = GameState.Start;
 
+    //Arreglo para que el inventario y el sonido del disparo no choquen
+    public bool inventarioAbierto = false;
+    public bool resolviendoPuzzle = false;
+    [SerializeField] private InventoryController inventoryController;
+
     public event Action<GameState> OnChangeState;
     public event Action<int> OnPuntajeCambiado;
 
@@ -116,7 +121,18 @@ public class GameManager : MonoBehaviour
     }
 
     public void ReanudarJuego() => CambiarEstado(EstadoJuego.Jugando);
-    public void PausarJuego() => CambiarEstado(EstadoJuego.Pausa);
+    //Arreglo del inventario para que no se muestre en el menu de pausa y los puzzles
+    public void PausarJuego()
+    {
+        InventoryController inventory =
+     FindFirstObjectByType<InventoryController>();
+
+        if (inventory != null)
+            inventory.CloseInventory();
+
+        CambiarEstado(EstadoJuego.Pausa);
+    }
+
     public void Victoria() => CambiarEstado(EstadoJuego.Victoria);
     public void Derrota() => CambiarEstado(EstadoJuego.Derrota);
 

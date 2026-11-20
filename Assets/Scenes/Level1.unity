@@ -31188,7 +31188,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: bf2593fe0c804b84688e307cfb1ddfae, type: 3}
       propertyPath: m_Name
-      value: Bennelli_M4
+      value: Item_Shotgun
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bf2593fe0c804b84688e307cfb1ddfae, type: 3}
       propertyPath: m_LocalScale.x
@@ -48887,7 +48887,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100004, guid: b812e42521a5a27499e76cc5ed56e3ac, type: 3}
       propertyPath: m_Name
-      value: M1911
+      value: Item_M1911
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: b812e42521a5a27499e76cc5ed56e3ac, type: 3}
       propertyPath: m_LocalScale.x

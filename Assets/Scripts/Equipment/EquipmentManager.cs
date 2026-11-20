@@ -4,7 +4,7 @@ public class EquipmentManager : MonoBehaviour
 {
     public static EquipmentManager Instance;
 
-    public Transform handPoint;
+   [SerializeField] private Transform handPoint;
 
     private GameObject currentObject;
 

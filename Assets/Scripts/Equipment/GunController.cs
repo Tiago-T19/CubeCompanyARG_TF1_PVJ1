@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using UnityEngine.EventSystems;
 
 public class GunController : MonoBehaviour
 {
@@ -8,10 +9,10 @@ public class GunController : MonoBehaviour
     [SerializeField] private float vfxDuration = 2f;
 
     [Header("Características")]
-    public float damage = 50f;
-    public float range = 100f;
+    [SerializeField] private float damage = 50f;
+    [SerializeField] private float range = 100f;
     [SerializeField] private LayerMask enemyLayer;
-    public int maxAmmo = 30;
+    [SerializeField] private int maxAmmo = 30;
     public int MaxAmmo => maxAmmo;
     private int currentAmmo;
     public int CurrentAmmo => currentAmmo;
@@ -31,6 +32,18 @@ public class GunController : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance != null)
+        {
+            if (GameManager.Instance.estadoActual != EstadoJuego.Jugando)
+                return;
+
+            if (GameManager.Instance.inventarioAbierto)
+                return;
+
+            if (GameManager.Instance.resolviendoPuzzle)
+                return;
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();
@@ -41,6 +54,7 @@ public class GunController : MonoBehaviour
             Reload();
         }
     }
+
 
     private void Shoot()
     {

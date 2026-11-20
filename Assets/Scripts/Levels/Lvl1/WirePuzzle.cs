@@ -42,6 +42,18 @@ public class WirePuzzle : MonoBehaviour
 
     public void OpenPuzzle()
     {
+        // el inventario no se abre mientras se resuelve un puzzle, por lo que lo cerramos si está abierto
+        InventoryController inventory =
+    FindFirstObjectByType<InventoryController>();
+
+        if (inventory != null)
+            inventory.CloseInventory();
+
+        //El puzzle solo se puede abrir si el juego está en estado de jugando
+        if (GameManager.Instance.estadoActual != EstadoJuego.Jugando)
+            return;
+
+        GameManager.Instance.resolviendoPuzzle = true;
         puzzlePanel.SetActive(true);
 
         // Liberamos el cursor para utilizar la interfaz
@@ -55,6 +67,7 @@ public class WirePuzzle : MonoBehaviour
 
     public void ClosePuzzle()
     {
+        GameManager.Instance.resolviendoPuzzle = false;
         puzzlePanel.SetActive(false);
 
         // Volvemos a bloquear el cursor para jugar
