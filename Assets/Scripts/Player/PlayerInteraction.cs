@@ -12,31 +12,7 @@ public class PlayerInteraction : MonoBehaviour
 
         if (currentObject != null && Input.GetKeyDown(KeyCode.E))
         {
-            /* // ===== PICKABLE =====
-
-             // se oculta de manera temporal hasta arreglar el inventario y la interaccion con los objetos
-
-             PickAble pickAble = ((MonoBehaviour)currentObject).GetComponent<PickAble>();
-
-              if (pickAble != null)
-              {
-                  if (pickAble.TryPickUp())
-                  {
-                      InventoryManager.Instance.AddItem(
-                          pickAble.ItemData,
-                          pickAble.Quantity
-                      );
-                  }
-
-                  return;
-              }
-
-             // ===== FIN PICKABLE =====
-            */
-
-
-
-            // ===== PICKABLE 2 de prueba =====
+            // ===== PICKABLE =====
             Pickable pickable = ((MonoBehaviour)currentObject).GetComponent<Pickable>();
 
             if (pickable != null)
@@ -58,14 +34,14 @@ public class PlayerInteraction : MonoBehaviour
                     nearbyObjects.Remove(currentObject);
                     currentObject = null;
 
+
                     pickable.TryPickUp();
                     if (AudioManager.Instance != null) AudioManager.Instance.PlayPickup();
                 }
 
                 return;
             }
-            // ===== FIN PICKABLE 2 de prueba =====
-
+            // --- FIN PICKABLE ----
 
             if (currentObject.canInteract())
             {

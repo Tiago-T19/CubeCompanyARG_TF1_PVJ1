@@ -42,7 +42,7 @@ public class InventoryManager : MonoBehaviour
             ChangeSelectedSlot(1);
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.H))
         {
             UseSelectedItem();
         }

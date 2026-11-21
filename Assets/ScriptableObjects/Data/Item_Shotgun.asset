@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b66473bc095714c46b58b71be1cdad47, type: 3}
+  m_Name: Item_Shotgun
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemID: Shotgun_01
+  itemName: Item_Shotgun
+  icon: {fileID: 21300000, guid: a32b3578a64b22a4ebe40fcd9855c6d7, type: 3}
+  description: escopeta corredera
+  maxStackSize: 1
+  prefab: {fileID: 4057343540934776345, guid: db79862c8dd93c8479eb7ff1c135db42, type: 3}
+  isWeapon: 1
+  weaponDamage: 60
+  weaponMaxAmmo: 8
+  weaponRange: 50
+  reloadTime: 2
+  shootSound: {fileID: 0}
+  reloadSound: {fileID: 0}
+  isConsumable: 0
+  healAmount: 0
