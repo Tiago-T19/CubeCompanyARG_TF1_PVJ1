@@ -26,15 +26,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bf2593fe0c804b84688e307cfb1ddfae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.610451
+      value: 29.846111
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bf2593fe0c804b84688e307cfb1ddfae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3618298
+      value: 0.8698836
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bf2593fe0c804b84688e307cfb1ddfae, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.942688
+      value: 472.5327
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bf2593fe0c804b84688e307cfb1ddfae, type: 3}
       propertyPath: m_LocalRotation.w
@@ -74,6 +74,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: bf2593fe0c804b84688e307cfb1ddfae, type: 3}
       insertIndex: -1
       addedObject: {fileID: -3092327838453894925}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: bf2593fe0c804b84688e307cfb1ddfae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5803863722114479101}
   m_SourcePrefab: {fileID: 100100000, guid: bf2593fe0c804b84688e307cfb1ddfae, type: 3}
 --- !u!1 &4057343540934776345 stripped
 GameObject:
@@ -116,3 +119,24 @@ MonoBehaviour:
   itemData: {fileID: 11400000, guid: 8fa6ade3561053b4daa7b5c069bceb29, type: 2}
   quantity: 1
   destroyOnPickUp: 1
+--- !u!114 &5803863722114479101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4057343540934776345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd83500ac13630e4aa2b8c55c3c99e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GunController
+  itemData: {fileID: 11400000, guid: 8fa6ade3561053b4daa7b5c069bceb29, type: 2}
+  puntoDisparo: {fileID: 0}
+  balasPorDisparo: 4
+  mascaraDisparo:
+    serializedVersion: 2
+    m_Bits: 951
+  efectoDisparoPrefab: {fileID: 0}
+  efectoImpactoPrefab: {fileID: 1429954232896169633, guid: 83036083a4ebcd34f98131bd3cf6f4d2, type: 3}
+  camaraJugador: {fileID: 0}

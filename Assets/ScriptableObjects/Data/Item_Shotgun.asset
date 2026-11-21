@@ -19,11 +19,11 @@ MonoBehaviour:
   maxStackSize: 1
   prefab: {fileID: 4057343540934776345, guid: db79862c8dd93c8479eb7ff1c135db42, type: 3}
   isWeapon: 1
-  weaponDamage: 60
+  weaponDamage: 20
   weaponMaxAmmo: 8
   weaponRange: 50
-  reloadTime: 2
-  shootSound: {fileID: 0}
-  reloadSound: {fileID: 0}
+  reloadTime: 3
+  shootSound: {fileID: 8300000, guid: 15b0d65dc4e64874c8f917426d2ae00b, type: 3}
+  reloadSound: {fileID: 8300000, guid: 89c2894f01a9c0f4daa60d446ee3ddf5, type: 3}
   isConsumable: 0
   healAmount: 0
