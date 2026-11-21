@@ -98,14 +98,14 @@ public class MissionUI : MonoBehaviour
 
                 break;
 
-            case MissionLvl1.MissionStep.ReachMaze:
-                UpdateObjective("<b>Encuentra el laberinto</b>");
+            case MissionLvl1.MissionStep.FindPassword:
+                UpdateObjective("<b>Dirigete a la puerta para acceder al estadio</b>");
                 if (progressText != null)
                     progressText.gameObject.SetActive(false);
                 break;
 
-            case MissionLvl1.MissionStep.FindPassword:
-                UpdateObjective("<b>Encuentra la forma de entrar al laberinto</b>");
+            case MissionLvl1.MissionStep.ReachPlaza:
+                UpdateObjective("<b>Dirigete a la plaza para encontrar la contraseña</b>");
                 if (progressText != null)
                     progressText.gameObject.SetActive(false);
                 break;
@@ -116,10 +116,27 @@ public class MissionUI : MonoBehaviour
                     progressText.gameObject.SetActive(false);
                 break;
 
-            case MissionLvl1.MissionStep.Completed:
-                UpdateObjective("<b>¡Nivel completado!</b>");
+            case MissionLvl1.MissionStep.ExitMaze:
+                UpdateObjective("<b>Vuelve a la puerta con contraseña</b>");
                 if (progressText != null)
                     progressText.gameObject.SetActive(false);
+                break;
+
+            case MissionLvl1.MissionStep.Password:
+                UpdateObjective("<b>Ingresa la contraseña para desbloquear la puerta</b>");
+                if (progressText != null)
+                    progressText.gameObject.SetActive(false);
+                break;
+
+            case MissionLvl1.MissionStep.ReachStadium:
+                UpdateObjective("<b>Dirigete al estadio</b>");
+                if (progressText != null)
+                    progressText.gameObject.SetActive(false);
+                break;
+
+            case MissionLvl1.MissionStep.Completed:
+                UpdateObjective("");
+                panelMision.SetActive(false);
                 break;
         }
     }
@@ -132,8 +149,12 @@ public class MissionUI : MonoBehaviour
                 UpdateObjective("");
                 break;
 
-            case MissionLvl2.MissionStep.FindVirus:
-                UpdateObjective("<b>Encuentra el frasco del virus</b>");
+            case MissionLvl2.MissionStep.EnterMaze:
+                UpdateObjective("<b>Adentrate en el laberinto</b>");
+                break;
+
+            case MissionLvl2.MissionStep.FindVirusAndPassword:
+                UpdateObjective("<b>Encuentra los frascos de virus y la contraseña</b>");
 
                 if (progressText != null)
                 {
@@ -147,28 +168,15 @@ public class MissionUI : MonoBehaviour
 
                 break;
 
-            case MissionLvl2.MissionStep.RestorePower:
-                UpdateObjective("<b>Restaura la energia</b>");
-                if (progressText != null)
-                    progressText.gameObject.SetActive(false);
-                break;
-
             case MissionLvl2.MissionStep.ExitMaze:
-                UpdateObjective("<b>Sal del laberinto</b>");
-                if (progressText != null)
-                    progressText.gameObject.SetActive(false);
-                break;
-
-            case MissionLvl2.MissionStep.EscapeCity:
-                UpdateObjective("<b>Escapa</b>");
+                UpdateObjective("<b>Sal del laberinto, sigue el mismo camino de entrada</b>");
                 if (progressText != null)
                     progressText.gameObject.SetActive(false);
                 break;
 
             case MissionLvl2.MissionStep.Completed:
-                UpdateObjective("<b>¡Nivel completado!</b>");
-                if (progressText != null)
-                    progressText.gameObject.SetActive(false);
+                UpdateObjective("");
+                panelMision.SetActive(false);
                 break;
         }
     }

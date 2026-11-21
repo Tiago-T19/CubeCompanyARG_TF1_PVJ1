@@ -6,11 +6,10 @@ public class MissionLvl2 : MonoBehaviour
     public enum MissionStep // Flujo de la mision
     {
         NotStarted, // La mision aun no empieza
-        FindVirus, // Seguir camino al laberinto (VirusObject)
-        RestorePower, // Minijuego (WirePuzzle)
+        EnterMaze, // Entrar al laberinto
+        FindVirusAndPassword, // Busca el virus y la contraseña (VirusObject)
         ExitMaze, // Salir del laberinto
-        EscapeCity, // Escapar de la ciudad 
-        Completed // Nivel 2 completado
+        Completed // Nivel completado
     }
 
     [Header("Estado de la mision")]
@@ -23,15 +22,13 @@ public class MissionLvl2 : MonoBehaviour
     private void OnEnable()
     {
         // Escuchamos los eventos
-        VirusObject.OnVirusObjectCollected += VirusCollected;
-        WirePuzzle.OnPuzzleCompleted += PowerRestored;
+        VirusObject.OnVirusObjectCollected += VirusCollectedAndPasswordFound;
     }
 
     private void OnDisable()
     {
         // Dejamos de escuchar los eventos
-        VirusObject.OnVirusObjectCollected -= VirusCollected;
-        WirePuzzle.OnPuzzleCompleted -= PowerRestored;
+        VirusObject.OnVirusObjectCollected -= VirusCollectedAndPasswordFound;
     }
 
     private void Start()
@@ -45,33 +42,26 @@ public class MissionLvl2 : MonoBehaviour
 
         missionPanel.SetActive(true);
 
-        ChangeStep(MissionStep.FindVirus);
+        ChangeStep(MissionStep.EnterMaze);
     }
 
-    private void VirusCollected() //PowerRestored
+    public void MazeEntered()
     {
-        if (currentStep != MissionStep.FindVirus) return;
+        if (currentStep != MissionStep.EnterMaze) return;
 
-        ChangeStep(MissionStep.RestorePower);
+        ChangeStep(MissionStep.FindVirusAndPassword);
     }
 
-    private void PowerRestored()
+    private void VirusCollectedAndPasswordFound()
     {
-        if (currentStep != MissionStep.RestorePower) return;
+        if (currentStep != MissionStep.FindVirusAndPassword) return;
 
         ChangeStep(MissionStep.ExitMaze);
     }
 
-    public void MazeExitReached()
+    public void ExitMazeReached()
     {
         if (currentStep != MissionStep.ExitMaze) return;
-
-        ChangeStep(MissionStep.EscapeCity);
-    }
-
-    public void EscapeCityReached()
-    {
-        if (currentStep != MissionStep.EscapeCity) return;
 
         ChangeStep(MissionStep.Completed);
     }
