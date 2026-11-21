@@ -42,6 +42,9 @@ public class WirePuzzle : MonoBehaviour
 
     public void OpenPuzzle()
     {
+        if (cameraFollow == null) cameraFollow = FindFirstObjectByType<CameraFollow>();
+        if (playerMovement == null) playerMovement = FindFirstObjectByType<PlayerMovement>();
+
         // el inventario no se abre mientras se resuelve un puzzle, por lo que lo cerramos si está abierto
         InventoryController inventory =
     FindFirstObjectByType<InventoryController>();
@@ -67,6 +70,9 @@ public class WirePuzzle : MonoBehaviour
 
     public void ClosePuzzle()
     {
+        if (cameraFollow == null) cameraFollow = FindFirstObjectByType<CameraFollow>();
+        if (playerMovement == null) playerMovement = FindFirstObjectByType<PlayerMovement>();
+
         GameManager.Instance.resolviendoPuzzle = false;
         puzzlePanel.SetActive(false);
 
