@@ -1537,7 +1537,7 @@ ___
 
 ![MenuInicial](Screenshots/MenuInicial.png)
 
-### Inventario con 3 Objetos, M4A1, Cuchillo y MedKit.
+### Inventario con 3 Objetos, M4A1, Pistola y Escopeta.
 
 ![Inventario](Screenshots/Inventario.png)
 
@@ -1545,25 +1545,41 @@ ___
 
 ![Objeto](Screenshots/Objeto.png)
 
-### Puerta que abre cuando juntas 5/5 objetos.
+### Entrada al Laberinto.
 
-![Puerta](Screenshots/Puerta.png)
+![EntradaLaberinto](Screenshots/EntradaLaberinto.png)
 
-### Estadio con JefeFinal y EnemigosComunes
+### Puerta que abre ingresando la contraseña del Laberinto.
+
+![Puerta con contraseña](Screenshots/Puzzle2.png)
+
+### Puzzle para abrir puertas del Laberinto.
+
+![Puzzle](Screenshots/Puzzle1.png)
+
+### Estadio con JefeFinal y EnemigosComunes.
 
 ![Estadio](Screenshots/Estadio.png)
 
-### GoalZone con la condición de matar al JefeFinal para lograr escapar.
-
-![GoalZone](Screenshots/GoalZone.png)
-
 ### Pantalla de Victoria.
 
-![PantallaDeVictoria](Screenshots/Victoria.png)
+![PantallaDeVictoria](Screenshots/Victory.png)
 
 ### Pantalla de GameOver.
 
-![PantallaGameOver](Screenshots/GameOver.png)
+![PantallaDeGameOver](Screenshots/GameOver.png)
+___
+
+### Tráiler del Videojuego
+
+https://drive.google.com/file/d/1dBFtjwb8Mxe-CRhW5bP9GqssNZaabyid/view?usp=sharing
+
+___
+
+### Link de Itch.io
+
+https://drive.google.com/file/d/1dBFtjwb8Mxe-CRhW5bP9GqssNZaabyid/view?usp=sharing
+
 ___
 
 ## ▶️ Como abrir y ejecutar el proyecto
