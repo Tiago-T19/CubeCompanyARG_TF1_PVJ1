@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4410614207290033399}
   - component: {fileID: 171736330609229157}
   m_Layer: 0
-  m_Name: Cylinder (2)
+  m_Name: PortalVolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6996734224732837040}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 598.21, y: -0.017, z: 80.3}
+  m_LocalPosition: {x: 598.21, y: 1.11, z: 80.3}
   m_LocalScale: {x: 1.7715445, y: 0.19362982, z: 1.7715445}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -143,7 +143,6 @@ GameObject:
   - component: {fileID: 215982867594919830}
   - component: {fileID: 5276628038142555416}
   - component: {fileID: 668640605692895143}
-  - component: {fileID: 275377255436390896}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -246,18 +245,3 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &275377255436390896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8424634135151465866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0795a525a097d1e4ca4c516e1c1c2cb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PortalLaberinto
-  destino: 0
-  radioInteraccion: 2.5
-  teclaInteraccion: 101
