@@ -29,6 +29,38 @@ public class EquipmentManager : MonoBehaviour
 
             currentObject.transform.localPosition = Vector3.zero;
             currentObject.transform.localRotation = Quaternion.identity;
+
+            GunController gun =
+    FindFirstObjectByType<GunController>();
+
+            if (gun != null)
+            {
+                if (item.isWeapon)
+                {
+                    gun.enabled = true;
+
+                    Debug.Log("Equipando: " + item.itemName);
+                    Debug.Log("Es arma: " + item.isWeapon);
+
+                    gun.SetupWeapon(item);
+                }
+                else
+                {
+                    gun.enabled = false;
+                }
+            }
         }
+        // Configura el arma con los datos del ScriptableObject
+        /*GunController gun =
+        FindFirstObjectByType<GunController>();
+        if (item.isWeapon)
+        {
+            gun.enabled = true;
+            gun.SetupWeapon(item);
+        }
+        else
+        {
+            gun.enabled = false;
+        }*/
     }
 }

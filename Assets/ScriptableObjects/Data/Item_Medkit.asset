@@ -18,5 +18,12 @@ MonoBehaviour:
   description: Botiquin que restaura toda la salud
   maxStackSize: 1
   prefab: {fileID: 3853373204749786535, guid: 263af18baa6655840a3b798e3e54efd4, type: 3}
+  isWeapon: 0
+  weaponDamage: 0
+  weaponMaxAmmo: 0
+  weaponRange: 0
+  reloadTime: 0
+  shootSound: {fileID: 0}
+  reloadSound: {fileID: 0}
   isConsumable: 1
   healAmount: 100

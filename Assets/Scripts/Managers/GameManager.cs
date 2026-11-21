@@ -125,10 +125,22 @@ public class GameManager : MonoBehaviour
     public void PausarJuego()
     {
         InventoryController inventory =
-     FindFirstObjectByType<InventoryController>();
+            FindFirstObjectByType<InventoryController>();
 
         if (inventory != null)
             inventory.CloseInventory();
+
+        PasswordDoor passwordPuzzle =
+            FindFirstObjectByType<PasswordDoor>();
+
+        if (passwordPuzzle != null)
+            passwordPuzzle.ClosePasswordPanel();
+
+        WirePuzzle wirePuzzle =
+            FindFirstObjectByType<WirePuzzle>();
+
+        if (wirePuzzle != null)
+            wirePuzzle.ClosePuzzle();
 
         CambiarEstado(EstadoJuego.Pausa);
     }

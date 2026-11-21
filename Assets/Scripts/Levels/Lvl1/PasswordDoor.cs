@@ -28,10 +28,9 @@ public class PasswordDoor : MonoBehaviour
             inventory.CloseInventory();
 
 
-        //El puzzle solo se puede abrir si el juego está en estado de jugando
+        //
         if (GameManager.Instance.estadoActual != EstadoJuego.Jugando)
             return;
-
         // Activamos el panel de contraseña y avisamos al GameManager que estamos resolviendo un puzzle
         GameManager.Instance.resolviendoPuzzle = true;
         passwordPanel.SetActive(true);

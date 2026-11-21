@@ -12,11 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b66473bc095714c46b58b71be1cdad47, type: 3}
   m_Name: Item_Shotgun
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemID: Medkit_01
-  itemName: Item_Medkit
-  icon: {fileID: 21300000, guid: ad03b0e8a011e0948ba338a6b3947a83, type: 3}
-  description: Botiquin que restaura toda la salud
+  itemID: Shotgun_01
+  itemName: Item_Shotgun
+  icon: {fileID: 21300000, guid: a32b3578a64b22a4ebe40fcd9855c6d7, type: 3}
+  description: escopeta corredera
   maxStackSize: 1
-  prefab: {fileID: 3853373204749786535, guid: 263af18baa6655840a3b798e3e54efd4, type: 3}
-  isConsumable: 1
-  healAmount: 100
+  prefab: {fileID: 4057343540934776345, guid: db79862c8dd93c8479eb7ff1c135db42, type: 3}
+  isWeapon: 1
+  weaponDamage: 60
+  weaponMaxAmmo: 8
+  weaponRange: 50
+  reloadTime: 2
+  shootSound: {fileID: 0}
+  reloadSound: {fileID: 0}
+  isConsumable: 0
+  healAmount: 0

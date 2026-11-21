@@ -81,6 +81,10 @@ public class InventoryController : MonoBehaviour
         if (GameManager.Instance.estadoActual != EstadoJuego.Jugando)
             return;
 
+        // no se abre el inventario en los puzzles
+        if (GameManager.Instance.resolviendoPuzzle)
+            return;
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             Debug.Log("TAB PRESIONADO");

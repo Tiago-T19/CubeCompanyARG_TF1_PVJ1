@@ -13,6 +13,10 @@ public class GunController : MonoBehaviour
     [SerializeField] private float range = 100f;
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private int maxAmmo = 30;
+
+    [SerializeField] private bool isReloading;
+    [SerializeField] private float reloadTime = 2f;
+
     public int MaxAmmo => maxAmmo;
     private int currentAmmo;
     public int CurrentAmmo => currentAmmo;
@@ -51,13 +55,34 @@ public class GunController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Reload();
+            StartReload();
         }
     }
 
+    // Configura el arma con los datos del ScriptableObject
+    public void SetupWeapon(ItemData weaponData)
+    {
+        Debug.Log("CONFIGURANDO ARMA: " + weaponData.itemName);
+        damage = weaponData.weaponDamage;
+        maxAmmo = weaponData.weaponMaxAmmo;
+        range = weaponData.weaponRange;
+        reloadTime = weaponData.reloadTime;
+
+        currentAmmo = maxAmmo;
+
+        OnAmmoProgressChanged?.Invoke(currentAmmo, maxAmmo);
+
+
+        Debug.Log("ARMA EQUIPADA: " + weaponData.itemName);
+        Debug.Log("Daño: " + weaponData.weaponDamage);
+        Debug.Log("Balas: " + weaponData.weaponMaxAmmo);
+    }
 
     private void Shoot()
     {
+        if (isReloading)
+            return;
+
         if (currentAmmo <= 0)
         {
             Debug.Log("Sin balas");
@@ -99,14 +124,32 @@ public class GunController : MonoBehaviour
         }
     }
 
-    private void Reload()
+    private void StartReload()
     {
-        if (AudioManager.Instance != null) AudioManager.Instance.PlayReload();
-        currentAmmo = maxAmmo;
+        if (isReloading)
+            return;
 
-        // Avisa al HUD
-        OnAmmoProgressChanged?.Invoke(currentAmmo, maxAmmo);
+        if (currentAmmo >= maxAmmo)
+            return;
+
+        isReloading = true;
+
+        Invoke(nameof(FinishReload), reloadTime);
 
         Debug.Log("Recargando...");
+    }
+
+    private void FinishReload()
+    {
+        isReloading = false;
+
+        currentAmmo = maxAmmo;
+
+        OnAmmoProgressChanged?.Invoke(
+            currentAmmo,
+            maxAmmo
+        );
+
+        Debug.Log("Recarga completada");
     }
 }
