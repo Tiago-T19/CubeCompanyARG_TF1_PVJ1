@@ -7,10 +7,11 @@ public class MissionLvl1 : MonoBehaviour
     {
         NotStarted, // La mision aun no empieza
         CollectData, // Recolectar los datos (MissionObject)
-        ReachMaze, // Seguir camino al laberinto
-        FindPassword, // Encontrar la contraseña para abrir la puerta (PasswordDoor)
+        ReachPlaza, // Llegar a la plaza
         EnterMaze, // Entrar al laberinto
-        Completed // Nivel 1 completado
+        Password, // Ingresar la contraseña (PasswordDoor)
+        ReachStadium, // Llegar al estadio
+        Completed // Nivel completado
     }
 
     [Header("Estado de la mision")]
@@ -52,25 +53,31 @@ public class MissionLvl1 : MonoBehaviour
     {
         if (currentStep != MissionStep.CollectData) return;
 
-        ChangeStep(MissionStep.ReachMaze);
+        ChangeStep(MissionStep.ReachPlaza);
     }
 
-    public void MazeEntranceReached()
+    public void PlazaReached()
     {
-        if (currentStep != MissionStep.ReachMaze) return;
-
-        ChangeStep(MissionStep.FindPassword);
-    }
-
-    private void PasswordAccepted()
-    {
-        if (currentStep != MissionStep.FindPassword) return;
+        if (currentStep != MissionStep.ReachPlaza) return;
 
         ChangeStep(MissionStep.EnterMaze);
     }
+
     public void MazeEntered()
     {
         if (currentStep != MissionStep.EnterMaze) return;
+
+        ChangeStep(MissionStep.Password);
+    }
+    private void PasswordAccepted()
+    {
+        if (currentStep != MissionStep.Password) return;
+
+        ChangeStep(MissionStep.ReachStadium);
+    }
+    public void StadiumReached()
+    {
+        if (currentStep != MissionStep.ReachStadium) return;
 
         ChangeStep(MissionStep.Completed);
     }
