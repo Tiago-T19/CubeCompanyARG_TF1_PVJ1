@@ -1,19 +1,51 @@
 using System;
 using UnityEngine;
-
-
-// oculto por el momento hasta arreglar el inventario
-
-
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance { get; private set; }
 
-    [SerializeField] private int inventorySize = 3;
-    private InventorySlot[] slots;
+    [SerializeField] private int hotbarSize = 3;
+    // Modificado para que el inventario tenga un tamaño de 6 en la mochila
+    [SerializeField] private int backpackSize = 6;
+
+    private InventorySlot[] hotbarSlots;
+    private InventorySlot[] backpackSlots;
 
     private int selectedSlot = 0;
     public int SelectedSlot => selectedSlot;
+
+    public InventorySlot[] GetHotbarSlots()
+    {
+        return hotbarSlots;
+    }
+
+    public InventorySlot[] GetBackpackSlots()
+    {
+        return backpackSlots;
+    }
+
+  
+    public void EquipFromBackpack(int backpackIndex)
+    {
+        if (backpackSlots[backpackIndex] == null)
+            return;
+
+        // Si había algo en la hotbar vuelve a la mochila
+        InventorySlot oldHotbarItem =
+            hotbarSlots[selectedSlot];
+
+        hotbarSlots[selectedSlot] =
+            backpackSlots[backpackIndex];
+
+        backpackSlots[backpackIndex] =
+            oldHotbarItem;
+
+        EquipmentManager.Instance.Equip(
+            hotbarSlots[selectedSlot].itemData
+        );
+
+        OnInventoryChanged?.Invoke();
+    }
 
     public Action OnInventoryChanged;
 
@@ -25,7 +57,8 @@ public class InventoryManager : MonoBehaviour
             return;
         }
         Instance = this;
-        slots = new InventorySlot[inventorySize];
+        hotbarSlots = new InventorySlot[hotbarSize];
+        backpackSlots = new InventorySlot[backpackSize];
     }
 
     private void Update()
@@ -51,28 +84,24 @@ public class InventoryManager : MonoBehaviour
     {
         Debug.Log("Agregando: " + itemData.itemName);
 
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < backpackSlots.Length; i++)
         {
-            if (slots[i] != null && slots[i].itemData == itemData)
+            if (backpackSlots[i] != null && backpackSlots[i].itemData == itemData)
             {
-                slots[i].quantity += quantity;
+                backpackSlots[i].quantity += quantity;
                 OnInventoryChanged?.Invoke();
                 return true;
             }
         }
 
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < backpackSlots.Length; i++)
         {
-            if (slots[i] == null)
+            if (backpackSlots[i] == null)
             {
               
-                slots[i] = new InventorySlot(itemData, quantity);
-                OnInventoryChanged?.Invoke();
+                backpackSlots[i] = new InventorySlot(itemData, quantity);
 
-                if (i == selectedSlot)
-                {
-                    EquipmentManager.Instance.Equip(itemData);
-                }
+                OnInventoryChanged?.Invoke();
 
                 return true;
             }
@@ -82,7 +111,7 @@ public class InventoryManager : MonoBehaviour
 
     public InventorySlot[] GetSlots()
     {
-        return slots;
+        return hotbarSlots;
     }
 
 
@@ -90,34 +119,33 @@ public class InventoryManager : MonoBehaviour
     {
         selectedSlot += direction;
 
-        if (selectedSlot >= slots.Length)
+        if (selectedSlot >= hotbarSlots.Length)
             selectedSlot = 0;
 
         if (selectedSlot < 0)
-            selectedSlot = slots.Length - 1;
+            selectedSlot = hotbarSlots.Length - 1;
 
         EquipSelectedItem();
 
         OnInventoryChanged?.Invoke();
     }
 
-
     private void EquipSelectedItem()
     {
-        if (slots[selectedSlot] == null)
+        if (hotbarSlots[selectedSlot] == null)
             return;
 
         EquipmentManager.Instance.Equip(
-            slots[selectedSlot].itemData
+            hotbarSlots[selectedSlot].itemData
         );
     }
 
     private void UseSelectedItem()
     {
-        if (slots[selectedSlot] == null)
+        if (hotbarSlots[selectedSlot] == null)
             return;
 
-        ItemData item = slots[selectedSlot].itemData;
+        ItemData item = hotbarSlots[selectedSlot].itemData;
 
         if (!item.isConsumable)
             return;
@@ -138,11 +166,11 @@ public class InventoryManager : MonoBehaviour
             Debug.Log("Curado +" + item.healAmount);
         }
 
-        slots[selectedSlot].quantity--;
+        hotbarSlots[selectedSlot].quantity--;
 
-        if (slots[selectedSlot].quantity <= 0)
+        if (hotbarSlots[selectedSlot].quantity <= 0)
         {
-            slots[selectedSlot] = null;
+            hotbarSlots[selectedSlot] = null;
         }
 
         OnInventoryChanged?.Invoke();

@@ -1,8 +1,5 @@
 using UnityEngine;
 using UnityEngine.UIElements;
-
-//oculto por el momento hasta arreglar el inventario
-
 public class HotBarUIController : MonoBehaviour
 {
     private UIDocument document;
@@ -42,7 +39,7 @@ public class HotBarUIController : MonoBehaviour
             return;
 
         InventorySlot[] slots =
-            InventoryManager.Instance.GetSlots();
+            InventoryManager.Instance.GetHotbarSlots();
 
         slot1.image = null;
         slot2.image = null;

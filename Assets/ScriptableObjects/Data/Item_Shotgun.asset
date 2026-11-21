@@ -19,7 +19,7 @@ MonoBehaviour:
   maxStackSize: 1
   prefab: {fileID: 4057343540934776345, guid: db79862c8dd93c8479eb7ff1c135db42, type: 3}
   isWeapon: 1
-  weaponDamage: 20
+  weaponDamage: 50
   weaponMaxAmmo: 8
   weaponRange: 50
   reloadTime: 3
