@@ -7399,10 +7399,10 @@ Transform:
   - {fileID: 950664873}
   - {fileID: 1519595144}
   - {fileID: 1930134129}
-  - {fileID: 1877809305}
+  - {fileID: 1544945372}
   - {fileID: 1210068932}
   - {fileID: 853665214}
-  - {fileID: 360513845}
+  - {fileID: 1877809305}
   - {fileID: 966992858}
   - {fileID: 1290392927}
   m_Father: {fileID: 575026671}
@@ -11792,87 +11792,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 20.000008, y: 0.20000087, z: 20.000004}
   m_Center: {x: -0.0000009536745, y: 0.1, z: 0}
---- !u!1 &360513844
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 360513845}
-  - component: {fileID: 360513847}
-  - component: {fileID: 360513846}
-  m_Layer: 0
-  m_Name: 6 ExitMaze
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &360513845
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 360513844}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -69.1, y: 0, z: -182}
-  m_LocalScale: {x: 8.021556, y: 4.922544, z: 1.374746}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 206931404}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &360513846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 360513844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6a21227f9200324aba37076389c5867, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MissionTrigger
-  onPlayerEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 950664874}
-        m_TargetAssemblyTypeName: MissionLvl1, Assembly-CSharp
-        m_MethodName: ExitMazeReached
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!65 &360513847
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 360513844}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 201.36926}
-  m_Center: {x: 0, y: 0, z: -100.18463}
 --- !u!65 &362647836
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30002,7 +29921,7 @@ Transform:
   m_GameObject: {fileID: 853665213}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -69.1, y: 0, z: -236.7}
+  m_LocalPosition: {x: -69.1, y: 0, z: -176.1}
   m_LocalScale: {x: 8.021556, y: 11.584323, z: 1.374746}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -59092,6 +59011,87 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 0d82ae0493e1c264bad0588fde0a3d8a, type: 3}
+--- !u!1 &1544945371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1544945372}
+  - component: {fileID: 1544945374}
+  - component: {fileID: 1544945373}
+  m_Layer: 0
+  m_Name: 3 FindPassword (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1544945372
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544945371}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 246.23, y: 1.2, z: -26.9}
+  m_LocalScale: {x: 8.021556, y: 1.4391, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 206931404}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &1544945373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544945371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a21227f9200324aba37076389c5867, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MissionTrigger
+  onPlayerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 950664874}
+        m_TargetAssemblyTypeName: MissionLvl1, Assembly-CSharp
+        m_MethodName: FindPassword
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &1544945374
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544945371}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.710322, y: 3.9652216, z: 1}
+  m_Center: {x: 0.59796214, y: 1.4826108, z: 1.3921274e-15}
 --- !u!1001 &1545228060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74544,7 +74544,7 @@ GameObject:
   - component: {fileID: 1877809306}
   - component: {fileID: 1877809307}
   m_Layer: 0
-  m_Name: 3 FindPassword
+  m_Name: 6 ExitMaze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74559,7 +74559,7 @@ Transform:
   m_GameObject: {fileID: 1877809304}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 246.23, y: 1.2, z: -26.9}
+  m_LocalPosition: {x: 224.9, y: 1.2, z: -26.9}
   m_LocalScale: {x: 8.021556, y: 1.4391, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74603,7 +74603,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 950664874}
         m_TargetAssemblyTypeName: MissionLvl1, Assembly-CSharp
-        m_MethodName: FindPassword
+        m_MethodName: ExitMazeReached
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

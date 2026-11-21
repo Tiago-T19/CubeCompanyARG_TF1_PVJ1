@@ -53,16 +53,19 @@ ___
    Se desarrollo un sistema de misiones independiente para cada nivel, utilizando estados `(enum)` para controlar el progreso y los objetivos que debe completar el jugador
 
     Nivel 1:
-    - Recolectar los cinco objetos con datos
-    - Llegar hasta el laberinto
-    - Encontrar la contraseña para abrir la puerta
-    - Entrar al laberinto y completar el nivel
+    - Recolecta los cinco datos por la ciudad
+    - Dirigete a la puerta para acceder al estadio
+    - Dirigete a la plaza para encontrar la contraseña
+    - Entra al laberinto
+    (Despues de completar el nivel del laberinto)
+    - Vuelve a la puerta con contraseña
+    - Ingresa la contraseña para desbloquear la puerta
+    - Dirigete al estadio
 
-    Nivel 2:
-    - Encontrar el frasco del virus
-    - Minijuego de colores
-    - Encontrar la salida del laberinto
-    - Escapar de la ciudad
+    Nivel 2 - Laberinto:
+    - Adentrate en el laberinto
+    - Encuentra los frascos de virus y la contraseña
+    - Sal del laberinto, sigue el mismo camino de entrada
 
     La comunicacion entre los distintos componentes se realiza mediante eventos `(Action)`, que permiten actualizar el estado de la mision cuando el jugador completa una actividad. Tambien se incorporo un panel de mision, para mostrar en pantalla, los objetivos y el progreso de las misiones
 
@@ -136,10 +139,13 @@ El Jugador Este sistema se encarga de crear un rayo para el arma M4 que le permi
     {
         NotStarted, // La mision aun no empieza
         CollectData, // Recolectar los datos (MissionObject)
-        ReachMaze, // Seguir camino al laberinto
-        FindPassword, // Encontrar la contraseña para abrir la puerta (PasswordDoor)
+        FindPassword, // Puerta con contraseña
+        ReachPlaza, // Llegar a la plaza
         EnterMaze, // Entrar al laberinto
-        Completed // Nivel 1 completado
+        ExitMaze, // Salir del laberinto
+        Password, // Ingresar la contraseña (PasswordDoor)
+        ReachStadium, // Llegar al estadio
+        Completed // Nivel completado
     }
 
     public void StartMission()
@@ -155,25 +161,46 @@ El Jugador Este sistema se encarga de crear un rayo para el arma M4 que le permi
     {
         if (currentStep != MissionStep.CollectData) return;
 
-        ChangeStep(MissionStep.ReachMaze);
+        ChangeStep(MissionStep.FindPassword);
     }
 
-    public void MazeEntranceReached()
+    public void FindPassword()
     {
-        if (currentStep != MissionStep.ReachMaze) return;
+        if (currentStep != MissionStep.FindPassword) return;
 
-        ChangeStep(MissionStep.FindPassword);
+        ChangeStep(MissionStep.ReachPlaza);
+    }
+
+    public void PlazaReached()
+    {
+        if (currentStep != MissionStep.ReachPlaza) return;
+
+        ChangeStep(MissionStep.EnterMaze);
+    }
+
+    public void MazeEntered()
+    {
+        if (currentStep != MissionStep.EnterMaze) return;
+
+        ChangeStep(MissionStep.Password);
+    }
+
+    public void ExitMazeReached()
+    {
+        if (currentStep != MissionStep.ExitMaze) return;
+
+        ChangeStep(MissionStep.Password);
     }
 
     private void PasswordAccepted()
     {
-        if (currentStep != MissionStep.FindPassword) return;
+        if (currentStep != MissionStep.Password) return;
 
-        ChangeStep(MissionStep.EnterMaze);
+        ChangeStep(MissionStep.ReachStadium);
     }
-    public void MazeEntered()
+    public void StadiumReached()
     {
-        if (currentStep != MissionStep.EnterMaze) return;
+        if (currentStep != MissionStep.ReachStadium) return;
 
         ChangeStep(MissionStep.Completed);
     }
@@ -189,55 +216,47 @@ El Jugador Este sistema se encarga de crear un rayo para el arma M4 que le permi
 ```csharp
     public enum MissionStep // Flujo de la mision
     {
-        NotStarted, // La mision aun no empieza
-        FindVirus, // Seguir camino al laberinto (VirusObject)
-        RestorePower, // Minijuego (WirePuzzle)
-        ExitMaze, // Salir del laberinto
-        EscapeCity, // Escapar de la ciudad 
-        Completed // Nivel 2 completado
+     NotStarted, // La mision aun no empieza
+     EnterMaze, // Entrar al laberinto
+     FindVirusAndPassword, // Busca el virus y la contraseña (VirusObject)
+     ExitMaze, // Salir del laberinto
+     Completed // Nivel completado
     }
 
     public void StartMission()
     {
-        if (currentStep != MissionStep.NotStarted) return;
+     if (currentStep != MissionStep.NotStarted) return;
 
-        missionPanel.SetActive(true);
+     missionPanel.SetActive(true);
 
-        ChangeStep(MissionStep.FindVirus);
+     ChangeStep(MissionStep.EnterMaze);
     }
 
-    private void VirusCollected() //PowerRestored
+    public void MazeEntered()
     {
-        if (currentStep != MissionStep.FindVirus) return;
+     if (currentStep != MissionStep.EnterMaze) return;
 
-        ChangeStep(MissionStep.RestorePower);
+     ChangeStep(MissionStep.FindVirusAndPassword);
     }
 
-    private void PowerRestored()
+    private void VirusCollectedAndPasswordFound()
     {
-        if (currentStep != MissionStep.RestorePower) return;
+     if (currentStep != MissionStep.FindVirusAndPassword) return;
 
-        ChangeStep(MissionStep.ExitMaze);
-    }
+     ChangeStep(MissionStep.ExitMaze);
+    }  
 
-    public void MazeExitReached()
+    public void ExitMazeReached()
     {
-        if (currentStep != MissionStep.ExitMaze) return;
+     if (currentStep != MissionStep.ExitMaze) return;
 
-        ChangeStep(MissionStep.EscapeCity);
-    }
-
-    public void EscapeCityReached()
-    {
-        if (currentStep != MissionStep.EscapeCity) return;
-
-        ChangeStep(MissionStep.Completed);
+     ChangeStep(MissionStep.Completed);
     }
 
     private void ChangeStep(MissionStep newStep)
     {
-        currentStep = newStep;
-        OnMissionStepChanged?.Invoke(currentStep);
+     currentStep = newStep;
+     OnMissionStepChanged?.Invoke(currentStep);
     }
 ```
 
