@@ -29,6 +29,13 @@ public static class ShopManager
         if (Agotado(item)) { motivo = "Agotado"; return false; }
         if (!AlcanzaElSaldo(item)) { motivo = $"Te faltan {item.precio - Saldo} pts"; return false; }
 
+        if (item.tipo == PowerUpType.Arma)
+        {
+            if (item.arma == null) { motivo = "Falta asignar el arma"; return false; }
+            if (InventoryManager.Instance == null) { motivo = "Falta el inventario"; return false; }
+            if (!HayLugarEnInventario(item.arma)) { motivo = "Inventario lleno"; return false; }
+        }
+
         if (item.tipo == PowerUpType.CuracionTotal && GM.GetVida() >= Stats.vidaMax)
         {
             motivo = "Ya tenés la vida llena";
@@ -36,6 +43,16 @@ public static class ShopManager
         }
 
         return true;
+    }
+
+    // Hay lugar si el arma ya está en un slot (se apila) o queda algún slot vacío
+    private static bool HayLugarEnInventario(ItemData data)
+    {
+        InventorySlot[] slots = InventoryManager.Instance.GetSlots();
+        if (slots == null) return false;
+        foreach (InventorySlot slot in slots)
+            if (slot == null || slot.itemData == data) return true;
+        return false;
     }
 
     // Devuelve true si se compró
@@ -84,6 +101,10 @@ public static class ShopManager
             case PowerUpType.CuracionTotal:
                 GM.SetVida(Stats.vidaMax);
                 Stats.NotificarCambio();
+                break;
+
+            case PowerUpType.Arma:
+                InventoryManager.Instance.AddItem(item.arma, 1); // queda en el inventario del jugador
                 break;
         }
 

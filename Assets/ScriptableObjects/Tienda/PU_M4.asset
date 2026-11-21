@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93dc2173477fe3645afc55b6c2a81fa3, type: 3}
+  m_Name: PU_M4
+  m_EditorClassIdentifier: Assembly-CSharp::ShopItemData
+  nombre: M4
+  descripcion: 
+  icono: {fileID: 0}
+  precio: 150
+  maxCompras: 1
+  tipo: 4
+  valor: 20
+  arma: {fileID: 11400000, guid: 5a7c6fb5a07c36e4485e7042f23a2798, type: 2}
