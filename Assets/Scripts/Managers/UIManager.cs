@@ -16,8 +16,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject opcionesPanel;
 
     [Header("Mision - solo Level1")]
-    [SerializeField] private GunController gunController;
     [SerializeField] private TextMeshProUGUI ammoText;
+
     void OnEnable()
     {
         if (GameManager.Instance != null)
@@ -29,11 +29,15 @@ public class UIManager : MonoBehaviour
         }
         if (playerHealth != null) playerHealth.OnChangeHealthPlayer += UpdateHealth;
 
-        // Mision: nos suscribimos y pedimos el valor actual para mostrar 0/5 al arrancar
-        if (gunController != null)
+        // --- BALAS: Ahora escuchamos al evento ESTATICO ---
+        // Asi anda con cualquier arma que te equipes, no solo con una
+        GunController.OnAmmoProgressChanged += UpdateAmmoText;
+
+        // Si ya hay un arma equipada, pedimos sus balas actuales para no arrancar en 0/0
+        if (EquipmentManager.Instance != null && EquipmentManager.Instance.GetCurrentGun() != null)
         {
-            gunController.OnAmmoProgressChanged += UpdateAmmoText;
-            UpdateAmmoText(gunController.CurrentAmmo, gunController.MaxAmmo);
+            var g = EquipmentManager.Instance.GetCurrentGun();
+            UpdateAmmoText(g.CurrentAmmo, g.MaxAmmo);
         }
     }
 
@@ -46,10 +50,7 @@ public class UIManager : MonoBehaviour
         }
         if (playerHealth != null) playerHealth.OnChangeHealthPlayer -= UpdateHealth;
 
-        if (gunController != null)
-        {
-            gunController.OnAmmoProgressChanged -= UpdateAmmoText;
-        }
+        GunController.OnAmmoProgressChanged -= UpdateAmmoText;
     }
 
     void HandleState(GameState state)
@@ -64,7 +65,6 @@ public class UIManager : MonoBehaviour
         if (PausePanel) PausePanel.SetActive(state == GameState.Paused);
         if (VictoryPanel) VictoryPanel.SetActive(state == GameState.Victory);
         if (GameOverPanel) GameOverPanel.SetActive(state == GameState.GameOver);
-
     }
 
     void UpdatePuntaje(int p) { if (puntajeText) puntajeText.text = p.ToString(); }
@@ -128,5 +128,4 @@ public class UIManager : MonoBehaviour
     public void Btn_Reiniciar() { if (AudioManager.Instance != null) AudioManager.Instance.PlayClick(); GameManager.Instance.ReiniciarNivel(); }
     public void Btn_MenuPrincipal() { if (AudioManager.Instance != null) AudioManager.Instance.PlayClick(); GameManager.Instance.VolverMenu(); }
     public void Btn_Salir() { if (AudioManager.Instance != null) AudioManager.Instance.PlayClick(); GameManager.Instance.SalirDelJuego(); }
-
 }

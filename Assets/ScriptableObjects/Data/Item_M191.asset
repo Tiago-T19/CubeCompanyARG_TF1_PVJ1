@@ -23,7 +23,7 @@ MonoBehaviour:
   weaponMaxAmmo: 15
   weaponRange: 60
   reloadTime: 1.5
-  shootSound: {fileID: 0}
-  reloadSound: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: b37204914a8762c40835f173e1c022d6, type: 3}
+  reloadSound: {fileID: 8300000, guid: 83fa3cb0f0da0a541ab082a35a3eef0c, type: 3}
   isConsumable: 0
   healAmount: 0
