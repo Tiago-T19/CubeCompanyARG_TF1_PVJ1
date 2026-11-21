@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GunController : MonoBehaviour
 {
@@ -52,8 +53,20 @@ public class GunController : MonoBehaviour
     void Update()
     {
         if (!estaEquipada) return;
-        if (GameManager.Instance != null && GameManager.Instance.currentState != GameState.Playing) return;
+
+        if (GameManager.Instance != null && GameManager.Instance.currentState != GameState.Playing)
+            return;
+
+        if (GameManager.Instance != null &&GameManager.Instance.inventarioAbierto)
+            return;
+
+        if (GameManager.Instance != null && GameManager.Instance.resolviendoPuzzle)
+            return;
+
         if (recargando) return;
+
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            return;
 
         float cadencia = 0.25f;
         if (Input.GetButton("Fire1") && Time.time >= ultimoDisparo + cadencia)
