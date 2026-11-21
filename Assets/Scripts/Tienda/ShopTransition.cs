@@ -61,6 +61,19 @@ public class ShopTransition : MonoBehaviour
         CrearFade();
     }
 
+    // Lo llama el GameManager al reiniciar: limpia el estado para que no quede "dentro de la tienda"
+    public static void ReiniciarEstado()
+    {
+        if (instance == null) return;
+        bool estabaEnTienda = instance.EnTienda;
+        instance.StopAllCoroutines();
+        instance.EnTransicion = false;
+        instance.EnTienda = false;
+        instance.objetosApagados.Clear();
+        if (instance.fade != null) { instance.fade.alpha = 0f; instance.fade.blocksRaycasts = false; }
+        if (estabaEnTienda) OnSalioDeTienda?.Invoke();
+    }
+
     public void EntrarATienda(string escena)
     {
         if (EnTransicion || EnTienda) return;

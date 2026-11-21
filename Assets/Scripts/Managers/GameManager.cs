@@ -115,6 +115,8 @@ public class GameManager : MonoBehaviour
 
     public void VolverMenu()
     {
+        ShopTransition.ReiniciarEstado();
+        LaberintoTransition.ReiniciarEstado();
         PlayerPrefs.SetString("NextScene", "MainMenu");
         SceneManager.LoadScene("PantallaDeCarga");
         CambiarEstado(EstadoJuego.Inicio);
@@ -152,7 +154,11 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         ResetDatos();
+        // Si estás en la Tienda o el Laberinto (se cargan encima del nivel), reinicia desde el inicio del Level1
         string escenaActual = SceneManager.GetActiveScene().name;
+        if (escenaActual == "Tienda" || escenaActual == "Laberinto") escenaActual = "Level1";
+        ShopTransition.ReiniciarEstado();
+        LaberintoTransition.ReiniciarEstado();
         PlayerPrefs.SetString("NextScene", escenaActual);
         SceneManager.LoadScene("PantallaDeCarga");
         CambiarEstado(EstadoJuego.Jugando);
