@@ -42,6 +42,17 @@ public class LaberintoTransition : MonoBehaviour
 
     // ---------- Viaje ----------
 
+    // Lo llama el GameManager al reiniciar: limpia el estado para que no quede "dentro del laberinto"
+    public static void ReiniciarEstado()
+    {
+        if (instance == null) return;
+        instance.StopAllCoroutines();
+        instance.enTransicion = false;
+        instance.enLaberinto = false;
+        instance.objetosApagados.Clear();
+        if (instance.fade != null) { instance.fade.alpha = 0f; instance.fade.blocksRaycasts = false; }
+    }
+
     public void IrAlLaberinto()
     {
         if (enTransicion || enLaberinto || ShopTransition.HayTiendaAbierta) return;

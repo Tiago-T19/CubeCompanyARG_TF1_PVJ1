@@ -5,7 +5,8 @@ public enum PowerUpType
     VidaMaxima,     // suma vida máxima (y la misma cantidad de vida actual)
     Velocidad,      // suma velocidad de movimiento
     FuerzaSalto,    // suma fuerza de salto
-    CuracionTotal   // recupera toda la vida
+    CuracionTotal,  // recupera toda la vida
+    Arma            // agrega un arma al inventario
 }
 
 // Datos de un power-up de la tienda (un asset por cada producto).
@@ -26,6 +27,9 @@ public class ShopItemData : ScriptableObject
     [Header("Efecto")]
     public PowerUpType tipo;
     public float valor = 20f;
+
+    [Header("Solo si el tipo es Arma")]
+    public ItemData arma;
 
     // Identificador único: usamos el nombre del asset
     public string Id => name;

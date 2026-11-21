@@ -1473,12 +1473,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   estadoActual: 0
   currentState: 0
+  inventarioAbierto: 0
+  resolviendoPuzzle: 0
+  inventoryController: {fileID: 0}
   vidaActual: 100
   vidaMax: 100
   puntajeAcumulado: 0
   itemsRecolectados: 0
   jefeFinalMuerto: 0
-  playerStats: {fileID: 0}
+  playerStats: {fileID: 11400000, guid: 71c62d5392d7269419cb9ebd85d06000, type: 2}
 --- !u!4 &644256407
 Transform:
   m_ObjectHideFlags: 0
@@ -3552,7 +3555,6 @@ MonoBehaviour:
   playerHealth: {fileID: 0}
   creditosPanel: {fileID: 1003861208}
   opcionesPanel: {fileID: 1902009101}
-  gunController: {fileID: 0}
   ammoText: {fileID: 0}
 --- !u!1 &1484801090
 GameObject:
