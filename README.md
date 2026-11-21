@@ -10,8 +10,8 @@ Equipo Docente: Mg. Ing. Ariel Alejandro Vega | Tecn. Kevin Alexis Roman Llampa
 | Carla Dalila Angelo | TUV000563 | AngeloCarla | AngeloCarla | Desarrollador |
 | Sebastian Luciano Martinez | TUV000621 | SebasMartinez07 | SebasMartinez | Desarrollador |
 | Tiago L. Misael Tolaba | TUV000834 | Tiago-T19 | TolabaTiago | Desarrollador |
-| Mailen Anaid Castro | TUV000582 | Mailen565 | MailenCastro | Desarrollador |
-| Lucas Joaquin Aldapi | TUV000559 | Readyplayer24 | LucasAldapi | Desarrollador |
+| Mailen Anaid Castro | TUV000582 | Mailen565 | MailenCastro | Desarrollador y Diseñador de niveles |
+
 
 ___
 ## 🛠️ Version de Unity
@@ -31,9 +31,9 @@ ___
 | **Saltar** | `ESPACIO` | Saltar por el mapa |
 | **Interactuar** | `E` / Contacto con zona (`Trigger`) | Interactua con objetos y recolecta |
 | **Ver Mision** | `Q` | permite ver el estado de los objetos de mision si fueron recogidos o no |
-| **Inventario** | `TAB` | Interactua con objetos y recolecta |
+| **Inventario** | `TAB` | permite abrir el inventario y gestionar los recursos |
 | **Disparar/Atacar** | `CLICK IZQUIERDO` | Disapara y ataca  |
-| **Usar consumible** | `CLICK DERECHO` | Permite usar el botiquin  |
+| **Usar consumible** | `H` | Permite usar el botiquin  |
 
 
 ___
@@ -90,7 +90,7 @@ ___
 ### 4. Sistema de inventario
 - **Encargado:** Tolaba Tiago
 
-El jugador cuenta con un inventario de acceso rápido de 3 espacios (slots) que le permite equipar y alternar dinámicamente entre su armamento (como un rifle M4 y un cuchillo) y objetos consumibles.
+El jugador cuenta con un inventario de acceso rápido de 3 espacios (slots) que le permite equipar y alternar dinámicamente entre su armamento (como un rifle M4, escopeta o pistola) y objetos consumibles.
 
 Los botiquines de curación distribuidos por el mapa pueden recogerse e interactuar con este sistema, permitiendo al jugador acumular múltiples unidades para gestionar su salud de manera estratégica durante la partida.
 
@@ -103,7 +103,7 @@ El jugador tiene un sistema de equipamiento que  se encarga de administrar los r
 ### 6. Sistema de Raycast para las armas
 - **Encargado:** Tolaba Tiago
 
-El Jugador Este sistema se encarga de crear un rayo para el arma M4 que le permite guiar el trayecto de la bala y impactar con los enemigos y tambien permite guiar el uso del cuchillo.
+El Jugador tiene un sistema de raycast que se encarga de crear un rayo para las armas que le permite guiar el trayecto de la bala y impactar con los enemigos y tambien permite guiar el uso del cuchillo.
 
 ### 7. Inteligencia Artificial y Enemigos (NavMesh)
 - **Encargado:** Martinez Sebastian
@@ -397,142 +397,200 @@ private void ShuffleRightWires()
 `OnInventoryChanged?.Invoke():` Dispara un evento que avisa a la interfaz (UI) que debe redibujar los iconos, evitando que la UI tenga que revisar el inventario en cada frame.
 
 ```csharp
-    private void Update()
+    public void Awake()
+{
+    if (Instance != null)
     {
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        Destroy(gameObject);
+        return;
+    }
+    Instance = this;
+    slots = new InventorySlot[inventorySize];
+}
 
-        // Cambio de slot con la rueda del ratón
-        if (scroll > 0f)
-        {
-            selectedSlot++;
-            if (selectedSlot >= slots.Length) selectedSlot = 0;
-            EquipSelectedItem();
-        }
-        if (scroll < 0f)
-        {
-            selectedSlot--;
-            if (selectedSlot < 0) selectedSlot = slots.Length - 1;
-            EquipSelectedItem();
-        }
+private void Update()
+{
+    float scroll = Input.GetAxis("Mouse ScrollWheel");
 
-        // Uso de consumibles
-        if (Input.GetMouseButtonDown(0))
+    if (scroll > 0f)
+    {
+        ChangeSelectedSlot(-1);
+    }
+
+    if (scroll < 0f)
+    {
+        ChangeSelectedSlot(1);
+    }
+
+    if (Input.GetKeyDown(KeyCode.H))
+    {
+        UseSelectedItem();
+    }
+}
+public bool AddItem(ItemData itemData, int quantity)
+{
+    Debug.Log("Agregando: " + itemData.itemName);
+
+    for (int i = 0; i < slots.Length; i++)
+    {
+        if (slots[i] != null && slots[i].itemData == itemData)
         {
-            UseSelectedItem();
+            slots[i].quantity += quantity;
+            OnInventoryChanged?.Invoke();
+            return true;
         }
     }
 
-    public bool AddItem(ItemData itemData, int quantity)
+    for (int i = 0; i < slots.Length; i++)
     {
-        // 1. Busca si el objeto ya existe para acumularlo (stack)
-        for (int i = 0; i < slots.Length; i++)
+        if (slots[i] == null)
         {
-            if (slots[i] != null && slots[i].itemData == itemData)
+          
+            slots[i] = new InventorySlot(itemData, quantity);
+            OnInventoryChanged?.Invoke();
+
+            if (i == selectedSlot)
             {
-                slots[i].quantity += quantity;
-                OnInventoryChanged?.Invoke();
-                return true;
-            }
-        }
-
-        // 2. Si no existe, busca un espacio vacío
-        for (int i = 0; i < slots.Length; i++)
-        {
-            if (slots[i] == null)
-            {
-                slots[i] = new InventorySlot(itemData, quantity);
-                OnInventoryChanged?.Invoke();
-                return true;
-            }
-        }
-        return false; // Inventario lleno
-    }
-
-    private void UseSelectedItem()
-    {
-        if (slots[selectedSlot] == null) return;
-
-        ItemData item = slots[selectedSlot].itemData;
-
-        // Verifica si es consumible y cura al jugador
-        if (item.isConsumable)
-        {
-            HealthSystem player = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>();
-            if (player != null)
-            {
-                player.Heal(item.healAmount);
+                EquipmentManager.Instance.Equip(itemData);
             }
 
-            slots[selectedSlot].quantity--;
-            if (slots[selectedSlot].quantity <= 0) slots[selectedSlot] = null;
-            
-            OnInventoryChanged?.Invoke(); // Actualiza la UI
+            return true;
         }
     }
+    return false; // No hay espacio en el inventario
+}
+
+public InventorySlot[] GetSlots()
+{
+    return slots;
+}
+
+
+public void ChangeSelectedSlot(int direction)
+{
+    selectedSlot += direction;
+
+    if (selectedSlot >= slots.Length)
+        selectedSlot = 0;
+
+    if (selectedSlot < 0)
+        selectedSlot = slots.Length - 1;
+
+    EquipSelectedItem();
+
+    OnInventoryChanged?.Invoke();
+}
+
+
+private void EquipSelectedItem()
+{
+    if (slots[selectedSlot] == null)
+        return;
+
+    EquipmentManager.Instance.Equip(
+        slots[selectedSlot].itemData
+    );
+}
+
+private void UseSelectedItem()
+{
+    if (slots[selectedSlot] == null)
+        return;
+
+    ItemData item = slots[selectedSlot].itemData;
+
+    if (!item.isConsumable)
+        return;
+
+    GameObject playerObj =
+        GameObject.FindGameObjectWithTag("Player");
+
+    if (playerObj == null)
+        return;
+
+    HealthSystem player =
+        playerObj.GetComponent<HealthSystem>();
+
+    if (player != null)
+    {
+        player.Heal(item.healAmount);
+
+        Debug.Log("Curado +" + item.healAmount);
+    }
+
+    slots[selectedSlot].quantity--;
+
+    if (slots[selectedSlot].quantity <= 0)
+    {
+        slots[selectedSlot] = null;
+    }
+
+    OnInventoryChanged?.Invoke();
+}
     ```
 
 ### HotBarUIController.c 
 Utiliza el sistema de consultas Query del UI Toolkit de Unity para encontrar los elementos de la interfaz por su nombre.+= UpdateUI y -= UpdateUI: Sigue el patrón observador. La interfaz "escucha" cuándo hay un cambio en el inventario para actualizar los iconos solo cuando es necesario, y se desconecta en OnDestroy para prevenir memory leaks osea fugas de memoria.  
 
 ```csharp
- private UIDocument document;
+private UIDocument document;
 
- private Image slot1;
- private Image slot2;
- private Image slot3;
+private Image slot1;
+private Image slot2;
+private Image slot3;
 
- private void Start()
- {
-     document = GetComponent<UIDocument>();
+private void Start()
+{
+    document = GetComponent<UIDocument>();
 
-     VisualElement root = document.rootVisualElement;
+    VisualElement root = document.rootVisualElement;
 
-     slot1 = root.Q<Image>("slot01");
-     slot2 = root.Q<Image>("slot02");
-     slot3 = root.Q<Image>("slot03");
+    slot1 = root.Q<Image>("slot01");
+    slot2 = root.Q<Image>("slot02");
+    slot3 = root.Q<Image>("slot03");
 
-     Debug.Log("slot01: " + slot1);
-     Debug.Log("slot02: " + slot2);
-     Debug.Log("slot03: " + slot3);
+    Debug.Log("slot01: " + slot1);
+    Debug.Log("slot02: " + slot2);
+    Debug.Log("slot03: " + slot3);
 
-     InventoryManager.Instance.OnInventoryChanged += UpdateUI;
+    InventoryManager.Instance.OnInventoryChanged += UpdateUI;
 
-     UpdateUI();
- }
+    UpdateUI();
+}
 
- private void OnDestroy()
- {
-     if (InventoryManager.Instance != null)
-         InventoryManager.Instance.OnInventoryChanged -= UpdateUI;
- }
+private void OnDestroy()
+{
+    if (InventoryManager.Instance != null)
+        InventoryManager.Instance.OnInventoryChanged -= UpdateUI;
+}
 
- private void UpdateUI()
- {
-     if (InventoryManager.Instance == null)
-         return;
+private void UpdateUI()
+{
+    if (InventoryManager.Instance == null)
+        return;
 
-     InventorySlot[] slots =
-         InventoryManager.Instance.GetSlots();
+    InventorySlot[] slots =
+        InventoryManager.Instance.GetSlots();
 
-     slot1.image = null;
-     slot2.image = null;
-     slot3.image = null;
+    slot1.image = null;
+    slot2.image = null;
+    slot3.image = null;
 
-     if (slots.Length > 0 && slots[0] != null)
-     {
-         slot1.image = slots[0].itemData.icon.texture;
-     }
+    if (slots.Length > 0 && slots[0] != null)
+    {
+        slot1.image = slots[0].itemData.icon.texture;
+    }
 
-     if (slots.Length > 1 && slots[1] != null)
-     {
-         slot2.image = slots[1].itemData.icon.texture;
-     }
+    if (slots.Length > 1 && slots[1] != null)
+    {
+        slot2.image = slots[1].itemData.icon.texture;
+    }
 
-     if (slots.Length > 2 && slots[2] != null)
-     {
-         slot3.image = slots[2].itemData.icon.texture;
-     }
- }
+    if (slots.Length > 2 && slots[2] != null)
+    {
+        slot3.image = slots[2].itemData.icon.texture;
+    }
+}
 
 ```
 
@@ -551,123 +609,133 @@ public InventorySlot(ItemData data, int qty)
 
 ### InventoryController.cs
 Este script se encarga de la experiencia visual y los controles de la interfaz usando UI Toolkit.
-root.style.display: Oculta o muestra el inventario general al presionar la tecla Tab.
+root.style.display: Oculta o muestra el inventario general al presionar la tecla Tab. El inventario no se mostrara cuando resuelve puzzles o esta en el menu de pausa.
 
 UnityCursor.lockState: Es fundamental en juegos 3D (First/Third Person), ya que libera el ratón cuando el inventario está abierto para que el jugador pueda interactuar con la UI, y lo vuelve a bloquear en el centro de la pantalla al cerrarlo.
 
 AddToClassList / RemoveFromClassList: Modifica dinámicamente las clases de estilo (similares a CSS) para crear el efecto visual de "resaltado" sobre el slot que el jugador está seleccionando con la rueda del ratón, separando la lógica del diseño visual.
 
 ```csharp
- private VisualElement root;
- private bool inventoryOpen = false;
+private VisualElement root;
+private bool inventoryOpen = false;
 
- // Slots visuales
- private VisualElement slot1;
- private VisualElement slot2;
- private VisualElement slot3;
+// Slots visuales
+private VisualElement slot1;
+private VisualElement slot2;
+private VisualElement slot3;
 
- private int selectedSlot = 0;
- public int SelectedSlot => selectedSlot;
+private void Start()
+{
+    Debug.Log("InventoryController iniciado");
 
- private void Start()
- {
-     root = GetComponent<UIDocument>().rootVisualElement;
-     // Buscamos los contenedores de los slots
-     slot1 = root.Q<VisualElement>("Slot1");
-     slot2 = root.Q<VisualElement>("Slot2");
-     slot3 = root.Q<VisualElement>("Slot3");
+    root = GetComponent<UIDocument>().rootVisualElement;
+    // Buscamos los contenedores de los slots
+    slot1 = root.Q<VisualElement>("slot1");
+    slot2 = root.Q<VisualElement>("slot2");
+    slot3 = root.Q<VisualElement>("slot3");
 
-     // Resaltamos el primer slot
-     UpdateSelectedVisual();
 
-     root.style.display = DisplayStyle.None;
+    InventoryManager.Instance.OnInventoryChanged += UpdateSelectedVisual;
 
-     UnityCursor.lockState = CursorLockMode.Locked;
-     UnityCursor.visible = false;
- }
+    // Resaltamos el primer slot
+    UpdateSelectedVisual();
 
- private void UpdateSelectedVisual()
- {
-     slot1.RemoveFromClassList("slotSelected");
-     slot2.RemoveFromClassList("slotSelected");
-     slot3.RemoveFromClassList("slotSelected");
+    root.style.display = DisplayStyle.None;
 
-     switch (selectedSlot)
-     {
-         case 0:
-             slot1.AddToClassList("slotSelected");
-             break;
+    UnityCursor.lockState = CursorLockMode.Locked;
+    UnityCursor.visible = false;
+}
 
-         case 1:
-             slot2.AddToClassList("slotSelected");
-             break;
+private void OnDestroy()
+{
+    if (InventoryManager.Instance != null)
+    {
+        InventoryManager.Instance.OnInventoryChanged -= UpdateSelectedVisual;
+    }
+}
 
-         case 2:
-             slot3.AddToClassList("slotSelected");
-             break;
-     }
- }
+private void UpdateSelectedVisual()
+{
+    slot1.RemoveFromClassList("_slot_Style--Selected");
+    slot2.RemoveFromClassList("_slot_Style--Selected");
+    slot3.RemoveFromClassList("_slot_Style--Selected");
 
- private void Update()
- {
-     if (Input.GetKeyDown(KeyCode.Tab))
-     {
-         inventoryOpen = !inventoryOpen;
+    switch (InventoryManager.Instance.SelectedSlot)
+    {
+        case 0:
+            slot1.AddToClassList("_slot_Style--Selected");
+            break;
 
-         root.style.display = inventoryOpen
-             ? DisplayStyle.Flex
-             : DisplayStyle.None;
+        case 1:
+            slot2.AddToClassList("_slot_Style--Selected");
+            break;
 
-         if (inventoryOpen)
-         {
-             UnityCursor.lockState = CursorLockMode.None;
-             UnityCursor.visible = true;
-         }
-         else
-         {
-             UnityCursor.lockState = CursorLockMode.Locked;
-             UnityCursor.visible = false;
-         }
-     }
+        case 2:
+            slot3.AddToClassList("_slot_Style--Selected");
+            break;
+    }
+}
+private void Update()
+{
+    // Si el juego entra en pausa y el inventario está abierto
+    if (GameManager.Instance != null &&
+        GameManager.Instance.estadoActual == EstadoJuego.Pausa &&
+        inventoryOpen)
+    {
+        CloseInventory();
+        return;
+    }
+    // no se puede abrir el inventario si el juego no está en estado "Jugando"
+    if (GameManager.Instance.estadoActual != EstadoJuego.Jugando)
+        return;
 
-     HandleScrollWheel();
- }
+    // no se abre el inventario en los puzzles
+    if (GameManager.Instance.resolviendoPuzzle)
+        return;
 
- private void HandleScrollWheel()
- {
-     float scroll = Input.GetAxis("Mouse ScrollWheel");
+    if (Input.GetKeyDown(KeyCode.Tab))
+    {
+        Debug.Log("TAB PRESIONADO");
 
-     int maxSlots =
-         InventoryManager.Instance.GetSlots().Length;
+        inventoryOpen = !inventoryOpen;
 
-     if (scroll > 0f)
-     {
-         selectedSlot--;
+        root.style.display = inventoryOpen
+            ? DisplayStyle.Flex
+            : DisplayStyle.None;
 
-         if (selectedSlot < 0)
-             selectedSlot = maxSlots - 1;
+        if (inventoryOpen)
+        {
+            GameManager.Instance.inventarioAbierto = true;
 
-         UpdateSelectedVisual();
+            UnityCursor.lockState = CursorLockMode.None;
+            UnityCursor.visible = true;
+        }
+        else
+        {
+            GameManager.Instance.inventarioAbierto = false;
 
-         Debug.Log("Slot Seleccionado: " + selectedSlot);
-     }
+            UnityCursor.lockState = CursorLockMode.Locked;
+            UnityCursor.visible = false;
+        }
+    }
+}
 
-     if (scroll < 0f)
-     {
-         selectedSlot++;
+// Arreglo para que el inventario no este abierto en el menu de pausa y los puzzles
+public void CloseInventory()
+{
+    inventoryOpen = false;
 
-         if (selectedSlot >= maxSlots)
-             selectedSlot = 0;
+    root.style.display = DisplayStyle.None;
 
-         UpdateSelectedVisual();
+    UnityCursor.lockState = CursorLockMode.Locked;
+    UnityCursor.visible = false;
 
-         Debug.Log("Slot Seleccionado: " + selectedSlot);
-     }
- }
+    GameManager.Instance.inventarioAbierto = false;
+}
 ```
 
 ### ItemData.cs
-Al heredar de ScriptableObject permite crear y modificar diferentes tipos de armas o botiquines directamente desde el menú de Unity sin tocar el código.
+Al heredar de ScriptableObject permite crear y modificar las armas o botiquines directamente desde el menú de Unity sin tocar el código.
 
 ```csharp
 [CreateAssetMenu(fileName = "ItemData", menuName = "Scriptable Objects/ItemData")]
@@ -676,11 +744,26 @@ public class ItemData : ScriptableObject
     public string itemID;
     public string itemName;
     public Sprite icon;
+    public string description;
+    public int maxStackSize = 3;
+
     public GameObject prefab;
-    
-    // Propiedades de Consumibles (Ej: Botiquín)
+
+    [Header("Armas")]
+    public bool isWeapon;
+
+    public float weaponDamage;
+    public int weaponMaxAmmo;
+    public float weaponRange;
+
+    public float reloadTime;
+
+    public AudioClip shootSound;
+    public AudioClip reloadSound;
+
+    // Consumible botiquin 
     public bool isConsumable;
-    public int healAmount;
+    public int healAmount; 
 }
 ```
 
@@ -688,14 +771,27 @@ public class ItemData : ScriptableObject
 Se conecta con el sistema de interacción general (implementando IInteractable). Al presionar la tecla de interacción, el objeto intenta recogerse y se destruye del mundo 3D.
 
 ```csharp
-private bool pickedUp = false;
+private bool _pickedUp = false;
 
 public ItemData ItemData => itemData;
+
 public int Quantity => quantity;
+private Outline outline; // Componente de Outline para resaltar el objeto
+
+// Métodos requeridos por la interfaz IInteractable
 
 public bool canInteract()
 {
-    return !pickedUp;
+    return !_pickedUp;
+}
+
+void Awake()
+{
+    outline = gameObject.AddComponent<Outline>();
+    outline.OutlineMode = Outline.Mode.OutlineVisible;
+    outline.OutlineColor = Color.yellow;
+    outline.OutlineWidth = 5f;
+    outline.enabled = false;
 }
 
 public void Interact()
@@ -703,18 +799,36 @@ public void Interact()
     TryPickUp();
 }
 
+public void OnFocusGained()
+{
+    outline.enabled = true; // Activamos el Outline cuando el jugador mira el objeto
+}
+
+public void OnFocusLost()
+{
+    outline.enabled = false; // Desactivamos el Outline cuando el jugador deja de mirar el objeto
+}
+
 public bool TryPickUp()
 {
-    if (pickedUp || itemData == null)
-        return false;
-
-    pickedUp = true;
-
-    if (destroyOnPickUp)
-        Destroy(gameObject);
-
+    if (_pickedUp || itemData == null) return false;
+    _pickedUp = true;
+    OnPickedUp();
     return true;
 }
+
+private void OnPickedUp()
+{
+    bool added = InventoryManager.Instance.AddItem(itemData, quantity);
+
+    if (added)
+    {
+        Debug.Log($"Recogido {quantity} x {itemData.itemName} x {quantity}");
+        if (destroyOnPickUp)
+            Destroy(gameObject);
+    }
+}
+
 ```
 ### 5. Sistema de equipamiento
 - **Encargado:** Tolaba Tiago
@@ -723,9 +837,9 @@ public bool TryPickUp()
 
 ### EquipmentManager.cs
 ```csharp
- public static EquipmentManager Instance;
+  public static EquipmentManager Instance;
 
- public Transform handPoint;
+[SerializeField] private Transform handPoint;
 
  private GameObject currentObject;
 
@@ -750,8 +864,27 @@ public bool TryPickUp()
 
          currentObject.transform.localPosition = Vector3.zero;
          currentObject.transform.localRotation = Quaternion.identity;
+
+         GunController gun =
+         FindFirstObjectByType<GunController>();
+
+         if (gun != null)
+         {
+             if (item.isWeapon)
+             {
+                 gun.enabled = true;
+
+                 Debug.Log("Equipando: " + item.itemName);
+                 Debug.Log("Es arma: " + item.isWeapon);
+
+                 gun.SetupWeapon(item);
+             }
+             else
+             {
+                 gun.enabled = false;
+             }
+         }
      }
- }
 ```
 ### 6. Sistema de Raycast 
 - **Encargado:** Tolaba Tiago
@@ -759,24 +892,39 @@ public bool TryPickUp()
 - **Funcionamiento:** Controla la mecánica de disparo del arma equipada (como la M4) utilizando la física de Raycast y el ataque a corta distancia con el cuchillo. 
 
 ### GunController.cs
-Permite disparar un nuemro de 30 balas para luego poder recargar, cuenta con municion ilimitada
+Permite que las armas puedan disparar usando el itemData para modificar el daño, rango y capacidad de balas ademas de agregar un invoke para cuando el arma recarga.
 ```csharp
-public float damage = 15f;
-public float range = 100f;
-[SerializeField] private LayerMask enemyLayer;
-public int maxAmmo = 30;
+public int MaxAmmo => maxAmmo;
 private int currentAmmo;
+public int CurrentAmmo => currentAmmo;
 
 private Camera cam;
+
+public event Action<int, int> OnAmmoProgressChanged;
 
 private void Start()
 {
     currentAmmo = maxAmmo;
     cam = Camera.main;
+
+    // Avisa el estado inicial
+    OnAmmoProgressChanged?.Invoke(currentAmmo, maxAmmo);
 }
 
 private void Update()
 {
+    if (GameManager.Instance != null)
+    {
+        if (GameManager.Instance.estadoActual != EstadoJuego.Jugando)
+            return;
+
+        if (GameManager.Instance.inventarioAbierto)
+            return;
+
+        if (GameManager.Instance.resolviendoPuzzle)
+            return;
+    }
+
     if (Input.GetMouseButtonDown(0))
     {
         Shoot();
@@ -784,12 +932,34 @@ private void Update()
 
     if (Input.GetKeyDown(KeyCode.R))
     {
-        Reload();
+        StartReload();
     }
+}
+
+// Configura el arma con los datos del ScriptableObject
+public void SetupWeapon(ItemData weaponData)
+{
+    Debug.Log("CONFIGURANDO ARMA: " + weaponData.itemName);
+    damage = weaponData.weaponDamage;
+    maxAmmo = weaponData.weaponMaxAmmo;
+    range = weaponData.weaponRange;
+    reloadTime = weaponData.reloadTime;
+
+    currentAmmo = maxAmmo;
+
+    OnAmmoProgressChanged?.Invoke(currentAmmo, maxAmmo);
+
+
+    Debug.Log("ARMA EQUIPADA: " + weaponData.itemName);
+    Debug.Log("Daño: " + weaponData.weaponDamage);
+    Debug.Log("Balas: " + weaponData.weaponMaxAmmo);
 }
 
 private void Shoot()
 {
+    if (isReloading)
+        return;
+
     if (currentAmmo <= 0)
     {
         Debug.Log("Sin balas");
@@ -797,6 +967,11 @@ private void Shoot()
     }
 
     currentAmmo--;
+
+    // Avisa al HUD
+    OnAmmoProgressChanged?.Invoke(currentAmmo, maxAmmo);
+
+    if (AudioManager.Instance != null) AudioManager.Instance.PlayShoot();
 
     Debug.Log("Disparo. Balas: " + currentAmmo);
 
@@ -811,8 +986,13 @@ private void Shoot()
     {
         Debug.Log("Impactó en " + hit.collider.name);
 
-        HealthSystem health =
-        hit.collider.GetComponent<HealthSystem>();
+        if (vfx != null)
+        {
+            GameObject effect = Instantiate(vfx, hit.point, Quaternion.LookRotation(hit.normal));
+            Destroy(effect, vfxDuration);
+        }
+
+        HealthSystem health = hit.collider.GetComponentInParent<HealthSystem>();
 
         if (health != null)
         {
@@ -821,58 +1001,37 @@ private void Shoot()
     }
 }
 
-private void Reload()
+private void StartReload()
 {
-    currentAmmo = maxAmmo;
+    if (isReloading)
+        return;
+
+    if (currentAmmo >= maxAmmo)
+        return;
+
+    isReloading = true;
+
+    Invoke(nameof(FinishReload), reloadTime);
 
     Debug.Log("Recargando...");
 }
+
+private void FinishReload()
+{
+    isReloading = false;
+
+    currentAmmo = maxAmmo;
+
+    OnAmmoProgressChanged?.Invoke(
+        currentAmmo,
+        maxAmmo
+    );
+
+    Debug.Log("Recarga completada");
+}
 ```
 
-### MeleeAttack.cs
 
-```csharp
- public float damage = 10f;
- public float range = 2f;
- [SerializeField] private LayerMask enemyLayer;
- private Camera cam;
-
- private void Start()
- {
-     cam = Camera.main;
- }
-
- private void Update()
- {
-     if (Input.GetMouseButtonDown(0))
-     {
-         Attack();
-     }
- }
-
- private void Attack()
- {
-     Debug.Log("Cuchillazo");
-
-     Ray ray = cam.ScreenPointToRay(
-         new Vector3(
-             Screen.width / 2,
-             Screen.height / 2
-         )
-     );
-
-     if (Physics.Raycast(ray, out RaycastHit hit, range, enemyLayer))
-     {
-         HealthSystem health =
-         hit.collider.GetComponent<HealthSystem>();
-
-         if (health != null)
-         {
-             health.TakeDamage(damage);
-         }
-     }
- }
-```
 
 ### 7. Inteligencia Artificial y Enemigos (NavMesh)
 - **Encargado:** Sebastián Luciano Martinez
@@ -1169,14 +1328,17 @@ private void Reload()
 
 
 ```csharp
-
-public static GameManager Instance;
+    public static GameManager Instance;
 
     [Header("Estado")]
     public EstadoJuego estadoActual = EstadoJuego.Inicio;
     public GameState currentState = GameState.Start;
 
-    // Eventos que espera el UIManager
+    //Arreglo para que el inventario y el sonido del disparo no choquen
+    public bool inventarioAbierto = false;
+    public bool resolviendoPuzzle = false;
+    [SerializeField] private InventoryController inventoryController;
+
     public event Action<GameState> OnChangeState;
     public event Action<int> OnPuntajeCambiado;
 
@@ -1187,12 +1349,18 @@ public static GameManager Instance;
     public int itemsRecolectados = 0;
     public bool jefeFinalMuerto = false;
 
+    [Header("Stats del jugador (ScriptableObject)")]
+    [Tooltip("Si queda vacío se carga solo desde Resources/PlayerStats")]
+    [SerializeField] private PlayerStats playerStats;
+    public PlayerStats Stats => playerStats;
+
     void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            if (playerStats == null) playerStats = Resources.Load<PlayerStats>("PlayerStats");
             ResetDatos();
         }
         else
@@ -1215,11 +1383,15 @@ public static GameManager Instance;
 
     public void CambiarEstado(EstadoJuego nuevo)
     {
+        // Evita llamar 2 veces al mismo estado (Derrota 3 veces en el mismo frame)
+        if (estadoActual == nuevo && nuevo != EstadoJuego.Inicio) return;
+
         estadoActual = nuevo;
         currentState = (GameState)nuevo;
         Debug.Log($"[GameManager] Estado cambiado a: {estadoActual}");
 
-        if (nuevo == EstadoJuego.Pausa)
+        // Solo GameManager maneja TimeScale y cursor. UIManager ya no lo toca.
+        if (nuevo == EstadoJuego.Pausa || nuevo == EstadoJuego.Derrota || nuevo == EstadoJuego.Victoria)
             Time.timeScale = 0f;
         else
             Time.timeScale = 1f;
@@ -1238,7 +1410,6 @@ public static GameManager Instance;
         OnChangeState?.Invoke(currentState);
     }
 
-    // --- CAMBIO DE NIVELES CON PANTALLA DE CARGA ---
     public void IniciarJuego()
     {
         ResetDatos();
@@ -1271,7 +1442,30 @@ public static GameManager Instance;
     }
 
     public void ReanudarJuego() => CambiarEstado(EstadoJuego.Jugando);
-    public void PausarJuego() => CambiarEstado(EstadoJuego.Pausa);
+    //Arreglo del inventario para que no se muestre en el menu de pausa y los puzzles
+    public void PausarJuego()
+    {
+        InventoryController inventory =
+            FindFirstObjectByType<InventoryController>();
+
+        if (inventory != null)
+            inventory.CloseInventory();
+
+        PasswordDoor passwordPuzzle =
+            FindFirstObjectByType<PasswordDoor>();
+
+        if (passwordPuzzle != null)
+            passwordPuzzle.ClosePasswordPanel();
+
+        WirePuzzle wirePuzzle =
+            FindFirstObjectByType<WirePuzzle>();
+
+        if (wirePuzzle != null)
+            wirePuzzle.ClosePuzzle();
+
+        CambiarEstado(EstadoJuego.Pausa);
+    }
+
     public void Victoria() => CambiarEstado(EstadoJuego.Victoria);
     public void Derrota() => CambiarEstado(EstadoJuego.Derrota);
 
@@ -1294,9 +1488,14 @@ public static GameManager Instance;
 #endif
     }
 
-    // --- DATOS QUE VIAJAN ENTRE NIVELES ---
     public void ResetDatos()
     {
+        // Partida nueva: el PlayerStats vuelve a sus valores base (se pierden las compras)
+        if (playerStats != null)
+        {
+            playerStats.ResetStats();
+            vidaMax = playerStats.vidaMax;
+        }
         vidaActual = vidaMax;
         puntajeAcumulado = 0;
         itemsRecolectados = 0;
@@ -1313,15 +1512,22 @@ public static GameManager Instance;
         OnPuntajeCambiado?.Invoke(puntajeAcumulado);
     }
 
+    // Tienda: descuenta puntos solo si alcanzan
+    public bool GastarPuntos(int cantidad)
+    {
+        if (cantidad < 0 || puntajeAcumulado < cantidad) return false;
+        puntajeAcumulado -= cantidad;
+        OnPuntajeCambiado?.Invoke(puntajeAcumulado);
+        return true;
+    }
+
     public void MatarJefeFinal()
     {
         jefeFinalMuerto = true;
-        Debug.Log("Jefe Final derrotado, ¡ya puedes escapar!");
+        Debug.Log("Jefe Final derrotado, ya puedes escapar!");
     }
 
     public void AddItem(int c = 1) { itemsRecolectados += c; }
-
-
 ```
 ___
 
