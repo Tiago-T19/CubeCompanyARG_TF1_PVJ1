@@ -8,9 +8,9 @@ Equipo Docente: Mg. Ing. Ariel Alejandro Vega | Tecn. Kevin Alexis Roman Llampa
 | **Integrantes** | **LU** | **UsuarioGithub** | **Rama** |**UsuarioItch.io** | **Rol** |
 |---|---|---|---|---|---|
 | Carla Dalila Angelo | TUV000563 | AngeloCarla | AngeloCarla | MissAngelo | Desarrollador y programador|
-| Sebastian Luciano Martinez | TUV000621 | SebasMartinez07 | SebasMartinez | --- | Desarrollador y programador|
+| Sebastian Luciano Martinez | TUV000621 | SebasMartinez07 | SebasMartinez | SebasMartinez07  | Desarrollador y programador|
 | Tiago L. Misael Tolaba | TUV000834 | Tiago-T19 | TolabaTiago | Tolaba Tiago | Desarrollador y programador|
-| Mailen Anaid Castro | TUV000582 | Mailen565 | MailenCastro | --- | Desarrollador, programador y diseñador de niveles |
+| Mailen Anaid Castro | TUV000582 | Mailen565 | MailenCastro | mailen565 | Desarrollador, programador y diseñador de niveles |
 
 
 ___
@@ -1728,13 +1728,13 @@ ___
 
 ### Tráiler del Videojuego
 
-https://drive.google.com/file/d/1dBFtjwb8Mxe-CRhW5bP9GqssNZaabyid/view?usp=sharing
+https://drive.google.com/file/d/1lV9urUwx0AzeyaTWU8QRJrEtn9Md9--C/view
 
 ___
 
 ### Link de Itch.io
 
-https://drive.google.com/file/d/1dBFtjwb8Mxe-CRhW5bP9GqssNZaabyid/view?usp=sharing
+https://tolaba-tiago.itch.io/la-ultima-resistencia-urbana
 
 ___
 
